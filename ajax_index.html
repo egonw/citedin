@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<title>AJAX with jQuery Example</title>
+		<script type="text/javascript" src="jquery.js"></script>
+		<style type="text/css">
+		#wrapper {
+			width: 240px;
+			height: 80px;
+			margin: auto;
+			padding: 10px;
+			margin-top: 10px;
+			border: 1px solid black;
+			text-align: center;
+		}
+		</style>
+	</head>
+	<body>
+		<div id="wrapper">
+		<script type="text/javascript">
+		$(document).ready(function(){
+			$("#generate").click(function(){
+				$("#pubmed p").load("citedinPubmed.php?pmid=15489334");
+                                $("#kegg p").load("citedinWikipedia.php?pmid=15489334");
+			});
+		});
+		</script>
+		<input type="submit" id="generate" value="Generate!"><br />
+		<div id="pubmed"><p></p></div>
+		<div id="kegg"><p></p></div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,120 @@
+.b1f, .b2f, .b3f, .b4f{font-size:1px; overflow:hidden; display:block;}
+.b1f {height:1px; background:#ddd; margin:0 5px;}
+.b2f {height:1px; background:#ddd; margin:0 3px;}
+.b3f {height:1px; background:#ddd; margin:0 2px;}
+.b4f {height:2px; background:#ddd; margin:0 1px;}
+.contentf {background: #ddd;}
+.contentf div {margin-left: 5px;}
+
+#row {
+   height: 1%; overflow: hidden;
+   border-color: #BDBDBD;
+}
+#rowSearch {
+   text-align: center;
+   height: 1%; overflow: hidden;
+   border-color: #BDBDBD;
+   margin: 0 auto;
+}
+#titelresultaten {
+   border-color: #BDBDBD;
+}
+
+#pleasewait {  
+    width:300px;
+    margin:auto;
+    left:50%;  
+    background-color: transparent;  
+    padding:7px 0 0 0;  
+    font:bold 11px Arial, Helvetica, sans-serif;  
+}
+
+.SearchHeader {
+
+	  font-weight: 500;
+	  color: #000000;
+	  background-color: #CCCCCC;
+	  text-align: center;
+	  height: 35px;
+}
+
+.box_text {
+  text-align: left;
+font: 60% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+}
+
+#SearchBox {
+	margin:auto;
+	width: 300px; 
+	height: 125px; 
+	float: left;
+	border: solid gray 1px;
+	padding: 20px;
+	margin-right: 20px;
+	margin-left: 10%;
+   }
+
+
+#resultaten{
+
+}
+
+#sourceName {
+  width: 60%;
+  height: auto;
+clear: left;
+}
+#numberInSources {
+font-size: 200%;
+color: green;
+float: left;
+width: 30%;
+}
+
+#numberInSourcesZero {
+font-size: 200%;
+color: red;
+float: left;
+width: 30%;
+}
+#details {
+float: left;
+width: 10%;
+}
+
+
+#pmidHead {  float:left; width:10%; margin:2px; font-variant: small-caps; background-color: lightgrey; 
+}
+
+#pubmedTitleHead { float:left; width:30%; margin:2px; font-variant: small-caps;background-color: lightgrey;
+}
+
+#pubmedAuthorsHead { float:left; width:20%;  margin:2px; font-variant: small-caps;background-color: lightgrey;
+}
+
+#pubmedJournalHead { float:left; width:20%;  margin:2px; font-variant: small-caps;background-color: lightgrey;
+}
+
+#pubmedYearHead { float:left; width:10%;  margin:2px; font-variant: small-caps;background-color: lightgrey;
+}
+
+#pubmedButtonHead { float:right; width:7%;  margin:2px; font-variant: small-caps;background-color: lightgrey;
+}
+
+#pmidResult { clear: left;float:left; font-size:0.5em; width:10%; margin:2px; font-variant: small-caps;
+}
+
+#pubmedTitle { float:left; width:30%; margin:2px; font-variant: small-caps;
+}
+
+#pubmedAuthors { float:left; width:20%;  margin:2px; font-style: italic;
+}
+
+#pubmedJournal { float:left; width:20%;  margin:2px; font-style: oublique;
+}
+
+#pubmedYear { float:left; width:10%;  margin:2px; font-style: oublique;
+}
+
+#citedinSubmitPubmedForm { float:right; width:7%;  margin:2px; font-style: oublique;
+}
