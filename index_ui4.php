@@ -11,10 +11,16 @@
 		<link rel="stylesheet" type="text/css" href="highslide/highslide.css" />
 		<script type="text/javascript" src="development-bundle/ui/ui.core.js"></script>
 		<script type="text/javascript" src="development-bundle/ui/ui.tabs.js"></script>
+		<script type="text/javascript" src="js/jquery.tinysort.min.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function(){
 				$("#tabs").tabs();
 			});
+			
+			var CitedIn = {};
+			CitedIn.doSort = function() {
+				$("#resultaten>div").tsort("#numberInSources", { order:"desc" });
+			}
 		</script>
 		<script type="text/javascript" src="http://github.com/malsup/blockui/raw/master/jquery.blockUI.js?v2.31"></script>
 		<link type="text/css" href="citedin.css" rel="stylesheet" />
@@ -83,7 +89,7 @@
 									var pmid = $(\"input#pmid\").val();\n"; 
 									print 		"$(\"#pubmedDetails\").load(\"resources/getPubmed.php?pmid=\"+pmid);\n";
 									foreach ($citedin_resources as $div){
-										print "$(\"#$div\").load(\"resources/$div?pmid=\"+pmid);\n";
+										print "$(\"#$div\").load(\"resources/$div?pmid=\"+pmid, CitedIn.doSort);\n";
 									}
 									print "});\n
 								</script>\n";
@@ -113,7 +119,7 @@
 															var pmid = $(\"input#pmid\").val();\n"; 
 															print 		"$(\"#pubmedDetails\").load(\"resources/getPubmed.php?pmid=\"+pmid);\n";
 															foreach ($citedin_resources as $div){
-																print "$(\"#$div\").load(\"resources/$div?pmid=\"+pmid);\n";
+																print "$(\"#$div\").load(\"resources/$div?pmid=\"+pmid, CitedIn.doSort);\n";
 															}
 															print "$(\"div#numberInSources\").tsort(\"\",{order:\"desc\"})\n";
 															
