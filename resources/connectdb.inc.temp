@@ -1,0 +1,7 @@
+<?php
+// Replace fields marked with ### with the server, user and password of your database.
+  mysql_connect("###server###", "###user###", "###pass###") or
+      die("Could not connect: ".mysql_error());
+  mysql_select_db("citedin");
+?>
+
