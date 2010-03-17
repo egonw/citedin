@@ -1,4 +1,6 @@
 <?php
+require_once("ResourceFormatter.php");
+
     if ($_GET["pmid"] != ""){
 		$pmid = $_GET["pmid"];
 	 	$url = "http://ajax.googleapis.com/ajax/services/search/books?v=1.0&"
@@ -7,7 +9,12 @@
 		$blog_results = file_get_contents($url);
                 $json = json_decode($blog_results);
 
-                print "<div id=\"row\"><div id=\"sourceName\">Books:</div><div id=\"numberInSources\">".$json->responseData->cursor->estimatedResultCount. "</div><div id=\"details\"> <a href=\"".$json->responseData->cursor->moreResultsUrl."\">Details</a></div></div>";
+          $data = new ResourceData();
+		$data->setResourceName("Books")
+			->setCiteCount($json->responseData->cursor->estimatedResultCount)
+			->setDetailsLink($json->responseData->cursor->moreResultsUrl);
+
+		print ResourceFormatter::getHTML($data);
 
 	}
 ?>

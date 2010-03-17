@@ -1,4 +1,5 @@
 <?php
+require_once("ResourceFormatter.php");
 set_time_limit(0);
 
 function get_connotea_posts($url){
@@ -41,6 +42,12 @@ function get_connotea_posts($url){
                            foreach ($doiheaders["Location"] as $tempurl) 
 							$length += get_connotea_posts($tempurl); 
 						}
- 						print "<div id=\"row\"><div id=\"sourceName\">Connotea:</div><div id=\"numberInSources\">$length</div><div id=\"details\"><a href=\"\">Details</a></div></div>";
+						
+			$data = new ResourceData();
+			$data->setResourceName("Connotea")
+				->setCiteCount($length)
+				->setDetailsLink(''); //TODO: details link
+	
+			print ResourceFormatter::getHTML($data);
 }
 ?>

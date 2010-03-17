@@ -1,10 +1,10 @@
-.b1f, .b2f, .b3f, .b4f{font-size:1px; overflow:hidden; display:block;}
-.b1f {height:1px; background:#ddd; margin:0 5px;}
-.b2f {height:1px; background:#ddd; margin:0 3px;}
-.b3f {height:1px; background:#ddd; margin:0 2px;}
-.b4f {height:2px; background:#ddd; margin:0 1px;}
-.contentf {background: #ddd;}
-.contentf div {margin-left: 5px;}
+.contentf {
+	background: #ddd;
+}
+
+.contentf div {
+	margin: 5px;
+}
 
 #row {
    height: 1%; overflow: hidden;
@@ -64,18 +64,25 @@ font: 60% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
   height: auto;
 clear: left;
 }
-#numberInSources {
+
+.numberInSources {
 font-size: 200%;
-color: green;
 float: left;
 width: 30%;
 }
 
-#numberInSourcesZero {
-font-size: 200%;
+.numberCited {
+color: green;
+}
+
+.numberNotCited {
 color: red;
-float: left;
+}
+
+.error {
 width: 30%;
+float: left;
+color: red;
 }
 #details {
 float: left;
