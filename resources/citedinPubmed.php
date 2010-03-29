@@ -20,8 +20,9 @@ if ($_GET["pmid"] != ""){
 		//	$query=implode(",", $pmidquery);
 			
 			$data = new ResourceData();
-			$data->setResourceName("Pubmed")
+			$data->setResourceName("Pubmed: Cited in Pubmed Central")
 				->setCiteCount($id->length)
+				->setInfoLink("http://www.pubmed.org")
 				->setDetailsLink("http://www.ncbi.nlm.nih.gov/sites/entrez?holding=&db=pubmed&cmd=search&term=".implode(",", $pmidquery));
 	
 			print ResourceFormatter::getHTML($data);

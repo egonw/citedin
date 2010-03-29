@@ -12,6 +12,7 @@ require_once("ResourceFormatter.php");
           $data = new ResourceData();
 		$data->setResourceName("Books")
 			->setCiteCount($json->responseData->cursor->estimatedResultCount)
+			->setInfoLink('http://books.google.nl/')
 			->setDetailsLink($json->responseData->cursor->moreResultsUrl);
 
 		print ResourceFormatter::getHTML($data);

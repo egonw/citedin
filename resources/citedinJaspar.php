@@ -10,6 +10,7 @@ if ($_GET["pmid"] != ""){
 	$data = new ResourceData();
 	$data->setResourceName("Jaspar")
 		->setCiteCount($num_rows)
+  		->setInfoLink('http://jaspar.cgb.ki.se/')
 		->setDetailsLink(''); //TODO: details link
 
 	print ResourceFormatter::getHTML($data);

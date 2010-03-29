@@ -10,6 +10,7 @@ if ($_GET["pmid"] != ""){
 	$data = new ResourceData();
 	$data->setResourceName("DejaVu")
 		->setCiteCount($num_rows)
+                ->setInfoLink("http://dejavu.vbi.vt.edu/dejavu/")
 		->setDetailsLink(''); //TODO: details link
 
 	print ResourceFormatter::getHTML($data);

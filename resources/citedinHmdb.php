@@ -10,6 +10,7 @@ if ($_GET["pmid"] != ""){
 	$data = new ResourceData();
 	$data->setResourceName("Hmdb")
 		->setCiteCount($num_rows)
+                ->setInfoLink('http://www.hmdb.ca/')
 		->setDetailsLink(''); //TODO: details link
 
 	print ResourceFormatter::getHTML($data);

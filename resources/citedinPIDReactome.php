@@ -10,6 +10,7 @@ if ($_GET["pmid"] != ""){
 	$data = new ResourceData();
 	$data->setResourceName("Nature Pathway interaction database (Reactome)")
 		->setCiteCount($num_rows)
+ 		->setInfoLink('http://pid.nci.nih.gov/PID/index.shtml')
 		->setDetailsLink(''); //TODO: details link
 
 	print ResourceFormatter::getHTML($data);

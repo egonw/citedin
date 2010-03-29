@@ -10,6 +10,7 @@ if ($_GET["pmid"] != ""){
 	$data = new ResourceData();
 	$data->setResourceName("Kegg")
 		->setCiteCount($num_rows)
+                ->setInfoLink('http://www.genome.jp/kegg/')
 		->setDetailsLink(''); //TODO: details link
 
 	print ResourceFormatter::getHTML($data);

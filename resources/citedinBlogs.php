@@ -12,6 +12,7 @@ require_once("ResourceFormatter.php");
 		$data = new ResourceData();
 		$data->setResourceName("Blogs")
 			->setCiteCount($json->responseData->cursor->estimatedResultCount)
+			->setInfoLink('http://blogsearch.google.be/')
 			->setDetailsLink($json->responseData->cursor->moreResultsUrl);
 
 		print ResourceFormatter::getHTML($data);

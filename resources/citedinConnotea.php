@@ -46,6 +46,7 @@ function get_connotea_posts($url){
 			$data = new ResourceData();
 			$data->setResourceName("Connotea")
 				->setCiteCount($length)
+                                ->setInfoLink("http://www.connotea.org/")
 				->setDetailsLink(''); //TODO: details link
 	
 			print ResourceFormatter::getHTML($data);

@@ -10,6 +10,7 @@ if ($_GET["pmid"] != ""){
 	$data = new ResourceData();
 	$data->setResourceName("Intact")
 		->setCiteCount($num_rows)
+		->setInfoLink('http://www.ebi.ac.uk/intact/main.xhtml')
 		->setDetailsLink(''); //TODO: details link
 
 	print ResourceFormatter::getHTML($data);
