@@ -38,26 +38,5 @@ HTML;
 	}
 }
 
-/**
- * Defines the data a resource should return.
- */
-class ResourceData {
-	private $resourceName;
-	private $citeCount;
-	private $detailsLink;
-	private $infoLink;
-	private $error;
-	
-	function setResourceName($v) { $this->resourceName = $v; return $this; }
-	function setCiteCount($v) { $this->citeCount = $v; return $this; }
-	function setDetailsLink($v) { $this->detailsLink = $v; return $this; }
-	function setInfoLink($v) { $this->infoLink = $v; return $this; }
-	function setError($v) { $this->error = $v; return $this; }
-	
-	function getResourceName() { return $this->resourceName; }
-	function getCiteCount() { return $this->citeCount; }
-	function getDetailsLink() { return $this->detailsLink; }
-	function getInfoLink() { return $this->infoLink; }
-	function getError() { return $this->error; }
-}
+
 ?>

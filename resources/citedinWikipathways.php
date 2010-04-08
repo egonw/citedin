@@ -1,20 +1,25 @@
 <?php
-require_once("ResourceFormatter.php");
+require_once("ResourceRegistry.php");
 
-if ($_GET["pmid"] != ""){
-   $pmid = $_GET["pmid"];
-   include 'connectdb.inc';
-   $result = mysql_query("SELECT * from wikipathways where pmid=$pmid");
-   $num_rows = mysql_num_rows($result);
+class WikipathwaysResource extends ResourceData {
+	//TODO: infolink methods etc.
 
-	$data = new ResourceData();
-	$data->setResourceName("WikiPathways")
-		->setCiteCount($num_rows)
-		->setInfoLink("http://www.wikipathways.org")
-		->setDetailsLink("resources/details_wikipathways?pmid=$pmid");
+	public function getData($pmid) {
+	  include 'connectdb.inc';
+	   $result = mysql_query("SELECT * from wikipathways where pmid=$pmid");
+	   $num_rows = mysql_num_rows($result);
 
-	print ResourceFormatter::getHTML($data);
-}   
+		$data = new ResourceData();
+		$data->setResourceName("WikiPathways")
+			->setCiteCount($num_rows)
+			->setInfoLink("http://www.wikipathways.org")
+			->setDetailsLink("resources/details_wikipathways?pmid=$pmid");
+		return $data;
+	}
+}
+
+ResourceRegistry::register("Wikipathways", new WikipathwaysResource());
+  
 ?>
 
 

@@ -1,19 +1,22 @@
 <?php
-require_once("ResourceFormatter.php");
+require_once("ResourceRegistry.php");
 
-if ($_GET["pmid"] != ""){
-   $pmid = $_GET["pmid"];
-   include 'connectdb.inc';
-   $result = mysql_query("SELECT * from oregano where pmid=$pmid");
-   $num_rows = mysql_num_rows($result);
+class OregannoResource extends ResourceData {
+	//TODO: infolink methods etc.
 
-	$data = new ResourceData();
-	$data->setResourceName("Oregano")
-		->setCiteCount($num_rows)
-		->setInfoLink("http://www.oreganno.org/oregano/")
-		->setDetailsLink(''); //TODO: details link
+	public function getData($pmid) {
+	  include 'connectdb.inc';
+	   $result = mysql_query("SELECT * from oregano where pmid=$pmid");
+	   $num_rows = mysql_num_rows($result);
 
-	print ResourceFormatter::getHTML($data);
+		$data = new ResourceData();
+		$data->setResourceName("Oreganno")
+			->setCiteCount($num_rows)
+			->setInfoLink("http://www.oreganno.org/oregano/")
+			->setDetailsLink(''); //TODO: details link
+		return $data;
+	}
+}
 
-}   
+ResourceRegistry::register("Oreganno", new OregannoResource()); 
 ?>

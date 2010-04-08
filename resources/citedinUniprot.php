@@ -1,18 +1,22 @@
 <?php
-require_once("ResourceFormatter.php");
+require_once("ResourceRegistry.php");
 
-if ($_GET["pmid"] != ""){
-   $pmid = $_GET["pmid"];
-   include 'connectdb.inc';
-   $result = mysql_query("SELECT * from uniprot where pmid=$pmid");
-   $num_rows = mysql_num_rows($result);
+class UniprotResource extends ResourceData {
+	//TODO: infolink methods etc.
 
-	$data = new ResourceData();
-	$data->setResourceName("Uniprot")
-		->setCiteCount($num_rows)
-		->setInfoLink('http://www.uniprot.org/')
-		->setDetailsLink(''); //TODO: details link
-	
-	print ResourceFormatter::getHTML($data);
-}   
+	public function getData($pmid) {
+	   include 'connectdb.inc';
+	   $result = mysql_query("SELECT * from uniprot where pmid=$pmid");
+	   $num_rows = mysql_num_rows($result);
+
+		$data = new ResourceData();
+		$data->setResourceName("Uniprot")
+			->setCiteCount($num_rows)
+			->setInfoLink('http://www.uniprot.org/')
+			->setDetailsLink(''); //TODO: details link
+		return $data;
+	}
+}
+
+ResourceRegistry::register("Uniprot", new UniprotResource());   
 ?>

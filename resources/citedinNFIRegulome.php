@@ -1,19 +1,22 @@
 <?php
-require_once("ResourceFormatter.php");
+require_once("ResourceRegistry.php");
 
-if ($_GET["pmid"] != ""){
-   $pmid = $_GET["pmid"];
-   include 'connectdb.inc';
-   $result = mysql_query("SELECT * from ABS where pmid=$pmid");
-   $num_rows = mysql_num_rows($result);
+class NFIRegulomeResource extends ResourceData {
+	//TODO: infolink methods etc.
 
-	$data = new ResourceData();
-	$data->setResourceName("NFIRegulome")
-		->setCiteCount($num_rows)
-		->setInfoLink("http://nfiregulome.ccr.buffalo.edu")
-		->setDetailsLink(''); //TODO: details link
+	public function getData($pmid) {
+		include 'connectdb.inc';
+		   $result = mysql_query("SELECT * from NFIRegulome where pmid=$pmid");
+		   $num_rows = mysql_num_rows($result);
 
-	print ResourceFormatter::getHTML($data);
+			$data = new ResourceData();
+			$data->setResourceName("NFIRegulome")
+				->setCiteCount($num_rows)
+				->setInfoLink("http://nfiregulome.ccr.buffalo.edu")
+				->setDetailsLink(''); //TODO: details link
+		return $data;
+	}
+}
 
-}   
+ResourceRegistry::register("NFIRegulome", new NFIRegulomeResource());  
 ?>

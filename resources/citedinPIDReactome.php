@@ -1,18 +1,22 @@
 <?php
-require_once("ResourceFormatter.php");
+require_once("ResourceRegistry.php");
 
-if ($_GET["pmid"] != ""){
-   $pmid = $_GET["pmid"];
-   include 'connectdb.inc';
-   $result = mysql_query("SELECT * from PID_Reactome where pmid=$pmid");
-   $num_rows = mysql_num_rows($result);
+class PIDReactomeResource extends ResourceData {
+	//TODO: infolink methods etc.
 
-	$data = new ResourceData();
-	$data->setResourceName("Nature Pathway interaction database (Reactome)")
-		->setCiteCount($num_rows)
- 		->setInfoLink('http://pid.nci.nih.gov/PID/index.shtml')
-		->setDetailsLink(''); //TODO: details link
+	public function getData($pmid) {
+	 include 'connectdb.inc';
+	   $result = mysql_query("SELECT * from PID_Reactome where pmid=$pmid");
+	   $num_rows = mysql_num_rows($result);
 
-	print ResourceFormatter::getHTML($data);
-}   
+		$data = new ResourceData();
+		$data->setResourceName("Nature Pathway interaction database (Reactome)")
+			->setCiteCount($num_rows)
+	 		->setInfoLink('http://pid.nci.nih.gov/PID/index.shtml')
+			->setDetailsLink(''); //TODO: details link
+		return $data;
+	}
+}
+
+ResourceRegistry::register("PIDReactome", new PIDReactomeResource());
 ?>

@@ -1,18 +1,23 @@
 <?php
-require_once("ResourceFormatter.php");
+require_once("ResourceRegistry.php");
 
-if ($_GET["pmid"] != ""){
-   $pmid = $_GET["pmid"];
-   include 'connectdb.inc';
-   $result = mysql_query("SELECT * from haemBDb  where pmid=$pmid");
-   $num_rows = mysql_num_rows($result);
+class HaembResource extends ResourceData {
+	//TODO: infolink methods etc.
 
-	$data = new ResourceData();
-	$data->setResourceName("HaemBDb: Haemophilia B Mutation Database")
-		->setCiteCount($num_rows)
-                ->setInfoLink('http://www.kcl.ac.uk/ip/petergreen/haemBdatabase.html')
-		->setDetailsLink(''); //TODO: details link
+	public function getData($pmid) {
+		include 'connectdb.inc';
+		   $result = mysql_query("SELECT * from haemBDb  where pmid=$pmid");
+		   $num_rows = mysql_num_rows($result);
 
-	print ResourceFormatter::getHTML($data);
-}   
+			$data = new ResourceData();
+			$data->setResourceName("HaemBDb: Haemophilia B Mutation Database")
+				->setCiteCount($num_rows)
+		                ->setInfoLink('http://www.kcl.ac.uk/ip/petergreen/haemBdatabase.html')
+				->setDetailsLink(''); //TODO: details link
+
+		return $data;
+	}
+}
+
+ResourceRegistry::register("haemB", new HaembResource());   
 ?>

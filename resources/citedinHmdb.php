@@ -1,18 +1,24 @@
 <?php
-require_once("ResourceFormatter.php");
 
-if ($_GET["pmid"] != ""){
-   $pmid = $_GET["pmid"];
-   include 'connectdb.inc';
-   $result = mysql_query("SELECT * from hmdb where pmid=$pmid");
-   $num_rows = mysql_num_rows($result);
+require_once("ResourceRegistry.php");
 
-	$data = new ResourceData();
-	$data->setResourceName("Hmdb")
-		->setCiteCount($num_rows)
-                ->setInfoLink('http://www.hmdb.ca/')
-		->setDetailsLink(''); //TODO: details link
+class HmdbResource extends ResourceData {
+	//TODO: infolink methods etc.
+	
+	public function getData($pmid) {
+	   include 'connectdb.inc';
+	   $result = mysql_query("SELECT * from hmdb where pmid=$pmid");
+	   $num_rows = mysql_num_rows($result);
 
-	print ResourceFormatter::getHTML($data);
-}   
+		$data = new ResourceData();
+		$data->setCiteCount($num_rows)
+		     ->setResourceName("Hmdb: Human Metabolome DataBase")
+		     ->setDetailsLink(''); //TODO: details link
+	     
+		return $data;
+	}
+}
+
+ResourceRegistry::register("Hmdb", new HmdbResource());
+
 ?>
