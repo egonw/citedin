@@ -1,8 +1,11 @@
 <?php
 require_once("ResourceFormatter.php");
-set_time_limit(0);
+require_once("Pmid2Doi.php");
 
-function get_connotea_posts($url){
+
+class ConnoteaResource extends ResourceData {
+public function get_connotea_posts($url){
+	set_time_limit(0);
     $results = "http://andra:nijntje1@www.connotea.org/data/uri/$url";
     $headers = get_headers($results, 1);
     if ($headers[0] == "HTTP/1.1 200 OK"){
@@ -16,31 +19,18 @@ function get_connotea_posts($url){
     }
 }
 
-    if ($_GET["pmid"] != ""){
-		$pmid = $_GET["pmid"];
-                $doi = urldecode($_GET["doi"]);
-                $length = get_connotea_posts("http://www.ncbi.nlm.nih.gov/pubmed/$pmid");
+	public function getData($pmid) {
+		       set_time_limit(0);
+                $length = self::get_connotea_posts("http://www.ncbi.nlm.nih.gov/pubmed/$pmid");
 		# Since it is more likely that people will link to the full paper in connotea the url to the full paper needs to be acquired
-
-                $results2 = "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=$pmid&retmode=xml"; 
-					
-					$xml_results2=file_get_contents($results2);
-        
-                	$doc2= new DOMDocument();
-					$doc2->loadXML($xml_results2);
-					$articleid = $doc2->getElementsByTagName("ArticleId");
-	  				for ($k=0;$k<$articleid->length; $k++){
-						if ($articleid->item($k)->getAttribute("IdType")=="doi"){
-							$doi=$articleid->item($k)->nodeValue;
-							break;
- 						}
-					}	
+                    $doi = Pmid2Doi::getDoiFromPmid($pmid);
+	
 					if ($doi!=""){
 						$doiurl = "http://dx.doi.org/$doi";
 						$doiheaders = get_headers($doiurl, 1);
  						if (is_array($doiheaders["Location"])) 
                            foreach ($doiheaders["Location"] as $tempurl) 
-							$length += get_connotea_posts($tempurl); 
+							$length += self::get_connotea_posts($tempurl); 
 						}
 						
 			$data = new ResourceData();
@@ -49,6 +39,8 @@ function get_connotea_posts($url){
                                 ->setInfoLink("http://www.connotea.org/")
 				->setDetailsLink(''); //TODO: details link
 	
-			print ResourceFormatter::getHTML($data);
+		  return $data;
 }
+}
+ResourceRegistry::register("Connotea", new ConnoteaResource()); 
 ?>
