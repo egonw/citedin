@@ -18,5 +18,12 @@ class IntactResource extends ResourceData {
 	}
 }
 
-ResourceRegistry::register("Intact", new IntactResource());  
+$info = new ResourceInfo();
+$info->setResourceName("Intact")
+       ->setResourceType("Published data")
+ 	   ->setResourceDescription("IntAct provides a freely available, open source database system and analysis tools for protein interaction data. All interactions are derived from literature curation or direct user submissions and are freely available.")
+	   ->setInfoLink('http://www.ebi.ac.uk/intact/main.xhtml')
+	   ->setResourceFilename("citedinIntact.php")
+	   ->setResourceClassname("IntactResource");
+ResourceRegistry::register("Intact", $info);  
 ?>

@@ -42,5 +42,11 @@ public function get_connotea_posts($url){
 		  return $data;
 }
 }
-ResourceRegistry::register("Connotea", new ConnoteaResource()); 
+$info = new ResourceInfo();
+$info->setResourceName("Connotea")
+       ->setResourceType("API")
+	   ->setInfoLink('http://www.connotea.org/')
+	   ->setResourceFilename("citedinConnotea.php")
+	   ->setResourceClassname("ConnoteaResource");
+ResourceRegistry::register("Connotea", $info); 
 ?>

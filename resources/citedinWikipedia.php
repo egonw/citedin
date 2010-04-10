@@ -1,12 +1,13 @@
 <?php
-require_once("ResourceFormatter.php");
+require_once("ResourceRegistry.php");
 
-	if ($_GET["pmid"] != ""){
+class WikipediaResource extends ResourceData {
+	public function getData($pmid) {
+	
 		$data = new ResourceData();
 		$data->setResourceName("Wikipedia")
 			->setInfoLink("http://en.wikipedia.org");
 			
-		$pmid = $_GET["pmid"];
 		$results = "http://en.wikipedia.org/w/api.php?format=xml&action=query&list=search&srsearch=$pmid";
 		//print $results;
 		$headers = get_headers($results, 1);
@@ -19,6 +20,15 @@ require_once("ResourceFormatter.php");
 	   	} else {
 	   		$data->setError($headers[0]);
 		}
-		print ResourceFormatter::getHTML($data);
+		return $data;
+	}
 }
+$info = new ResourceInfo();
+$info->setResourceName("Wikipedia")
+       ->setResourceType("API")
+ 	   ->setResourceDescription("the free encyclopedia that anyone can edit.")
+	   ->setInfoLink('http://en.wikipedia.org')
+	   ->setResourceFilename("citedinWikipedia.php")
+	   ->setResourceClassname("WikipediaResource");
+ResourceRegistry::register("Wikipedia", $info);
 ?>

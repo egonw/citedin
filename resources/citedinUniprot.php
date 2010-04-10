@@ -18,5 +18,12 @@ class UniprotResource extends ResourceData {
 	}
 }
 
-ResourceRegistry::register("Uniprot", new UniprotResource());   
+$info = new ResourceInfo();
+$info->setResourceName("Uniprot")
+       ->setResourceType("Database")
+ 	   ->setResourceDescription("The mission of UniProt is to provide the scientific community with a comprehensive, high-quality and freely accessible resource of protein sequence and functional information.")
+	   ->setInfoLink('http://www.uniprot.org/')
+	   ->setResourceFilename("citedinUniprot.php")
+	   ->setResourceClassname("UniprotResource");
+ResourceRegistry::register("Uniprot", $info);   
 ?>

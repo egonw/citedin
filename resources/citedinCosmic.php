@@ -18,6 +18,12 @@ class CosmicResource extends ResourceData {
 		return $data;
 	}
 }
-
-ResourceRegistry::register("Cosmic", new CosmicResource());
+$info = new ResourceInfo();
+$info->setResourceName("Cosmic: Catalogue Of Somatic Mutations In Cancer")
+       ->setResourceType("Database")
+       ->setResourceDescription("All cancers arise as a result of the acquisition of a series of fixed DNA sequence abnormalities, mutations, many of which ultimately confer a growth advantage upon the cells in which they have occurred. There is a vast amount of information available in the published scientific literature about these changes. COSMIC is designed to store and display somatic mutation information and related details and contains information relating to human cancers.")
+	   ->setInfoLink('http://www.sanger.ac.uk/genetics/CGP/cosmic/')
+	   ->setResourceFilename("citedinCosmic.php")
+	   ->setResourceClassname("CosmicResource");
+ResourceRegistry::register("Cosmic", $info);
 ?>

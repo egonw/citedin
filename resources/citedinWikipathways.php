@@ -18,7 +18,14 @@ class WikipathwaysResource extends ResourceData {
 	}
 }
 
-ResourceRegistry::register("Wikipathways", new WikipathwaysResource());
+$info = new ResourceInfo();
+$info->setResourceName("WikiPathways")
+       ->setResourceType("Database")
+ 	   ->setResourceDescription("In the new tradition of Wikipedia, WikiPathways is an open, public platform dedicated to the curation of biological pathways by and for the scientific community.")
+	   ->setInfoLink('http://www.wikipathways.org')
+	   ->setResourceFilename("citedinWikipathways.php")
+	   ->setResourceClassname("WikipathwaysResource");
+ResourceRegistry::register("Wikipathways", $info);
   
 ?>
 

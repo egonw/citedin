@@ -18,5 +18,12 @@ class JasparResource extends ResourceData {
 	}
 }
 
-ResourceRegistry::register("Jaspar", new JasparResource());   
+$info = new ResourceInfo();
+$info->setResourceName("Jaspar")
+       ->setResourceType("Database")
+ 	   ->setResourceDescription("The JASPAR CORE database contains a curated, non-redundant set of 123 transcription factor binding profiles from published articles.")
+	   ->setInfoLink('http://jaspar.genereg.net')
+	   ->setResourceFilename("citedinJaspar.php")
+	   ->setResourceClassname("JasparResource");
+ResourceRegistry::register("Jaspar", $info);   
 ?>

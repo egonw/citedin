@@ -18,5 +18,12 @@ class PIDReactomeResource extends ResourceData {
 	}
 }
 
-ResourceRegistry::register("PIDReactome", new PIDReactomeResource());
+$info = new ResourceInfo();
+$info->setResourceName("Nature Pathway interaction database (Reactome)")
+       ->setResourceType("Database")
+ 	   ->setResourceDescription("REACTOME is a free, online, open-source, curated pathway database encompassing many areas of human biology. Information is authored by expert biological researchers, maintained by the Reactome editorial staff and cross-referenced to a wide range of standard biological databases. ")
+	   ->setInfoLink('http://www.reactome.org/')
+	   ->setResourceFilename("citedinPIDReactome.php")
+	   ->setResourceClassname("PIDReactomeResource");
+ResourceRegistry::register("PIDReactome", $info);
 ?>

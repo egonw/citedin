@@ -12,13 +12,25 @@ class ABSResource extends ResourceData {
 
 		$data = new ResourceData();
 		$data->setCiteCount($num_rows)
-		     ->setResourceName("ABS")
-		     ->setDetailsLink(''); //TODO: details link
+		     ->setResourceName("ABS: a database of Annotated regulatory Binding Sites from orthologous promoters")
+			 ->setInfoLink('http://genome.imim.es/datasets/abs2005')
+		     ->setDetailsLink('http://nar.oxfordjournals.org/cgi/content/full/34/suppl_1/D63'); 
 
 		return $data;
 	}
 }
 
-ResourceRegistry::register("ABS", new ABSResource());  
+
+$info = new ResourceInfo();
+$info->setResourceName("ABS: a database of Annotated regulatory Binding Sites from orthologous promoters")
+       ->setResourceType("Published data")
+       ->setResourceDescription("ABS: a database of Annotated regulatory Binding Sites from orthologous promoters
+	E. Blanco, D. Farré, M. Albà, X. Messeguer and R. Guigó. ABS: a database of Annotated regulatory Binding Sites from orthologous promoters. Nucleic Acids Research 34:D63-D67 (2006).")
+	   ->setInfoLink('http://genome.crg.es/datasets/abs2005/')
+	   ->setResourceFilename("citedinABS.php")
+	   ->setResourceClassname("ABSResource");
+	  
+	   
+ResourceRegistry::register("ABS", $info);  
 ?>
 	

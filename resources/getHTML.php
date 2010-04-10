@@ -1,16 +1,13 @@
 <?php
-require_once("ResourceRegistry.php");
-require_once("ResourceFormatter.php");
 
-ResourceRegistry::init();
-var_dump(ResourceRegistry::listResources());
-print "<hr>";
 if ($_GET["pmid"] != ""){
-	$resourceName = $_GET["resource"];
+	print_r($_GET);
+	require_once(basename($_GET["script"]));
+	require_once("ResourceFormatter.php");
+	$class = $_GET["class"];
 	$pmid = $_GET["pmid"];
 	
-	$resource = ResourceRegistry::get($resourceName);
-	$data = $resource->getData($pmid);
+	$data = $class::getData($pmid);
 	
 	echo ResourceFormatter::getHTML($data);
 

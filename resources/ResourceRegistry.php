@@ -28,13 +28,25 @@ require_once("ResourceFormatter.php");
   class ResourceInfo {
     private $resourceName;
     private $infoLink;
+    private $resourceType;
+    private $resourceDescription;
+    private $resourceClassname;
+    private $resourceFilename;
 
-
+    function setResourceType($v) { $this->resourceType = $v; return $this; }
    	function setResourceName($v) { $this->resourceName = $v; return $this; }
 	function setInfoLink($v) { $this->infoLink = $v; return $this; }
+    function setResourceDescription($v) { $this->resourceDescription = $v; return $this; }
+    function setResourceClassname($v) { $this->resourceClassname = $v; return $this; }
+    function setResourceFilename($v) { $this->resourceFilename = $v; return $this; }
 
     function getResourceName() { return $this->resourceName; }
    	function getInfoLink() { return $this->infoLink; }
+	function getResourceType() { return $this->resourceType; }
+	function getResourceDescription() { return $this->resourceDescription; }
+	function getResourceClassname() { return $this->resourceClassname; }
+	function getResourceFilename() { return $this->resourceFilename; }
+	
 	
 	function getData($pmid) {
 		throw new Exception("not implemented");

@@ -18,5 +18,12 @@ class PIDNCIResource extends ResourceData {
 	}
 }
 
-ResourceRegistry::register("PIDNCI", new PIDNCIResource());
+$info = new ResourceInfo();
+$info->setResourceName("Nature Pathway interaction database (NCI)")
+       ->setResourceType("Database")
+ 	   ->setResourceDescription("The Pathway Interaction Database is a highly-structured, curated collection of information about known biomolecular interactions and key cellular processes assembled into signaling pathways. It is a collaborative project between the US National Cancer Institute (NCI) and Nature Publishing Group (NPG), and is an open access online resource.")
+	   ->setInfoLink('http://pid.nci.nih.gov/PID/index.shtml')
+	   ->setResourceFilename("citedinPIDNCI.php")
+	   ->setResourceClassname("PIDNCIResource");
+ResourceRegistry::register("PIDNCI", $info);
 ?>

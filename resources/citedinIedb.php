@@ -18,5 +18,12 @@ class IedbResource extends ResourceData {
 	}
 }
 
-ResourceRegistry::register("Iedb", new IedbResource()); 
+$info = new ResourceInfo();
+$info->setResourceName("Iedb: Immune epitope database and analysis resource")
+       ->setResourceType("Database")
+ 	   ->setResourceDescription("The IEDB contains data related to antibody and T cell epitopes for humans, non-human primates, rodents, and other animal species.")
+	   ->setInfoLink('http://www.iedb.org/')
+	   ->setResourceFilename("citedinIedb.php")
+	   ->setResourceClassname("IedbResource");
+ResourceRegistry::register("Iedb", $info); 
 ?>

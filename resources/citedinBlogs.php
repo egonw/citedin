@@ -16,10 +16,16 @@ class BlogsResource extends ResourceData {
 								->setInfoLink('http://blogsearch.google.be/')
 								->setDetailsLink($json->responseData->cursor->moreResultsUrl);
 
-							print ResourceFormatter::getHTML($data);
+							return($data);
 	
 	}
 }
 
-ResourceRegistry::register("Blogs", new BlogsResource());
+$info = new ResourceInfo();
+$info->setResourceName("Blogs")
+       ->setResourceType("API")
+	   ->setInfoLink('http://blogsearch.google.be/')
+	   ->setResourceFilename("citedinBlogs.php")
+	   ->setResourceClassname("BlogsResource");
+ResourceRegistry::register("Blogs", $info);
 ?>

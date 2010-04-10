@@ -19,5 +19,12 @@
 		}
 	}
 
-	ResourceRegistry::register("Alzgene", new AlzgeneResource());
+	$info = new ResourceInfo();
+	$info->setResourceName("Alzgene: Alzheimer Research Forum")
+	       ->setResourceType("Database")
+		   ->setInfoLink('http://www.alzforum.org/')
+		   ->setResourceFilename("citedinAzforum.php")
+		   ->setResourceClassname("AlzgeneResource");
+
+	ResourceRegistry::register("Alzgene", $info);
 ?>

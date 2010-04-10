@@ -18,8 +18,14 @@
 			return $data;
 		}
 	}
-
-	ResourceRegistry::register("cancerCell", new CancerCellResource());   
+    $info = new ResourceInfo();
+	$info->setResourceName("Cancer Cell Map")
+	       ->setResourceType("Database")
+		   ->setInfoLink('http://cancer.cellmap.org/cellmap/')
+		   ->setResourceFilename("citedinCancerCellMap.php")
+		   ->setResourceClassname("CancerCellResource");
+		
+	ResourceRegistry::register("cancerCell",$info);   
 ?>
 
 

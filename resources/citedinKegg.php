@@ -18,5 +18,12 @@ class KeggResource extends ResourceData {
 	}
 }
 
-ResourceRegistry::register("Kegg", new KeggResource());  
+$info = new ResourceInfo();
+$info->setResourceName("KEGG: Kyoto Encyclopedia of Genes and Genomes")
+       ->setResourceType("Database")
+ 	   ->setResourceDescription("")
+	   ->setInfoLink('http://www.genome.jp/kegg/')
+	   ->setResourceFilename("citedinKegg.php")
+	   ->setResourceClassname("KeggResource");
+ResourceRegistry::register("Kegg", $info);  
 ?>

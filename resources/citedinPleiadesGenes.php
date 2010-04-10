@@ -17,6 +17,12 @@ class PleiadesGenesResource extends ResourceData {
 		return $data;
 	}
 }
-
-ResourceRegistry::register("PleiadesGenes", new PleiadesGenesResource()); 
+$info = new ResourceInfo();
+$info->setResourceName("Pleiades genes")
+       ->setResourceType("Database")
+ 	   ->setResourceDescription("Approved genes from the Pleiades project")
+	   ->setInfoLink('http://www.pleiades.org/')
+	   ->setResourceFilename("citedinPleiadesGenes.php")
+	   ->setResourceClassname("PleiadesGenesResource");
+ResourceRegistry::register("PleiadesGenes", $info); 
 ?>

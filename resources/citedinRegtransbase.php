@@ -18,5 +18,12 @@ class RegtransbaseResource extends ResourceData {
 	}
 }
 
-ResourceRegistry::register("Regtransbase", new RegtransbaseResource());
+$info = new ResourceInfo();
+$info->setResourceName("Regtransbase")
+       ->setResourceType("Database")
+ 	   ->setResourceDescription("RegTransBase consists of two modules - a database of regulatory interactions based on literature and an expertly curated database of transcription factor binding sites.")
+	   ->setInfoLink('http://regtransbase.lbl.gov/cgi-bin/regtransbase?page=main')
+	   ->setResourceFilename("citedinRegtransbase.php")
+	   ->setResourceClassname("RegtransbaseResource");
+ResourceRegistry::register("Regtransbase", $info);
 ?>

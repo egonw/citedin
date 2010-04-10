@@ -19,6 +19,12 @@ class CTDatabaseResource extends ResourceData {
 		return $data;
 	}
 }
-
-ResourceRegistry::register("CTDatabase", new CTDatabaseResource());  
+$info = new ResourceInfo();
+$info->setResourceName("CTDatabase: Cancer-Testis Database")
+       ->setResourceType("Database")
+ 	   ->setResourceDescription("This database is aimed at stimulating and providing a reference for further research on Cancer Testis (CT) antigens. and comprises information about each CT gene, its gene products and the immune response induced in cancer patients by these proteins..")
+	   ->setInfoLink('http://www.cta.lncc.br/')
+	   ->setResourceFilename("citedinCTDatabase.php")
+	   ->setResourceClassname("CTDatabaseResource");
+ResourceRegistry::register("CTDatabase", $info);  
 ?>

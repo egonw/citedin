@@ -18,7 +18,13 @@ class HmdbResource extends ResourceData {
 		return $data;
 	}
 }
-
-ResourceRegistry::register("Hmdb", new HmdbResource());
+$info = new ResourceInfo();
+$info->setResourceName("Hmdb: Human Metabolome DataBase")
+       ->setResourceType("Database")
+ 	   ->setResourceDescription("The Human Metabolome Database (HMDB) is a freely available electronic database containing detailed information about small molecule metabolites found in the human body.")
+	   ->setInfoLink('http://www.hmdb.ca')
+	   ->setResourceFilename("citedinHmdb.php")
+	   ->setResourceClassname("HmdbResource");
+ResourceRegistry::register("Hmdb", $info);
 
 ?>

@@ -18,5 +18,12 @@ class NFIRegulomeResource extends ResourceData {
 	}
 }
 
-ResourceRegistry::register("NFIRegulome", new NFIRegulomeResource());  
+$info = new ResourceInfo();
+$info->setResourceName("NFIRegulome: Database for genes regulated by Nuclear Factor I Family")
+       ->setResourceType("Database")
+ 	   ->setResourceDescription("The purpose of the NFI regulome database is to create a single source of information to examine the structure of the control elements of genes known to be regulated by NFI proteins. This database is designed to be able to group genes by common regulatory elements and to find patterns of structure and function of transcription factors in control elements. Information on the location and function of specific transcription factor binding sites is stored and can be retrieved by gene, transcription factor and tissue in which the gene is expressed.")
+	   ->setInfoLink('http://nfiregulome.ccr.buffalo.edu')
+	   ->setResourceFilename("citedinNFIRegulome.php")
+	   ->setResourceClassname("NFIRegulomeResource");
+ResourceRegistry::register("NFIRegulome", $info);  
 ?>

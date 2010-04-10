@@ -18,6 +18,12 @@ class DejavuResource extends ResourceData {
 		return $data;
 	}
 }
-
-ResourceRegistry::register("Dejavu", new DejavuResource());   
+$info = new ResourceInfo();
+$info->setResourceName("Deja Vu: a Database of Highly Similar Citations")
+       ->setResourceType("Database")
+ 	   ->setResourceDescription("Deja vu is a database of extremely similar Medline citations. Many, but not all, of which contain instances of duplicate publication and potential plagiarism.")
+	   ->setInfoLink('http://dejavu.vbi.vt.edu/dejavu/')
+	   ->setResourceFilename("citedinDejavu.php")
+	   ->setResourceClassname("DejavuResource");
+ResourceRegistry::register("Dejavu", $info);   
 ?>

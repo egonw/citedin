@@ -15,12 +15,18 @@ class BooksResource extends ResourceData {
 								->setInfoLink('http://books.google.be/')
 								->setDetailsLink($json->responseData->cursor->moreResultsUrl);
 
-							print ResourceFormatter::getHTML($data);
+						 return $data;
 	
 	}
 }
 
-ResourceRegistry::register("Books", new BooksResource());
+$info = new ResourceInfo();
+$info->setResourceName("Books")
+       ->setResourceType("API")
+	   ->setInfoLink('http://books.google.be/')
+	   ->setResourceFilename("citedinBooks.php")
+	   ->setResourceClassname("BooksResource");
+ResourceRegistry::register("Books", $info);
 ?>
 
 

@@ -1,8 +1,10 @@
 <?php 
-require_once("ResourceFormatter.php");
 
-if ($_GET["pmid"] != ""){
-    $pmid = $_GET["pmid"];
+require_once("ResourceRegistry.php");
+
+class PmcResource extends ResourceData {
+	public function getData($pmid) {
+
 	$results = file_get_contents("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&id=$pmid&cmd=neighbor&email=andra.waagmeester@bigcat.unimaas.nl");
 	$doc = new DOMDocument();
 	$doc->loadXML($results);
@@ -20,16 +22,26 @@ if ($_GET["pmid"] != ""){
 		//	$query=implode(",", $pmidquery);
 			
 			$data = new ResourceData();
-			$data->setResourceName("Pubmed: Cited in Pubmed Central")
+			$data->setResourceName("Pubmed Central")
 				->setCiteCount($id->length)
-				->setInfoLink("http://www.pubmed.org")
+				->setInfoLink("http://www.ncbi.nlm.nih.gov/pmc/")
 				->setDetailsLink("http://www.ncbi.nlm.nih.gov/sites/entrez?holding=&db=pubmed&cmd=search&term=".implode(",", $pmidquery));
 	
-			print ResourceFormatter::getHTML($data);
+			return $data;
 		}
 	};
 
 		//echo $doc->saveXML();
 		
 }
+}
+
+$info = new ResourceInfo();
+$info->setResourceName("Pubmed Central")
+       ->setResourceType("API")
+ 	   ->setResourceDescription("PubMed Central (PMC) is the U.S. National Institutes of Health (NIH) free digital archive of biomedical and life sciences journal literature.")
+	   ->setInfoLink('http://www.ncbi.nlm.nih.gov/pmc/')
+	   ->setResourceFilename("citedinPubmed.php")
+	   ->setResourceClassname("PmcResource");
+ResourceRegistry::register("PMC", $info);
 ?>

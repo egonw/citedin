@@ -18,6 +18,12 @@ class HaembResource extends ResourceData {
 		return $data;
 	}
 }
-
-ResourceRegistry::register("haemB", new HaembResource());   
+$info = new ResourceInfo();
+$info->setResourceName("HaemBDb: Haemophilia B Mutation Database")
+       ->setResourceType("Database")
+ 	   ->setResourceDescription("A database of point mutations and short additions and deletions in the factor IX gene")
+	   ->setInfoLink('http://www.kcl.ac.uk/ip/petergreen/haemBdatabase.html')
+	   ->setResourceFilename("citedinhaemBdatabase.php")
+	   ->setResourceClassname("HaembResource");
+ResourceRegistry::register("haemB", $info);   
 ?>
