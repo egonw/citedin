@@ -1,5 +1,5 @@
 <?php
-require_once("ResourceFormatter.php");
+require_once("ResourceRegistry.php");
 require_once("Pmid2Doi.php");
 
 
