@@ -149,7 +149,7 @@
 			
 			
 			<div id="fragment-2">
-				<?php include("included_resources.php"); ?>
+				<?php //include("included_resources.php"); ?>
 			</div>
 			<div id="fragment-3">
 				If you know a resource that would enrich this website please send us an <a href="mailto:andra.waagmeester@bigcat.unimaas.nl">email</a><p>

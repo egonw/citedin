@@ -5,7 +5,7 @@ require_once("ResourceFormatter.php");
 	  private static $resources = array();
 	
 	  static function init() {
-			$resources = scandir('./');
+			$resources = scandir('resources/');
 			foreach ($resources as $resource){
 				if (substr_count($resource, "citedin")>0){
 					require_once(basename($resource));			

@@ -1,7 +1,7 @@
 <?php
 
 if ($_GET["pmid"] != ""){
-	print_r($_GET);
+	//print_r($_GET);
 	require_once(basename($_GET["script"]));
 	require_once("ResourceFormatter.php");
 	$class = $_GET["class"];

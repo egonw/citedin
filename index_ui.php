@@ -26,7 +26,7 @@
 				$(this).corner();
 			}
 		</script>
-		<script type="text/javascript" src="http://github.com/malsup/blockui/raw/master/jquery.blockUI.js?v2.31"></script>
+		<script type="text/javascript" src="js/jquery.blockUI.js"></script>
 		<link type="text/css" href="citedin.css" rel="stylesheet" />
 
 		<script type="text/javascript">
@@ -39,8 +39,7 @@
 
 
 		<?php
-		       require_once("resources/ResourceRegistry.php");
-
+		      
 				function getDoi($pmid) {
 						$results = "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=$pmid&retmode=xml";
 						$xml_results=file_get_contents($results);
@@ -55,7 +54,7 @@
 						}
 						return $doi;
 				}
-				set_time_limit(0);
+				
 
 				?>
 
@@ -75,81 +74,11 @@
 				</li>
 			</ul>
 			<div id="fragment-1">
-				Citedin finds where you are cited! Some of your papers may have been mentioned where you didn’t expect that to happen: in blogs, databases, Wikipedia. Citedin finds them all.
-				<?php
-   				
-				 ResourceRegistry::init();
-				 $citedin_resources = ResourceRegistry::listResources();				
-				if (isset($_GET["pmid"])){
-					    $pmidGet = $_GET["pmid"];
-						print "<script>
-						  		$(document).ready(function(){\n
-										
-									var pmid = $(\"input#pmid\").val();\n"; 
-									print 		"$(\"#pubmedDetails\").load(\"resources/getPubmed.php?pmid=\"+pmid);\n";
-									foreach ($citedin_resources as $resource){
-										$resourceInfo = ResourceRegistry::get($resource);
-										$resourceName = $resourceInfo->getResourceName();
-										$className = $resourceInfo->getResourceClassname();
-										$fileName = basename($resourceInfo->getResourceFilename());
-										print "$(\"#$fileName\").load(\"resources/$fileName?pmid=\"+pmid
-										+\"&script=$fileName&class=$className\", CitedIn.afterResourceLoad);\n";
-									}
-									print "});\n
-								</script>\n";
-				}
-					
-					
-					print "<center>
-								<div id=\"rowSearch\">
-									
-								<div id=\"SearchBox\"><div class=\"ui-widget-header\">Publication search</div><div class=\"box_text\">Through this website you can track various resources citing a PubMed Identifier. To find a pubmed identifier use this search form.<br>
-								<P style=\"TEXT-ALIGN: right\"><SPAN style=\"FONT-SIZE: x-small\">(e.g. 
-									<a style=\"cursor:pointer;text-decoration: underline;\" onclick=\"document.getElementById('pmidQuery').value='Waagmeester';\">Waagmeester</a>, 
-									<a style=\"cursor:pointer;text-decoration: underline;\" onclick=\"document.getElementById('pmidQuery').value='Kelder';\">Kelder</a>, <a style=\"cursor:pointer;text-decoration: underline;\" onclick=\"document.getElementById('pmidQuery').value='Evelo';\">Evelo</a>, or <a style=\"cursor:pointer;text-decoration: underline;\" onclick=\"document.getElementById('pmidQuery').value='WikiPathways';\">WikiPathways</a>)</SPAN></P><input name=\"pmidQuery\" id=\"pmidQuery\" type=\"text\" /><input type=\"submit\" id=\"citedinQuery\" value=\"Submit\" /></div></div>
-								<div id=\"SearchBox\"><div class=\"ui-widget-header\">Resources citing a pubmed ID</div><div class=\"box_text\"> Submit a PubMed Identifier to find resources citing this abstract. <P style=\"TEXT-ALIGN: right\"><SPAN style=\"FONT-SIZE: x-small\">(e.g. 
-									<a style=\"cursor:pointer;text-decoration: underline;\" onclick=\"document.getElementById('pmid').value='15489334';\">15489334</a>, <a style=\"cursor:pointer;text-decoration: underline;\" onclick=\"document.getElementById('pmid').value='18651794';\">18651794</a>)</SPAN></P><input name=\"pmid\" id=\"pmid\" type=\"text\" value=\"$pmidGet\" /><input type=\"submit\" id=\"citedin\" value=\"Submit\" /></div></div></div></center>";
-
-	
-
-								   
-
-
-								print "<script type=\"text/javascript\">\n
-								     	$(document).ajaxStop($.unblockUI);
-												$(document).ready(function(){\n
-													
-													$(\"#citedin\").click(function(){\n
-															var pmid = $(\"input#pmid\").val();\n"; 
-//															print 		"$(\"#pubmedDetails\").load(\"resources/getPubmed.php?pmid=\"+pmid);\n";
-															foreach ($citedin_resources as $div){
-																print "$(\"#$div\").load(\"resources/$div?pmid=\"+pmid, CitedIn.afterResourceLoad);\n";
-															}
-															
-															print "});\n
-															$(\"#citedinQuery\").click(function(){
-															$.blockUI({ message: '<h1><img src=\"pix/wait.gif\" /> Loading data ...</h1>' });	
-																var query = $(\"input#pmidQuery\").val();\n";
-																															
-																print 		"$(\"#resultaten\").load(\"indexsearch.php?pubmed_query=\"+query);\n;
-																
-															}	
-															)});\n
-															
-												</script>\n";
-								print "<div id=\"titelresultaten\">";
-								print "<DIV id=\"pubmedDetails\"></DIV></div>";
-								print "<div id=\"resultaten\">";
-							
-								foreach ($citedin_resources as $div){
-										print "<DIV id=\"".$div->getResourceFileName()."\" class=\"contentf\"></DIV>";
-								}
-								print "</div></div>";
-								?>
+                <?php include("fragment_1.php"); ?>
 			
-			
+			</div>
 			<div id="fragment-2">
-				<?php include("included_resources.php"); ?>
+				<?php //	include("included_resources.php"); ?>
 			</div>
 			<div id="fragment-3">
 				If you know a resource that would enrich this website please send us an <a href="mailto:andra.waagmeester@bigcat.unimaas.nl">email</a><p>
