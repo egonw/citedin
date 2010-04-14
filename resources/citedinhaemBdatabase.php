@@ -1,8 +1,12 @@
 <?php
 require_once("ResourceRegistry.php");
 
-class HaembResource extends ResourceData {
-	//TODO: infolink methods etc.
+class HaembResource implements Resource {
+	function getResourceName() { return "HaemBDb: Haemophilia B Mutation Database"; }
+	function getInfoLink() { return "http://www.kcl.ac.uk/ip/petergreen/haemBdatabase.html"; }
+	function getResourceType() { return "Database"; }
+	function getResourceDescription() { return "A database of point mutations and short additions and deletions in the factor IX gen"; }
+	function getResourceFilename() { return basename(__FILE__); }
 
 	public function getData($pmid) {
 		include 'connectdb.inc';
@@ -10,20 +14,15 @@ class HaembResource extends ResourceData {
 		   $num_rows = mysql_num_rows($result);
 
 			$data = new ResourceData();
-			$data->setResourceName("HaemBDb: Haemophilia B Mutation Database")
+			$data->setResourceName($this->getResourceName())
 				->setCiteCount($num_rows)
-		                ->setInfoLink('http://www.kcl.ac.uk/ip/petergreen/haemBdatabase.html')
+		      ->setInfoLink($this->getInfoLink())
 				->setDetailsLink(''); //TODO: details link
 
 		return $data;
 	}
 }
-$info = new ResourceInfo();
-$info->setResourceName("HaemBDb: Haemophilia B Mutation Database")
-       ->setResourceType("Database")
- 	   ->setResourceDescription("A database of point mutations and short additions and deletions in the factor IX gene")
-	   ->setInfoLink('http://www.kcl.ac.uk/ip/petergreen/haemBdatabase.html')
-	   ->setResourceFilename("citedinhaemBdatabase.php")
-	   ->setResourceClassname("HaembResource");
-ResourceRegistry::register("haemB", $info);   
+
+ResourceRegistry::register("haemB", new HaembResource());
+
 ?>

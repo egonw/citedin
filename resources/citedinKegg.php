@@ -1,29 +1,28 @@
 <?php
 require_once("ResourceRegistry.php");
 
-class KeggResource extends ResourceData {
-	//TODO: infolink methods etc.
+class KeggResource implements Resource {
+	function getResourceName() { return "KEGG: Kyoto Encyclopedia of Genes and Genomes"; }
+	function getInfoLink() { return "http://www.genome.jp/kegg/"; }
+	function getResourceType() { return "Database"; }
+	function getResourceDescription() { return ""; }
+	function getResourceFilename() { return basename(__FILE__); }
 
 	public function getData($pmid) {
-	  include 'connectdb.inc';
+	   include 'connectdb.inc';
 	   $result = mysql_query("SELECT * from kegg where pmid=$pmid");
 	   $num_rows = mysql_num_rows($result);
 
 		$data = new ResourceData();
-		$data->setResourceName("Kegg")
-			->setCiteCount($num_rows)
-	                ->setInfoLink('http://www.genome.jp/kegg/')
-			->setDetailsLink(''); //TODO: details link
+		$data->setCiteCount($num_rows)
+				->setResourceName($this->getResourceName())
+				->setInfoLink($this->getInfoLink())
+				->setDetailsLink(''); 
+
 		return $data;
 	}
 }
 
-$info = new ResourceInfo();
-$info->setResourceName("KEGG: Kyoto Encyclopedia of Genes and Genomes")
-       ->setResourceType("Database")
- 	   ->setResourceDescription("")
-	   ->setInfoLink('http://www.genome.jp/kegg/')
-	   ->setResourceFilename("citedinKegg.php")
-	   ->setResourceClassname("KeggResource");
-ResourceRegistry::register("Kegg", $info);  
+ResourceRegistry::register("Kegg", new KeggResource());
+
 ?>

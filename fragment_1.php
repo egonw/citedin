@@ -28,9 +28,8 @@ if (isset($_GET["pmid"])){
 	foreach ($citedin_resources as $resource){
 		$resourceInfo = ResourceRegistry::get($resource);
 		$resourceName = $resourceInfo->getResourceName();
-		$className = $resourceInfo->getResourceClassname();
-		$fileName = basename($resourceInfo->getResourceFilename());
-		print "$(\"#".basename($fileName, ".php")."\").load(\"$url/resources/getHTML.php?pmid=\"+pmid+\"&script=$fileName&class=$className\", CitedIn.afterResourceLoad);\n";
+		$fileName = basename($resourceInfo->getResourceFilename());	
+		print "$(\"#".basename($fileName, ".php")."\").load(\"$url/resources/getHTML.php?pmid=\"+pmid+\"&resource=$resource&script=$fileName\", CitedIn.afterResourceLoad);\n";
 	}
 	print "});\n
 		</script>\n";
@@ -62,9 +61,8 @@ $(\"#citedin\").click(function(){\n
 	foreach ($citedin_resources as $resource){
 		$resourceInfo = ResourceRegistry::get($resource);
 		$resourceName = $resourceInfo->getResourceName();
-		$className = $resourceInfo->getResourceClassname();
 		$fileName = basename($resourceInfo->getResourceFilename());	
-		print "$(\"#".basename($fileName, ".php")."\").load(\"$url/resources/getHTML.php?pmid=\"+pmid+\"&script=$fileName&class=$className\", CitedIn.afterResourceLoad);\n";
+		print "$(\"#".basename($fileName, ".php")."\").load(\"$url/resources/getHTML.php?pmid=\"+pmid+\"&resource=$resource&script=$fileName\", CitedIn.afterResourceLoad);\n";
 	}
 	print "});\n
 

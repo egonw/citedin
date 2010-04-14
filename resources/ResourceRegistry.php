@@ -5,9 +5,9 @@ require_once("ResourceFormatter.php");
 	  private static $resources = array();
 	
 	  static function init() {
-			$resources = scandir('resources/');
+			$resources = scandir(dirname(__FILE__));
 			foreach ($resources as $resource){
-				if (substr_count($resource, "citedin")>0){
+				if (preg_match("/^citedin.+\.php$/", $resource)){
 					require_once(basename($resource));			
 				}
 			}		
@@ -25,41 +25,23 @@ require_once("ResourceFormatter.php");
       }
   }
 
-  class ResourceInfo {
-    private $resourceName;
-    private $infoLink;
-    private $resourceType;
-    private $resourceDescription;
-    private $resourceClassname;
-    private $resourceFilename;
-
-    function setResourceType($v) { $this->resourceType = $v; return $this; }
-   	function setResourceName($v) { $this->resourceName = $v; return $this; }
-	function setInfoLink($v) { $this->infoLink = $v; return $this; }
-    function setResourceDescription($v) { $this->resourceDescription = $v; return $this; }
-    function setResourceClassname($v) { $this->resourceClassname = $v; return $this; }
-    function setResourceFilename($v) { $this->resourceFilename = $v; return $this; }
-
-    function getResourceName() { return $this->resourceName; }
-   	function getInfoLink() { return $this->infoLink; }
-	function getResourceType() { return $this->resourceType; }
-	function getResourceDescription() { return $this->resourceDescription; }
-	function getResourceClassname() { return $this->resourceClassname; }
-	function getResourceFilename() { return $this->resourceFilename; }
-	
-	
-	function getData($pmid) {
-		throw new Exception("not implemented");
-	}
+  interface Resource {
+	function getResourceName();
+	function getInfoLink();
+	function getResourceType();
+	function getResourceDescription();
+	function getResourceFilename();
+	function getData($pmid);
   }
 
   class ResourceData {
 	
-	private $citeCount;
-	private $detailsLink;
+	//Keep fields for serialization public
+	public $citeCount;
+	public $detailsLink;
+	public $resourceName;
+   public $infoLink;
 	private $error;
-	private $resourceName;
-    private $infoLink;
 
 	function setCiteCount($v) { $this->citeCount = $v; return $this; }	
 	function setDetailsLink($v) { $this->detailsLink = $v; return $this; }

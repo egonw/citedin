@@ -1,12 +1,18 @@
 <?php
 require_once("ResourceRegistry.php");
 
-class WikipediaResource extends ResourceData {
+class WikipediaResource implements Resource {
+	function getResourceName() { return "Wikipedia"; }
+	function getInfoLink() { return "http://en.wikipedia.org"; }
+	function getResourceType() { return "API"; }
+	function getResourceDescription() { return "the free encyclopedia that anyone can edit."; }
+	function getResourceFilename() { return basename(__FILE__); }
+
 	public function getData($pmid) {
 	
 		$data = new ResourceData();
-		$data->setResourceName("Wikipedia")
-			->setInfoLink("http://en.wikipedia.org");
+		$data->setResourceName($this->getResourceName())
+			->setInfoLink($this->getInfoLink());
 			
 		$results = "http://en.wikipedia.org/w/api.php?format=xml&action=query&list=search&srsearch=$pmid";
 		//print $results;
@@ -23,12 +29,6 @@ class WikipediaResource extends ResourceData {
 		return $data;
 	}
 }
-$info = new ResourceInfo();
-$info->setResourceName("Wikipedia")
-       ->setResourceType("API")
- 	   ->setResourceDescription("the free encyclopedia that anyone can edit.")
-	   ->setInfoLink('http://en.wikipedia.org')
-	   ->setResourceFilename("citedinWikipedia.php")
-	   ->setResourceClassname("WikipediaResource");
-ResourceRegistry::register("Wikipedia", $info);
+
+ResourceRegistry::register("Wikipedia", new WikipediaResource());
 ?>

@@ -1,8 +1,12 @@
 <?php
 require_once("ResourceRegistry.php");
 
-class DejavuResource extends ResourceData {
-	//TODO: infolink methods etc.
+class DejavuResource implements Resource {
+	function getResourceName() { return "Deja Vu: a Database of Highly Similar Citations"; }
+	function getInfoLink() { return "http://dejavu.vbi.vt.edu/dejavu/"; }
+	function getResourceType() { return "Database"; }
+	function getResourceDescription() { return "Deja vu is a database of extremely similar Medline citations. Many, but not all, of which contain instances of duplicate publication and potential plagiarism."; }
+	function getResourceFilename() { return basename(__FILE__); }
 
 	public function getData($pmid) {
 		include 'connectdb.inc';
@@ -10,20 +14,15 @@ class DejavuResource extends ResourceData {
 		   $num_rows = mysql_num_rows($result);
 
 			$data = new ResourceData();
-			$data->setResourceName("DejaVu")
+			$data->setResourceName($this->getResourceName())
 				->setCiteCount($num_rows)
-		                ->setInfoLink("http://dejavu.vbi.vt.edu/dejavu/")
+		      ->setInfoLink($this->getInfoLink())
 				->setDetailsLink(''); //TODO: details link
 
 		return $data;
 	}
 }
-$info = new ResourceInfo();
-$info->setResourceName("Deja Vu: a Database of Highly Similar Citations")
-       ->setResourceType("Database")
- 	   ->setResourceDescription("Deja vu is a database of extremely similar Medline citations. Many, but not all, of which contain instances of duplicate publication and potential plagiarism.")
-	   ->setInfoLink('http://dejavu.vbi.vt.edu/dejavu/')
-	   ->setResourceFilename("citedinDejavu.php")
-	   ->setResourceClassname("DejavuResource");
-ResourceRegistry::register("Dejavu", $info);   
+
+ResourceRegistry::register("Dejavu", new DejavuResource());
+
 ?>

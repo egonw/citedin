@@ -1,8 +1,12 @@
 <?php
 require_once("ResourceRegistry.php");
 
-class UniprotResource extends ResourceData {
-	//TODO: infolink methods etc.
+class UniprotResource implements Resource {
+	function getResourceName() { return "Uniprot"; }
+	function getInfoLink() { return "http://www.uniprot.org/"; }
+	function getResourceType() { return "Database"; }
+	function getResourceDescription() { return "he mission of UniProt is to provide the scientific community with a comprehensive, high-quality and freely accessible resource of protein sequence and functional information."; }
+	function getResourceFilename() { return basename(__FILE__); }
 
 	public function getData($pmid) {
 	   include 'connectdb.inc';
@@ -10,20 +14,15 @@ class UniprotResource extends ResourceData {
 	   $num_rows = mysql_num_rows($result);
 
 		$data = new ResourceData();
-		$data->setResourceName("Uniprot")
-			->setCiteCount($num_rows)
-			->setInfoLink('http://www.uniprot.org/')
-			->setDetailsLink(''); //TODO: details link
+		$data->setCiteCount($num_rows)
+				->setResourceName($this->getResourceName())
+				->setInfoLink($this->getInfoLink())
+				->setDetailsLink(''); 
+
 		return $data;
 	}
 }
 
-$info = new ResourceInfo();
-$info->setResourceName("Uniprot")
-       ->setResourceType("Database")
- 	   ->setResourceDescription("The mission of UniProt is to provide the scientific community with a comprehensive, high-quality and freely accessible resource of protein sequence and functional information.")
-	   ->setInfoLink('http://www.uniprot.org/')
-	   ->setResourceFilename("citedinUniprot.php")
-	   ->setResourceClassname("UniprotResource");
-ResourceRegistry::register("Uniprot", $info);   
+ResourceRegistry::register("Uniprot", new UniprotResource());
+  
 ?>
