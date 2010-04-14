@@ -3,6 +3,8 @@ print "Citedin finds where you are cited! Some of your papers may have been ment
 require_once("resources/ResourceRegistry.php");
 set_time_limit(0);
 ResourceRegistry::init();
+$url = "http://".$_SERVER["HTTP_HOST"].dirname($_SERVER["PHP_SELF"]);
+print $url;
 $citedin_resources = ResourceRegistry::listResources();
 /*foreach ($citedin_resources as $resource) {
 	$resourceInfo = ResourceRegistry::get($resource);
@@ -17,6 +19,7 @@ $citedin_resources = ResourceRegistry::listResources();
 // var_dump($citedin_resources);				
 if (isset($_GET["pmid"])){
 	$pmidGet = $_GET["pmid"];
+	print $url;
 	print "<script>
 	$(document).ready(function(){\n
 
@@ -27,7 +30,7 @@ if (isset($_GET["pmid"])){
 		$resourceName = $resourceInfo->getResourceName();
 		$className = $resourceInfo->getResourceClassname();
 		$fileName = basename($resourceInfo->getResourceFilename());
-		print "$(\"#".basename($fileName, ".php")."\").load(\"http://localhost/citedin/resources/getHTML.php?pmid=\"+pmid+\"&script=$fileName&class=$className\", CitedIn.afterResourceLoad);\n";
+		print "$(\"#".basename($fileName, ".php")."\").load(\"$url/resources/getHTML.php?pmid=\"+pmid+\"&script=$fileName&class=$className\", CitedIn.afterResourceLoad);\n";
 	}
 	print "});\n
 		</script>\n";
@@ -61,7 +64,7 @@ $(\"#citedin\").click(function(){\n
 		$resourceName = $resourceInfo->getResourceName();
 		$className = $resourceInfo->getResourceClassname();
 		$fileName = basename($resourceInfo->getResourceFilename());	
-		print "$(\"#".basename($fileName, ".php")."\").load(\"http://localhost/citedin/resources/getHTML.php?pmid=\"+pmid+\"&script=$fileName&class=$className\", CitedIn.afterResourceLoad);\n";
+		print "$(\"#".basename($fileName, ".php")."\").load(\"$url/resources/getHTML.php?pmid=\"+pmid+\"&script=$fileName&class=$className\", CitedIn.afterResourceLoad);\n";
 	}
 	print "});\n
 
