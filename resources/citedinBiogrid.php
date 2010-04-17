@@ -23,6 +23,6 @@ class BiogridResource implements Resource {
 	}
 }
 
-ResourceRegistry::register("Hmdb", new BiogridResource());
+ResourceRegistry::register("Biogrid", new BiogridResource());
 
 ?>
