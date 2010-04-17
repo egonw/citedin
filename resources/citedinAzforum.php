@@ -2,7 +2,7 @@
 	require_once("ResourceRegistry.php");
 
 class AlzgeneResource implements Resource {
-	function getResourceName() { return "ABS: a database of Annotated regulatory Binding Sites from orthologous promoters"; }
+	function getResourceName() { return "Alzforum: Alzheimer Research Forum"; }
 	function getInfoLink() { return "http://www.alzforum.org/"; }
 	function getResourceType() { return "Database"; }
 	function getResourceDescription() { return ""; }
