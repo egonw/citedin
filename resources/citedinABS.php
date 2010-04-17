@@ -4,7 +4,7 @@ require_once("ResourceRegistry.php");
 class ABSResource implements Resource {
 	function getResourceName() { return "ABS: a database of Annotated regulatory Binding Sites from orthologous promoters"; }
 	function getInfoLink() { return "http://genome.imim.es/datasets/abs2005"; }
-	function getResourceType() { return ""; }
+	function getResourceType() { return "Database"; }
 	function getResourceDescription() { return ""; }
 	function getResourceFilename() { return basename(__FILE__); }
 
