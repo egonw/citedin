@@ -27,6 +27,6 @@ CTD includes manually curated data describing cross-species chemical–gene/prot
 	}
 }
 
-ResourceRegistry::register("Hmdb", new CtdResource());
+ResourceRegistry::register("Ctd", new CtdResource());
 
 ?>
