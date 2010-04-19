@@ -4,7 +4,7 @@ require_once("ResourceRegistry.php");
 
 class CtdResource implements Resource {
 	function getResourceName() { return "CTD: Comparative Toxicogenomics Database"; }
-	function getInfoLink() { return "http://ctd.mdibl.org/"; }
+	function getInfoLink() { return "http://ctd.mdibl.org"; }
 	function getResourceType() { return "Database"; }
 	function getResourceDescription() { return "CTD advances understanding of the effects of environmental chemicals on human health.
 
@@ -21,7 +21,7 @@ CTD includes manually curated data describing cross-species chemical–gene/prot
 		$data = new ResourceData();
 		$data->setCiteCount($num_rows)
 		     ->setResourceName($this->getResourceName())
-		     ->setDetailsLink(''); //TODO: details link
+		     ->setDetailsLink("http://ctd.mdibl.org/detail.go?view=ixn&type=reference&acc=$pmid"); //TODO: details link
 	     
 		return $data;
 	}
