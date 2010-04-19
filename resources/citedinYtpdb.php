@@ -11,7 +11,7 @@ class YtpdbResource implements Resource {
 
 	public function getData($pmid) {
 	   include 'connectdb.inc';
-	   $result = mysql_query("SELECT * from hmdb where pmid=$pmid");
+	   $result = mysql_query("SELECT * from ytpdb where pmid=$pmid");
 	   $num_rows = mysql_num_rows($result);
 
 		$data = new ResourceData();
