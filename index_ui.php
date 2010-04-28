@@ -39,7 +39,7 @@
 
 
 		<?php
-		      
+                               include_once("analyticstracking.php");		      
 				function getDoi($pmid) {
 						$results = "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=$pmid&retmode=xml";
 						$xml_results=file_get_contents($results);
@@ -72,13 +72,16 @@
 				<li>
 					<a href="#fragment-4"><span>About citedin</span></a>
 				</li>
+                                <li>
+  					<a href="#fragment-5"><span>API</span></a>
+                                </li>
 			</ul>
 			<div id="fragment-1">
                 <?php include("fragment_1.php"); ?>
 			
 			</div>
 			<div id="fragment-2">
-				<?php //	include("included_resources.php"); ?>
+				<?php 	include("included_resources.php"); ?>
 			</div>
 			<div id="fragment-3">
 				If you know a resource that would enrich this website please send us an <a href="mailto:andra.waagmeester@bigcat.unimaas.nl">email</a><p>
@@ -91,6 +94,9 @@
 			<div id="fragment-4">
 				<?php include("about_citedin.html"); ?>
 			</div>
+                        <div id="fragment-5">
+                                <?php include("api_citedin.html"); ?>
+                        </div>
 		</div>
 	</body>
 </html>
