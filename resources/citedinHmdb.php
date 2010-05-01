@@ -4,7 +4,7 @@ require_once("ResourceRegistry.php");
 
 class HmdbResource implements Resource {
 	function getResourceName() { return "Hmdb: Human Metabolome DataBase"; }
-	function getInfoLink() { return "http://www.hmdb.ca"; }
+	function getInfoLink() { return "http://www.hmdb.ca/"; }
 	function getResourceType() { return "Database"; }
 	function getResourceDescription() { return "The Human Metabolome Database (HMDB) is a freely available electronic database containing detailed information about small molecule metabolites found in the human body."; }
 	function getResourceFilename() { return basename(__FILE__); }
@@ -17,7 +17,7 @@ class HmdbResource implements Resource {
 		$data = new ResourceData();
 		$data->setCiteCount($num_rows)
 		     ->setResourceName($this->getResourceName())
-		     ->setDetailsLink(''); //TODO: details link
+		     ->setDetailsLink("details.php?db=hmdb&pmid=$pmid&fields=hmdbid,url"); 
 	     
 		return $data;
 	}

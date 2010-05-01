@@ -2,7 +2,7 @@
 require_once("ResourceRegistry.php");
 
 class MintResource implements Resource {
-	function getResourceName() { return "MINT, the Molecular INTeraction database"; }
+	function getResourceName() { return "MINT: the Molecular INTeraction database"; }
 	function getInfoLink() { return "http://mint.bio.uniroma2.it/mint/Welcome.do"; }
 	function getResourceType() { return "Database"; }
 	function getResourceDescription() { return ""; }
