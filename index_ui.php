@@ -33,7 +33,8 @@
 			hs.graphicsDir = 'highslide/graphics/';
 			hs.outlineType = 'rounded-white';
 			hs.wrapperClassName = 'draggable-header';
-		</script>	
+		</script>
+			
 	</head>
 	<body>
 

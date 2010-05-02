@@ -21,11 +21,12 @@ class ResourceFormatter {
 		if($error) {
 			$content = "<div class='error'>$error</div>";
 		} else {
-			$content = <<<HTML
-		<div class="numberInSources $numberClass">{$data->getCiteCount()}</div>
-		<div id="details"><a href="{$data->getDetailsLink()}">Details</a></div>		
-HTML;
+			$content = "
+		<div class=\"numberInSources $numberClass\">".$data->getCiteCount()."</div>";
+		if ($data->getCiteCount()>0){
+		      $content .= "<div id=\"details\"><a href=".$data->getDetailsLink()." target=\"_blank\">Details</a></div>";
 		}
+	}
 		
 		$html = <<<HTML
 	<div id="row">
