@@ -1,8 +1,8 @@
 <?php
 	require_once("ResourceRegistry.php");
 
-class BlogsResource implements Resource {
-	function getResourceName() { return "Blogs: Through google"; }
+class GoogleBlogsResource implements Resource {
+	function getResourceName() { return "Google Blogs"; }
 	function getInfoLink() { return "http://blogsearch.google.be/"; }
 	function getResourceType() { return "API"; }
 	function getResourceDescription() { return ""; }
@@ -24,5 +24,5 @@ class BlogsResource implements Resource {
 	}
 }
 
-ResourceRegistry::register("Blogs", new BlogsResource());
+ResourceRegistry::register("GoogleBlogs", new GoogleBlogsResource());
 ?>

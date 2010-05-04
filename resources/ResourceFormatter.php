@@ -24,7 +24,7 @@ class ResourceFormatter {
 			$content = "
 		<div class=\"numberInSources $numberClass\">".$data->getCiteCount()."</div>";
 		if ($data->getCiteCount()>0){
-		      $content .= "<div id=\"details\"><a href=".$data->getDetailsLink()." target=\"_blank\">Details</a></div>";
+		      $content .= "<div class=\"details\" id=\"details\"><a href=".$data->getDetailsLink()." rel=\"#overlay\"><button type=\"button\">Details</a></button></div>";
 		}
 	}
 		
