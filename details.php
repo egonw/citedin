@@ -25,7 +25,7 @@ print "
 $(document).ready(function(){ 
 $('#the_table').dataTable({ 
 	\"bJQueryUI\": true,
-'sAjaxSource':\"testDetails.php?db=$db&pmid=$pmid&fields=$fields\"
+'sAjaxSource':\"testDetails.php?db=$db&pmid=$pmid&fields=$fields&idField=$idField\"
 }); 
 }); ";
 ?>
