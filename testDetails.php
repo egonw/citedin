@@ -30,7 +30,7 @@ $q=mysql_query($sql);
 while($r=mysql_fetch_array($q)) $rs[]=$r; 
 return $rs; 
 } 
-include 'connectdb.inc';
+include 'resoures/connectdb.inc';
 // } 
 // { count existing records 
 $r=dbRow("select count(*) as c from $db where pmid=$pmid"); 
