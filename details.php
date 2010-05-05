@@ -30,8 +30,8 @@ $('#the_table').dataTable({
 ?>
 </script> 
 </head> 
-<body> 
-<div style="width:500px"> 
+<body>
+<div style="width:500px;margin:auto;"> 
 <table id="the_table"> 
 <thead>
 <tr>
@@ -47,5 +47,6 @@ foreach ($fields as $field){
 </tbody> 
 </table> 
 </div> 
+
 </body> 
 </html

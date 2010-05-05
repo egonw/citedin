@@ -13,6 +13,8 @@
 		<script type="text/javascript" src="development-bundle/ui/ui.tabs.js"></script>
 		<script type="text/javascript" src="js/jquery.tinysort.min.js"></script>
 		<script type="text/javascript" src="js/jquery.corner.js"></script>
+		<script type="text/javascript" src="js/colorbox/jquery.colorbox.js"></script>
+
 		<script type="text/javascript">
 			$(document).ready(function(){
 				$("#tabs").tabs();
@@ -99,5 +101,6 @@
                                 <?php include("api_citedin.html"); ?>
                         </div>
 		</div>
+		
 	</body>
 </html>

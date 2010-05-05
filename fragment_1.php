@@ -26,6 +26,7 @@ if (isset($_GET["pmid"])){
 
 
 print "<center>
+
 	<div id=\"rowSearch\">
 
 	<div id=\"SearchBox\"><div class=\"ui-widget-header\">Publication search</div><div class=\"box_text\">Through this website you can track various resources citing a PubMed Identifier. To find a pubmed identifier use this search form.<br>
@@ -46,7 +47,8 @@ print "<center>
 print "<script type=\"text/javascript\">\n
 	$(document).ajaxStop($.unblockUI);
 $(document).ready(function(){\n
-
+  
+  $(\".details\").colorbox({width:\"80%\", height:\"80%\", iframe:true});
 
 
 $(\"#citedinForm\").submit(function(){\n
