@@ -14,6 +14,7 @@ file_put_contents('cache/'.$md5, json_encode($vals));
 // { initialise variables 
 $pmid=$_GET["pmid"];
 $db = $_GET["db"];
+$idField=$_GET["idField"];
 $fields = explode(",", $_GET["fields"]);
 
 $amt=100; 
@@ -43,7 +44,7 @@ echo '{"iTotalRecords":'.$total_records.',
 "aaData":[['; 
 $fieldsString = implode(",",$fields);
 $rs=dbAll("select $fieldsString from $db where pmid=$pmid  
-order by hmdbid limit $start,$amt"); 
+order by $idField limit $start,$amt"); 
 $f=0; 
 foreach($rs as $r){ 
 if($f++) echo ',[';

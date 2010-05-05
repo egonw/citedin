@@ -18,6 +18,7 @@ table{width:100%} </style>
 <?php
 $pmid=$_GET["pmid"];
 $db = $_GET["db"];
+$idField=$_GET["idField"];
 $fields = $_GET["fields"];
 
 print "
