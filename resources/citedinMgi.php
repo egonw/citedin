@@ -3,8 +3,8 @@
 require_once("ResourceRegistry.php");
 
 class MgiResource implements Resource {
-	function getResourceName() { return "Hmdb: Human Metabolome DataBase"; }
-	function getInfoLink() { return "http://www.hmdb.ca/"; }
+	function getResourceName() { return "MGI: Mouse Genome Informatics"; }
+	function getInfoLink() { return "http://www.informatics.jax.org/"; }
 	function getResourceType() { return "Database"; }
 	function getResourceDescription() { return "MGI is the international database resource for the laboratory mouse, providing integrated genetic, genomic, and biological data to facilitate the study of human health and disease."; }
 	function getResourceFilename() { return basename(__FILE__); }
