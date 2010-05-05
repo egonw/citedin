@@ -30,8 +30,7 @@ $q=mysql_query($sql);
 while($r=mysql_fetch_array($q)) $rs[]=$r; 
 return $rs; 
 } 
-mysql_connect('localhost','root',''); 
-mysql_select_db('citedin'); 
+include 'connectdb.inc';
 // } 
 // { count existing records 
 $r=dbRow("select count(*) as c from $db where pmid=$pmid"); 
