@@ -49,7 +49,11 @@ $(document).ready(function(){\n
 	print "<DIV id=\"pubmedDetails\">\n</DIV>\n";
 	print "<div id=\"resultaten\">\n";
 
-	include("resultatendiv.php");
+	foreach ($citedin_resources as $div){
+		$resourceInfo = ResourceRegistry::get($div);
+		$fileName = basename($resourceInfo->getResourceFilename());
+		print "<DIV id=\"".basename($fileName, ".php")."\" class=\"contentf\"></DIV>";
+	}
 	print "</div>";
 	
 	?>
