@@ -38,6 +38,7 @@
 		</script>	
 	</head>
 	<body>
+	<?php include_once("analyticstracking.php");?> 
 		<div id="tabs">
 			<ul>
 				<li>
@@ -52,6 +53,9 @@
 				<li>
 					<a href="#fragment-4"><span>About citedin</span></a>
 				</li>
+				 <li>
+				    <a href="#fragment-5"><span>API</span></a>
+				 </li>
 			</ul>
 			<div id="fragment-1">
                 <?php include("fragment_1.php"); ?>
@@ -71,6 +75,10 @@
 			<div id="fragment-4">
 				<?php include("about_citedin.html"); ?>
 			</div>
+			    <div id="fragment-5">
+                        <?php include("api_citedin.html"); ?>
+                </div>
+            
 		</div>
 	</body>
 </html>
