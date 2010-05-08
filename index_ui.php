@@ -13,8 +13,8 @@
 		<script type="text/javascript" src="development-bundle/ui/ui.tabs.js"></script>
 		<script type="text/javascript" src="js/jquery.tinysort.min.js"></script>
 		<script type="text/javascript" src="js/jquery.corner.js"></script>
-		<script type="text/javascript" src="js/colorbox/jquery.colorbox.js"></script>
 
+		
 		<script type="text/javascript">
 			$(document).ready(function(){
 				$("#tabs").tabs();
@@ -35,32 +35,9 @@
 			hs.graphicsDir = 'highslide/graphics/';
 			hs.outlineType = 'rounded-white';
 			hs.wrapperClassName = 'draggable-header';
-		</script>
-			
+		</script>	
 	</head>
 	<body>
-
-
-		<?php
-                               include_once("analyticstracking.php");		      
-				function getDoi($pmid) {
-						$results = "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=$pmid&retmode=xml";
-						$xml_results=file_get_contents($results);
-						$doc= new DOMDocument();
-						$doc->loadXML($xml_results);
-						$articleid = $doc->getElementsByTagName("ArticleId");
-						for ($k=0;$k<$articleid->length; $k++){
-								 if ($articleid->item($k)->getAttribute("IdType")=="doi"){
-										  $doi=$articleid->item($k)->nodeValue;
-										   break;
-								 }
-						}
-						return $doi;
-				}
-				
-
-				?>
-
 		<div id="tabs">
 			<ul>
 				<li>
@@ -75,9 +52,6 @@
 				<li>
 					<a href="#fragment-4"><span>About citedin</span></a>
 				</li>
-                                <li>
-  					<a href="#fragment-5"><span>API</span></a>
-                                </li>
 			</ul>
 			<div id="fragment-1">
                 <?php include("fragment_1.php"); ?>
@@ -97,10 +71,6 @@
 			<div id="fragment-4">
 				<?php include("about_citedin.html"); ?>
 			</div>
-                        <div id="fragment-5">
-                                <?php include("api_citedin.html"); ?>
-                        </div>
 		</div>
-		
 	</body>
 </html>
