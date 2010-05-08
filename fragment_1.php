@@ -8,10 +8,10 @@ $url = "http://".$_SERVER["HTTP_HOST"].dirname($_SERVER["PHP_SELF"]);
 $citedin_resources = ResourceRegistry::listResources();
 
 print "Through this website you can track various resources citing a PubMed Identifier. To find a pubmed identifier use this search form.<br>
-<P style=\"TEXT-ALIGN: right\"><SPAN style=\"FONT-SIZE: x-small\">(e.g. 
+<P style=\"TEXT-ALIGN: right\"><SPAN style=\"FONT-SIZE: x-small\">Examples: <br>Pubmed query: (e.g. 
 	<a style=\"cursor:pointer;text-decoration: underline;\" onclick=\"document.getElementById('pmidQuery').value='Waagmeester';document.getElementById('queryoptions').value='Pubmed Query';\">Waagmeester</a>, 
-	<a style=\"cursor:pointer;text-decoration: underline;\" onclick=\"document.getElementById('pmidQuery').value='Kelder';document.getElementById('queryoptions').value='Pubmed Query';\">Kelder</a>, <a style=\"cursor:pointer;text-decoration: underline;\" onclick=\"document.getElementById('pmidQuery').value='Evelo';document.getElementById('queryoptions').value='Pubmed Query';\">Evelo</a>, or <a style=\"cursor:pointer;text-decoration: underline;\" onclick=\"document.getElementById('pmidQuery').value='WikiPathways';document.getElementById('queryoptions').value='Pubmed Query';\">WikiPathways</a>)
-	<a style=\"cursor:pointer;text-decoration: underline;\" onclick=\"document.getElementById('pmidQuery').value='18651794';document.getElementById('queryoptions').value='PMID';\">18651794</a></SPAN></P>
+	<a style=\"cursor:pointer;text-decoration: underline;\" onclick=\"document.getElementById('pmidQuery').value='Kelder';document.getElementById('queryoptions').value='Pubmed Query';\">Kelder</a>, <a style=\"cursor:pointer;text-decoration: underline;\" onclick=\"document.getElementById('pmidQuery').value='Evelo';document.getElementById('queryoptions').value='Pubmed Query';\">Evelo</a>, or <a style=\"cursor:pointer;text-decoration: underline;\" onclick=\"document.getElementById('pmidQuery').value='WikiPathways';document.getElementById('queryoptions').value='Pubmed Query';\">WikiPathways</a>) or <br>
+	Pubmed identifier: (<a style=\"cursor:pointer;text-decoration: underline;\" onclick=\"document.getElementById('pmidQuery').value='18651794';document.getElementById('queryoptions').value='PMID';\">18651794</a>)</SPAN></P>
 	<center><form id=\"queryForm\"><input name=\"pmidQuery\" id=\"pmidQuery\" type=\"text\" size=\"75\"/><select id=\"queryoptions\"><option>Pubmed Query</option><option>PMID</option></select><br><input type=\"submit\" id=\"citedinQuery\" value=\"Go...\" /></form></center>";
 
 print "<script type=\"text/javascript\">\n
