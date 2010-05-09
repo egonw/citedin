@@ -16,7 +16,7 @@ class AresResource implements Resource {
 		$data = new ResourceData();
 		$data->setCiteCount($num_rows)
 				->setInfoLink($this->getInfoLink())
-				->setDetailsLink('http://hmg.oxfordjournals.org/cgi/content/full/ddm066/DC1'); //TODO: details link     
+				->setDetailsLink('http://hmg.oxfordjournals.org/cgi/content/full/ddm066/DC1');      
 		return $data;
 	}
 }
