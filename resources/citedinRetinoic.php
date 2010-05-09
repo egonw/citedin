@@ -4,7 +4,7 @@
 class BalmerResource implements Resource {
 	function getResourceName() { return "Gene expression regulation by retinoic acid"; }
 	function getInfoLink() { return "http://www.jlr.org/cgi/content/full/43/11/1773"; }
-	function getResourceType() { return "Published_data"; }
+	function getResourceType() { return "Published data"; }
 	function getResourceDescription() { return "A review paper containing a curated list of pubmed identifiers"; }
 	function getResourceFilename() { return basename(__FILE__); }
 
