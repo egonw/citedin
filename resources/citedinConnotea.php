@@ -6,7 +6,7 @@ class ConnoteaResource implements Resource {
 	function getResourceName() { return "Connotea"; }
 	function getInfoLink() { return "http://www.connotea.org/"; }
 	function getResourceType() { return "API"; }
-	function getResourceDescription() { return ""; }
+	function getResourceDescription() { return "Free online reference management for all researchers, clinicians and scientists"; }
 	function getResourceFilename() { return basename(__FILE__); }
 
 	public function get_connotea_posts($url){

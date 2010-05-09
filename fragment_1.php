@@ -27,7 +27,7 @@ $(document).ready(function(){\n
 				$.blockUI({ message: '<h1><img src=\"pix/wait.gif\" /> Loading data ...</h1>' });
 				$(\"#pubmedDetails\").empty();
 				$(\".contentf\").empty();
- 				$(\"#pubmedresultaten\").load(\"indexsearch.php?pubmed_query=\"+query);\n;
+ 				$(\"#pubmedresultaten\").load(\"indexsearch.php?pubmed_query=\"+escape(query));\n;
 			}\n
 		if (queryoption == \"PMID\")\n
 			{

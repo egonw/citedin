@@ -30,7 +30,7 @@ class ResourceFormatter {
 		
 		$html = <<<HTML
 	<div id="row">
-		<div id="sourceName">$name:</div>
+		<div id="sourceName">$name</div>
 		$content
 	</div>
 HTML;
