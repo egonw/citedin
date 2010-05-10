@@ -20,14 +20,14 @@ $(document).ready(function(){\n
 		$(\"#queryForm\").submit(function(){\n
 		event.preventDefault();
 		
-		var query = $(\"input#pmidQuery\").val();\n
+		var query = $(\"input#pmidQuery\").val().replace(/\s/g, \"+\");\n
         var queryoption = $(\"select#queryoptions\").val();\n
  		if (queryoption == \"Pubmed Query\")\n 
 			{\n
 				$.blockUI({ message: '<h1><img src=\"pix/wait.gif\" /> Loading data ...</h1>' });
 				$(\"#pubmedDetails\").empty();
 				$(\".contentf\").empty();
- 				$(\"#pubmedresultaten\").load(\"indexsearch.php?pubmed_query=\"+escape(query));\n;
+ 				$(\"#pubmedresultaten\").load(\"indexsearch.php?pubmed_query=\"+query);\n;
 			}\n
 		if (queryoption == \"PMID\")\n
 			{

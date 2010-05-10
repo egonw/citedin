@@ -1,8 +1,9 @@
 <link type="text/css" href="citedin.css" rel="stylesheet">
 
 <?php
+
    if (isset($_GET["pubmed_query"])){
-	$query = $_GET["pubmed_query"];
+	$query = preg_replace('/\s/', '+', $_GET["pubmed_query"]);
 	$queryResults = simplexml_load_string(file_get_contents("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=$query&retmax=30&usehistory=y&tool=citedin&email=andra.waagmeester@bigcat.unimaas.nl"));
 	//print_r($queryResults);
 	$webenv = $queryResults->WebEnv;
