@@ -11,7 +11,7 @@ if (isset($_GET["pmid"])){
 	    $pmidGet = $_GET["pmid"];
 		print "<script>
 		  		$(document).ready(function(){\n
-			        $(\"body\").append('<div id=\"ajaxBusy\"><p><img src=\"pix/loading.gif\"><br>Waiting...</p></div>');
+			        $(\"body\").append('<div id=\"ajaxBusy\"><p><img src=\"pix/loading.gif\"><br>Processing data...</p></div>');
 					$('#ajaxBusy').css({
 						display:\"none\",
 						margin:\"0px\",
