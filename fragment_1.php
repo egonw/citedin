@@ -18,7 +18,7 @@ if (isset($_GET["pmid"])){
 						$resourceInfo = ResourceRegistry::get($resource);
 						$resourceName = $resourceInfo->getResourceName();
 						$fileName = basename($resourceInfo->getResourceFilename());	
-						print "$(\"#".basename($fileName, ".php")."\").load(\"$url/resources/getHTML.php?pmid=\"+pmid+\"&resource=$resource&script=$fileName\", CitedIn.afterResourceLoad);\n;";
+						print "$(\"#".basename($fileName, ".php")."\").load(\"$url/resources/getHTML.php?pmid=\"+$pmidGet+\"&resource=$resource&script=$fileName\", CitedIn.afterResourceLoad);\n;";
 				}
 					print "});\n
 				</script>\n";
