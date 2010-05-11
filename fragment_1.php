@@ -20,8 +20,8 @@ if (isset($_GET["pmid"])){
 						paddingTop:\"0px\",
 						paddingBottom:\"0px\",
 						position:\"absolute\",
-						right:\"3px\",
-						top:\"3px\",
+						left:\"3px\",
+						top:\"120px\",
 						width:\"auto\"
 					});
 
