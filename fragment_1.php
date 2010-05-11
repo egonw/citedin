@@ -11,6 +11,27 @@ if (isset($_GET["pmid"])){
 	    $pmidGet = $_GET["pmid"];
 		print "<script>
 		  		$(document).ready(function(){\n
+			        $(\"body\").append('<div id=\"ajaxBusy\"><p><img src=\"pix/loading.gif\"></p></div>');
+					$('#ajaxBusy').css({
+						display:\"none\",
+						margin:\"0px\",
+						paddingLeft:\"0px\",
+						paddingRight:\"0px\",
+						paddingTop:\"0px\",
+						paddingBottom:\"0px\",
+						position:\"absolute\",
+						right:\"3px\",
+						top:\"3px\",
+						width:\"auto\"
+					});
+
+					// Ajax activity indicator bound 
+					// to ajax start/stop document events
+					$(document).ajaxStart(function(){ 
+						$('#ajaxBusy').show(); 
+					}).ajaxStop(function(){ 
+						$('#ajaxBusy').hide();
+					});
 						
 					var pmid = $(\"input#pmid\").val();\n"; 
 					print 		"$(\"#pubmedDetails\").load(\"resources/getPubmed.php?pmid=\"+$pmidGet);\n";
