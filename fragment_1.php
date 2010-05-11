@@ -14,9 +14,12 @@ if (isset($_GET["pmid"])){
 						
 					var pmid = $(\"input#pmid\").val();\n"; 
 					print 		"$(\"#pubmedDetails\").load(\"resources/getPubmed.php?pmid=\"+$pmidGet);\n";
-					foreach ($citedin_resources as $div){
-						print "$(\"#$div\").load(\"resources/$div?pmid=\"+$pmidGet, CitedIn.afterResourceLoad);\n";
-					}
+					foreach ($citedin_resources as $resource){
+						$resourceInfo = ResourceRegistry::get($resource);
+						$resourceName = $resourceInfo->getResourceName();
+						$fileName = basename($resourceInfo->getResourceFilename());	
+						print "$(\"#".basename($fileName, ".php")."\").load(\"$url/resources/getHTML.php?pmid=\"+pmid+\"&resource=$resource&script=$fileName\", CitedIn.afterResourceLoad);\n;";
+				}
 					print "});\n
 				</script>\n";
 }
