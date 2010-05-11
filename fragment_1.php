@@ -13,7 +13,7 @@ if (isset($_GET["pmid"])){
 		  		$(document).ready(function(){\n
 						
 					var pmid = $(\"input#pmid\").val();\n"; 
-					print 		"$(\"#pubmedDetails\").load(\"resources/getPubmed.php?pmid=\"+pmid);\n";
+					print 		"$(\"#pubmedDetails\").load(\"resources/getPubmed.php?pmid=\"+$pmidGet);\n";
 					foreach ($citedin_resources as $div){
 						print "$(\"#$div\").load(\"resources/$div?pmid=\"+pmid, CitedIn.afterResourceLoad);\n";
 					}
