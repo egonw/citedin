@@ -7,6 +7,20 @@ $url = "http://".$_SERVER["HTTP_HOST"].dirname($_SERVER["PHP_SELF"]);
 //print $url;
 $citedin_resources = ResourceRegistry::listResources();
 
+if (isset($_GET["pmid"])){
+	    $pmidGet = $_GET["pmid"];
+		print "<script>
+		  		$(document).ready(function(){\n
+						
+					var pmid = $(\"input#pmid\").val();\n"; 
+					print 		"$(\"#pubmedDetails\").load(\"resources/getPubmed.php?pmid=\"+pmid);\n";
+					foreach ($citedin_resources as $div){
+						print "$(\"#$div\").load(\"resources/$div?pmid=\"+pmid, CitedIn.afterResourceLoad);\n";
+					}
+					print "});\n
+				</script>\n";
+}
+
 print "Through this website you can track various resources citing a PubMed Identifier. To find a pubmed identifier use this search form.<br>
 <P style=\"TEXT-ALIGN: right\"><SPAN style=\"FONT-SIZE: x-small\">Examples: Pubmed query: (e.g. 
 	<a style=\"cursor:pointer;text-decoration: underline;\" onclick=\"document.getElementById('pmidQuery').value='Waagmeester';document.getElementById('queryoptions').value='Pubmed Query';\">Waagmeester</a>, 
