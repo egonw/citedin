@@ -76,7 +76,7 @@ $(document).ready(function(){\n
 					$resourceInfo = ResourceRegistry::get($resource);
 					$resourceName = $resourceInfo->getResourceName();
 					$fileName = basename($resourceInfo->getResourceFilename());	
-					print "$(\"#".basename($fileName, ".php")."\").load(\"$urlresources/getHTML.php?pmid=\"+pmid+\"&resource=$resource&script=$fileName\", CitedIn.afterResourceLoad);\n;";
+					print "$(\"#".basename($fileName, ".php")."\").load(\"$url"."resources/getHTML.php?pmid=\"+pmid+\"&resource=$resource&script=$fileName\", CitedIn.afterResourceLoad);\n;";
 			}
 	print "	}
 	}			
