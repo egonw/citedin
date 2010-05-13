@@ -54,9 +54,8 @@ print "Through this website you can track various resources citing a PubMed Iden
 
 print "<script type=\"text/javascript\">\n
 	$(document).ajaxStop($.unblockUI);
-$(document).ready(function(){\n
-		$(\"#queryForm\").submit(function(){\n
-			new Event(event).preventDefault();
+$(document).ready(function(event){\n
+		$(\"#queryForm\").submit(function(event){\n
         if (event.preventDefault) { event.preventDefault(); } else { event.returnValue = false; }		
 		var query = $(\"input#pmidQuery\").val().replace(/\s/g, \"+\");\n
         var queryoption = $(\"select#queryoptions\").val();\n
