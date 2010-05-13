@@ -5,7 +5,7 @@
 			Citedin: A webtool to explore citations on the web
 		</title>
 		
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
 		<link type="text/css" href="development-bundle/themes/custom-theme/ui.all.css" rel="stylesheet">
 		<script type="text/javascript" src="highslide/highslide-with-html.js"></script>
 		<link rel="stylesheet" type="text/css" href="highslide/highslide.css" />
