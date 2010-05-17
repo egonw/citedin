@@ -69,7 +69,6 @@ $(document).ready(function(event){\n
 			}\n
 		if (patt1.test(query))\n
 			{
-				alert(query);
 				$(\"#pubmedresultaten\").empty();
 				$(\"#pubmedDetails\").load(\"resources/getPubmed.php?pmid=\"+query);\n";
 				foreach ($citedin_resources as $resource){
