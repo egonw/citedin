@@ -59,23 +59,25 @@ $(document).ready(function(event){\n
         if (event.preventDefault) { event.preventDefault(); } else { event.returnValue = false; }		
 		var query = $(\"input#pmidQuery\").val().replace(/\s/g, \"+\");\n
         var queryoption = $(\"select#queryoptions\").val();\n
- 		if (queryoption == \"Pubmed Query\")\n 
+  		var patt1=new RegExp(\"^[0-9]+$\");
+ 		if (!(patt1.test(query)))\n 
 			{\n
 				$.blockUI({ message: '<h1><img src=\"pix/wait.gif\" /> Loading data ...</h1>' });
 				$(\"#pubmedDetails\").empty();
 				$(\".contentf\").empty();
  				$(\"#pubmedresultaten\").load(\"indexsearch.php?pubmed_query=\"+query);\n;
 			}\n
-		if (queryoption == \"PMID\")\n
+		if (patt1.test(query))\n
 			{
-				var pmid = $(\"input#pmidQuery\").val();\n"; 
-				print 		"$(\"#pubmedresultaten\").empty();
-				$(\"#pubmedDetails\").load(\"resources/getPubmed.php?pmid=\"+pmid);\n";
+				alert(query);
+				$(\"#pubmedresultaten\").empty();
+				$(\"#pubmedDetails\").load(\"resources/getPubmed.php?pmid=\"+query);\n";
 				foreach ($citedin_resources as $resource){
+					
 					$resourceInfo = ResourceRegistry::get($resource);
 					$resourceName = $resourceInfo->getResourceName();
 					$fileName = basename($resourceInfo->getResourceFilename());	
-					print "$(\"#".basename($fileName, ".php")."\").load(\"$url"."resources/getHTML.php?pmid=\"+pmid+\"&resource=$resource&script=$fileName\", CitedIn.afterResourceLoad);\n;";
+					print "$(\"#".basename($fileName, ".php")."\").load(\"$url"."resources/getHTML.php?pmid=\"+query+\"&resource=$resource&script=$fileName\", CitedIn.afterResourceLoad);\n;";
 			}
 	print "	}
 	}			
