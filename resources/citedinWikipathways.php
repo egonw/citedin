@@ -20,7 +20,7 @@ class WikipathwaysResource implements Resource {
 		$data->setCiteCount($num_rows)
 				->setResourceName($this->getResourceName())
 				->setInfoLink($this->getInfoLink())
-				->setDetailsLink('resources/details_wikipathways?pmid=$pmid'); 
+				->setDetailsLink("resources/details_wikipathways?pmid=$pmid"); 
 
 		return $data;
 	}
