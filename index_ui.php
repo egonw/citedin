@@ -38,6 +38,7 @@
 		</script>	
 	</head>
 	<body>
+
 	<?php include_once("analyticstracking.php");?> 
 		<div id="tabs">
 			<ul>
@@ -80,5 +81,11 @@
                 </div>
             
 		</div>
+		<script type="text/javascript">
+		if (navigator.appCodeName != "Mozilla"){
+			alert("Citedin is not optimized for your webbrowser, this may result in unexpected behaviour. For an optimized result, please use one of the following browsers: Google Chrome, Firefox, Opera, or Safari");
+		}
+
+		</script>
 	</body>
 </html>
