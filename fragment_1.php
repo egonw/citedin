@@ -52,7 +52,7 @@ print "Through this website you can track various resources citing a PubMed Iden
 	Pubmed identifier: (<a style=\"cursor:pointer;text-decoration: underline;\" onclick=\"document.getElementById('pmidQuery').value='15489334';\">15489334</a>, <a style=\"cursor:pointer;text-decoration: underline;\" onclick=\"document.getElementById('pmidQuery').value='18651794';\">18651794</a>)</SPAN></P>
 	<center><table><tr><td>
 	<form id=\"queryForm\"><input name=\"pmidQuery\" id=\"pmidQuery\" type=\"text\" size=\"75\"/></td></tr>
-	<tr><td align = \"center\"><button type=\"submit\" id=\"citedinQuery\">Cited In...</button></form></center></td></tr></table>";
+	<tr><td align = \"center\"><button type=\"submit\" id=\"citedinQuery\">Cited In...</button></form></td></tr></table></center>";
 
 print "<script type=\"text/javascript\">\n
 	$(document).ajaxStop($.unblockUI);
