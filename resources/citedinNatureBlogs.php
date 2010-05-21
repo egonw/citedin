@@ -12,6 +12,7 @@ class NatureBlogsResource implements Resource {
 
 	public function getData($pmid) {
 		$doi = Pmid2Doi::getDoiFromPmid($pmid);
+		if ($doi !=""){
 		$json = file_get_contents("http://blogs.nature.com/posts.json?doi=$doi");
 		$num_rows = count(json_decode($json));
 
@@ -19,7 +20,7 @@ class NatureBlogsResource implements Resource {
 		$data->setCiteCount($num_rows)
 		     ->setResourceName($this->getResourceName())
 		     ->setDetailsLink("http://blogs.nature.com/posts?doi=$doi"); 
-	     
+     }
 		return $data;
 	}
 }
