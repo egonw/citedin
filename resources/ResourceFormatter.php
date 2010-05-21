@@ -12,7 +12,7 @@ class ResourceFormatter {
 		
 		$name = $data->getResourceName();
 		if($data->getInfoLink()) {
-			$name = "<a href='{$data->getInfoLink()}'>$name</a>";
+			$name = "<a href=\"".$data->getInfoLink()."\">$name</a>";
 		}
 		
 		$content = '';

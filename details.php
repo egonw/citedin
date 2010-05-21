@@ -32,7 +32,7 @@ $('#the_table').dataTable({
 </script> 
 </head> 
 <body>
-<div style="width:500px;margin:auto;"> 
+<div style="width:750px;margin:auto;"> 
 <table id="the_table"> 
 <thead>
 <tr>
