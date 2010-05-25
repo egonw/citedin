@@ -5,7 +5,7 @@ require_once("ResourceRegistry.php");
 class YtpdbResource implements Resource {
 	function getResourceName() { return "YTPdb: The Yeast Transport Protein database"; }
 	function getInfoLink() { return "http://homes.esat.kuleuven.be/~sbrohee/ytpdb/index.php/Main_Page"; }
-	function getResourceType() { return "Database"; }
+	function getResourceType() { return "Wiki"; }
 	function getResourceDescription() { return "The Yeast Transport Protein database (YTPdb) gives access to manual annotations on 287 yeast proteins classified as established or predicted membrane transporters."; }
 	function getResourceFilename() { return basename(__FILE__); }
 

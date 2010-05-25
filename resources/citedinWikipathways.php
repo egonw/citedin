@@ -4,7 +4,7 @@ require_once("ResourceRegistry.php");
 class WikipathwaysResource implements Resource {
 	function getResourceName() { return "WikiPathways"; }
 	function getInfoLink() { return "http://www.wikipathways.org"; }
-	function getResourceType() { return "API"; }
+	function getResourceType() { return "Wiki"; }
 	function getResourceDescription() { return "In the new tradition of Wikipedia, WikiPathways is an open, public platform dedicated to the curation of biological pathways by and for the scientific community."; }
 	function getResourceFilename() { return basename(__FILE__); }
 

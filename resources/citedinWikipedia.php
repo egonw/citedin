@@ -4,7 +4,7 @@ require_once("ResourceRegistry.php");
 class WikipediaResource implements Resource {
 	function getResourceName() { return "Wikipedia"; }
 	function getInfoLink() { return "http://en.wikipedia.org"; }
-	function getResourceType() { return "API"; }
+	function getResourceType() { return "Wiki"; }
 	function getResourceDescription() { return "the free encyclopedia that anyone can edit."; }
 	function getResourceFilename() { return basename(__FILE__); }
 

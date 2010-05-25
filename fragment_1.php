@@ -53,12 +53,14 @@ print "Through this website you can track various resources citing a PubMed Iden
 	<center><table><tr><td>
 	<form id=\"queryForm\"><input name=\"pmidQuery\" id=\"pmidQuery\" type=\"text\" size=\"75\"/></td></tr>
 	<tr><td align = \"center\"><button type=\"submit\" id=\"citedinQuery\">Cited In...</button></form></td></tr></table></center>";
-
+print "<div id=\"startexplain\"><p />
+        Citedin.org is still under major development. This might cause unexpected behaviour. Comments are welcome and can be send to andra.waagmeester at bigcat.unimaas.nl</div>";
 print "<script type=\"text/javascript\">\n
 	$(document).ajaxStop($.unblockUI);
 $(document).ready(function(event){\n
 		$(\"#queryForm\").submit(function(event){\n
-        if (event.preventDefault) { event.preventDefault(); } else { event.returnValue = false; }		
+        if (event.preventDefault) { event.preventDefault(); } else { event.returnValue = false; }	
+                $(\"#startexplain\").empty();	
 		var query = $(\"input#pmidQuery\").val().replace(/\s/g, \"+\");\n
         var queryoption = $(\"select#queryoptions\").val();\n
   		var patt1=new RegExp(\"^[0-9]+$\");
