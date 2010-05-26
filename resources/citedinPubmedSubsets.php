@@ -12,16 +12,20 @@ class PubmedSubResource implements Resource {
 	public function getData($pmid) {
 		$subsetArray = array("cam", "AIDS", "bioethics", "cancer", "history", "space", "systematic", "tox");
 		$count=0;
+		$subsets=array();
 		foreach ($subsetArray as $subset){
 			$url = "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=".$pmid."[uid](".$subset."[sb])&email=andra.waagmeester@bigcat.unimaas.nl";
 			$doc= simplexml_load_file($url);
 			$count+=$doc->Count;
+			if ($doc->Count >0){
+				array_push($subsets, $subset."[sb]")
+			}
 		}
 		$data = new ResourceData();
 		$data->setResourceName($this->getResourceName())
 			->setCiteCount($count)
 			->setInfoLink($this->getInfoLink())
-			->setDetailsLink("");
+			->setDetailsLink("http://www.ncbi.nlm.nih.gov/sites/entrez?db=pubmed&term=20106945[uid](".join(" OR ",$subsets).")&email=andra.waagmeester%40bigcat.unimaas.nl");
 			return $data;
 	}
 }
