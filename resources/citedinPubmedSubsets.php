@@ -22,7 +22,7 @@ class PubmedSubResource implements Resource {
 			}
 		}
 		$data = new ResourceData();
-		$urldetails="http://www.ncbi.nlm.nih.gov/sites/entrez?db=pubmed&term=20106945[uid]%20AND".join("%20OR%20",$subsets)."&email=andra.waagmeester%40bigcat.unimaas.nl";
+		$urldetails="http://www.ncbi.nlm.nih.gov/sites/entrez?db=pubmed&term=20106945[uid]%20AND%20(".join("%20OR%20",$subsets).")&email=andra.waagmeester%40bigcat.unimaas.nl";
 		$data->setResourceName($this->getResourceName())
 			->setCiteCount($count)
 			->setInfoLink($this->getInfoLink())
