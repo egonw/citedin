@@ -18,7 +18,7 @@ class PubmedSubResource implements Resource {
 			$doc= simplexml_load_file($url);
 			$count+=$doc->Count;
 			if ($doc->Count >0){
-				array_push($subsets, $subset."[sb]")
+				array_push($subsets, $subset."[sb]");
 			}
 		}
 		$data = new ResourceData();
