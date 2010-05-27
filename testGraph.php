@@ -15,18 +15,20 @@ print "</tr></thead><tbody><tr><th scope=\"row\"></th>";
 print "<tr><th scope=\"row\">$pmid</th>";
 $datapoints = array();
 $datanames = array();
+$max=0;
 foreach ($citedin_resources as $resource) {
 	$resourceObject = ResourceRegistry::get($resource);
 	$data = $resourceObject->getData($pmid);
 	if (($data->getCiteCount()>0) AND (is_int($data->getCiteCount()))) {
 	 array_push($datapoints, $data->getCiteCount());
-	 array_push($datanames, $resource);
+	if ($data->getCiteCount() > $max) $max = $data->getCiteCount();
+	 array_push($datanames, $resource." (".$data->getCiteCount().")");
 	}
      print "<td>".$data->getCiteCount()."</td>";    	
 }
 
 print "</tr></table>";
-$urlimage = "http://chart.apis.google.com/chart?cht=p&chs=512x214&chtt=Citation+distribution&chd=t:".implode(",", $datapoints)."&chl=".implode("|",$datanames);
+$urlimage = "http://chart.apis.google.com/chart?cht=p&chs=512x214&chds=0,$max&chtt=Citation+distribution&chd=t:".implode(",", $datapoints)."&chl=".implode("|",$datanames);
 print "<img src = \"$urlimage\">";
 print $urlimage;
 ?>
