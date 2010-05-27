@@ -50,10 +50,11 @@ print "Through this website you can track various resources citing a PubMed Iden
 	<a style=\"cursor:pointer;text-decoration: underline;\" onclick=\"document.getElementById('pmidQuery').value='Waagmeester';document.getElementById('queryoptions').value='Pubmed Query';\">Waagmeester</a>, 
 	<a style=\"cursor:pointer;text-decoration: underline;\" onclick=\"document.getElementById('pmidQuery').value='Kelder';\">Kelder</a>, <a style=\"cursor:pointer;text-decoration: underline;\" onclick=\"document.getElementById('pmidQuery').value='Evelo';\">Evelo</a>, or <a style=\"cursor:pointer;text-decoration: underline;\" onclick=\"document.getElementById('pmidQuery').value='WikiPathways';\">WikiPathways</a>) or <br>
 	Pubmed identifier: (<a style=\"cursor:pointer;text-decoration: underline;\" onclick=\"document.getElementById('pmidQuery').value='15489334';\">15489334</a>, <a style=\"cursor:pointer;text-decoration: underline;\" onclick=\"document.getElementById('pmidQuery').value='18651794';\">18651794</a>)</SPAN></P>
-	<center><table><tr><td>
+	<center><img src = \"http://chart.apis.google.com/chart?cht=qr&chs=250x100&chl=http://www.citedin.org\"><br><table><tr><td>
 	<form id=\"queryForm\"><input name=\"pmidQuery\" id=\"pmidQuery\" type=\"text\" size=\"75\"/></td></tr>
 	<tr><td align = \"center\"><button type=\"submit\" id=\"citedinQuery\">Cited In...</button></form></td></tr></table></center>";
 print "<div id=\"startexplain\"><p />
+
         Citedin.org is still under major development. This might cause unexpected behaviour. Comments are welcome and can be send to andra.waagmeester at bigcat.unimaas.nl</div>";
 print "<script type=\"text/javascript\">\n
 	$(document).ajaxStop($.unblockUI);
