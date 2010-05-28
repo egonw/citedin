@@ -51,12 +51,13 @@
 				<li>
 					<a href="#fragment-3"><span>Suggest resources</span></a>
 				</li>
-				<li>
-					<a href="#fragment-4"><span>About citedin</span></a>
-				</li>
+
 				 <li>
-				    <a href="#fragment-5"><span>API</span></a>
+				    <a href="#fragment-4"><span>API</span></a>
 				 </li>
+					<li>
+						<a href="#fragment-5"><span>About citedin</span></a>
+					</li>
 			</ul>
 			<div id="fragment-1">
                 <?php include("fragment_1.php"); ?>
@@ -73,12 +74,13 @@
 					<li><b>Complete databases dumps.</b> Most of the resources in citedin.org are obtained through parsing online available database dumps.</li>
 					<li><b>Supplementary data to published papers</b>. Some peer reviewed journal publication contain, next to the genereal references, appendices with (large) sets of pubmed identifiers. These citations, which are available as supplementary data are usually not considered as part of the papers bibliography. </li>
 			</div>
-			<div id="fragment-4">
-				<?php include("about_citedin.html"); ?>
-			</div>
-			    <div id="fragment-5">
+
+			    <div id="fragment-4">
                         <?php include("api_citedin.html"); ?>
                 </div>
+					<div id="fragment-5">
+						<?php include("about_citedin.html"); ?>
+					</div>
             
 		</div>
 		<script type="text/javascript">
