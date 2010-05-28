@@ -1,15 +1,9 @@
-<html> 
-<head> 
-</head>
-<body>
+
 <?php
 require_once("resources/ResourceRegistry.php");
 ResourceRegistry::init();
 $citedin_resources = ResourceRegistry::listResources();
-print "<table><thead><tr><td></td>";
-foreach ($citedin_resources as $resource){
-	print "<th scope=\"col\">$resource</th>";
-}
+
 $pmid = "15489334";
 $datapoints = array();
 $datanames = array();
