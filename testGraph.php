@@ -19,7 +19,6 @@ $max=0;
 foreach ($citedin_resources as $resource) {
 	$resourceObject = ResourceRegistry::get($resource);
 	if ($resourceObject->getResourceType() == "Database"){
-		print "<li>".$resourceObject->getResourceType();
 	$data = $resourceObject->getData($pmid);
 	if (($data->getCiteCount()>0) AND (is_int($data->getCiteCount()))) {
 	 array_push($datapoints, $data->getCiteCount());
