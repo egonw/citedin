@@ -4,7 +4,7 @@ require_once("resources/ResourceRegistry.php");
 ResourceRegistry::init();
 $citedin_resources = ResourceRegistry::listResources();
 
-$pmid = "15489334";
+$pmid = $_GET["pmid"];
 $datapoints = array();
 $datanames = array();
 $max=0;
