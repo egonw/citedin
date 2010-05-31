@@ -60,6 +60,7 @@ print "<script type=\"text/javascript\">\n
 	$(document).ajaxStop($.unblockUI);
 $(document).ready(function(event){\n
 		$(\"#queryForm\").submit(function(event){\n
+        var total =0;
         if (event.preventDefault) { event.preventDefault(); } else { event.returnValue = false; }	
                 $(\"#startexplain\").empty();	
 		var query = $(\"input#pmidQuery\").val().replace(/\s/g, \"+\");\n
@@ -85,7 +86,7 @@ $(document).ready(function(event){\n
 
 					
 					print "$(\"$.numberInSources\").each( function(){
-						var total +=parseInt($(this).text());
+					   total +=parseInt($(this).text());
 					});\n";
 					print "$(\"#aggregatedResults\").empty();\n$(\"#aggregatedResults\").append(total);\n";
 			}
