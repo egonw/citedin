@@ -87,7 +87,7 @@ $(document).ready(function(event){\n
 					print "$(\"#".basename($fileName, ".php")."\").load(\"$url"."resources/getHTML.php?pmid=\"+query+\"&resource=$resource&script=$fileName\", CitedIn.afterResourceLoad);\n;";
 
 					
-					print "$(\".numberInSources\").each( function(){
+					print "$(\".numberCited\").each( function(){
 					   total +=parseInt($(this).text());
 					   alert(total);
 					});\n";

@@ -22,7 +22,7 @@ class ResourceFormatter {
 			$content = "<div class='error'>$error</div>";
 		} else {
 			$content = "
-		<div class=\"numberInSources $numberClass\">".$data->getCiteCount()."</div>";
+		<div class=\"$numberClass\">".$data->getCiteCount()."</div>";
 		if ($data->getCiteCount()>0){
 		      $content .= "<div class=\"details\" id=\"details\"><a href=".$data->getDetailsLink()." rel=\"#overlay\"><button type=\"button\">Details</a></button></div>";
 		}
