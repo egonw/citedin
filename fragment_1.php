@@ -53,7 +53,7 @@ print "Through this website you can track various resources citing a PubMed Iden
 	<center><img src = \"http://chart.apis.google.com/chart?cht=qr&chs=250x100&chl=http://www.citedin.org\"><br><table><tr><td>
 	<form id=\"queryForm\"><input name=\"pmidQuery\" id=\"pmidQuery\" type=\"text\" size=\"75\"/></td></tr>
 	<tr><td align = \"center\"><button type=\"submit\" id=\"citedinQuery\">Cited In...</button></form></td></tr></table></center>";
-print "<div id=\"startexplain\"><p />
+print "<div id=\"startexplain\"><p>
 
         Citedin.org is still under major development. This might cause unexpected behaviour. Comments are welcome and can be send to andra.waagmeester at bigcat.unimaas.nl</div>";
 print "<script type=\"text/javascript\">\n
@@ -82,7 +82,7 @@ $(document).ready(function(event){\n
 					$resourceName = $resourceInfo->getResourceName();
 					$fileName = basename($resourceInfo->getResourceFilename());	
 					print "$(\"#".basename($fileName, ".php")."\").load(\"$url"."resources/getHTML.php?pmid=\"+query+\"&resource=$resource&script=$fileName\", CitedIn.afterResourceLoad);\n;";
-					$urlimage = "http://chart.apis.google.com/chart?cht=p&chs=512x214$range&chtt=Citation+distribution&chd=t:".trim(implode(",", $datapoints))."&chl=".implode("|",$datanames);
+
 					
 					print "$(\"$.numberInSources\").each( function(){
 						total +=parseInt($(this).text());
