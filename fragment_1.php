@@ -64,7 +64,6 @@ $(document).ready(function(event){\n
         if (event.preventDefault) { event.preventDefault(); } else { event.returnValue = false; }	
                 $(\"#startexplain\").empty();	
 		var query = $(\"input#pmidQuery\").val().replace(/\s/g, \"+\");\n
-        var queryoption = $(\"select#queryoptions\").val();\n
      
   		var patt1=new RegExp(\"^[0-9]+$\");
  		if (!(patt1.test(query)))\n 
@@ -84,10 +83,10 @@ $(document).ready(function(event){\n
 					$resourceInfo = ResourceRegistry::get($resource);
 					$resourceName = $resourceInfo->getResourceName();
 					$fileName = basename($resourceInfo->getResourceFilename());	
-					print "$(\"#".basename($fileName, ".php")."\").load(\"$url"."resources/getHTML.php?pmid=\"+query+\"&resource=$resource&script=$fileName\", CitedIn.afterResourceLoad);\n;";
+					print "$(\"#".basename($fileName, ".php")."\").load(\"$url"."resources/getHTML.php?pmid=\"+query+\"&resource=$resource&script=$fileName\", CitedIn.afterResourceLoad);\n";
 
 					
-					print "$(\".numberCited\").each( function(){
+					print "$(\".numberCited\").each( function(total){
 					   total +=parseInt($(this).text());
 					   alert(total);
 					});\n";
