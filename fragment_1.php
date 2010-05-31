@@ -86,10 +86,11 @@ $(document).ready(function(event){\n
 					print "$(\"#".basename($fileName, ".php")."\").load(\"$url"."resources/getHTML.php?pmid=\"+query+\"&resource=$resource&script=$fileName\", CitedIn.afterResourceLoad);\n";
 
 					
-					print "$(\".numberCited\").each( function(total){
+					print "$(\".numberCited\").each(function(){
 					   total +=parseInt($(this).text());
 					   alert(total);
-					});\n";
+					});alert(total);\n";
+					
 					print "$(\"#aggregatedResults\").empty();\n$(\"#aggregatedResults\").append(total);\n";
 			}
 	print "	}
