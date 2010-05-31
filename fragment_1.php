@@ -87,7 +87,7 @@ $(document).ready(function(event){\n
 					print "$(\"$.numberInSources\").each( function(){
 						total +=parseInt($(this).text());
 					});\n";
-					print "$(\"#aggregatedResults\").empty();\n$(\"#aggregatedResults\").append(total););\n";
+					print "$(\"#aggregatedResults\").empty();\n$(\"#aggregatedResults\").append(total);\n";
 			}
 	print "	}
 	}			
