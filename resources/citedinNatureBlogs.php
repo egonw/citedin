@@ -5,7 +5,7 @@ require_once("Pmid2Doi.php");
 
 class NatureBlogsResource implements Resource {
 	function getResourceName() { return "Nature.com Blogs"; }
-	function getInfoLink() { return "http://blogs.nature.com/"; }
+	function getInfoLink() { exit("HERE"); return "http://blogs.nature.com/"; }
 	function getResourceType() { return "API"; }
 	function getResourceDescription() { return "Blogs is Nature Publishing Group’s community-run blog tracking and indexing service. As well as being a portal to the blogs written by our editors and journalists and members of Nature Network it aggregates posts from hundreds of third party science blogs."; }
 	function getResourceFilename() { return basename(__FILE__); }

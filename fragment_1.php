@@ -82,12 +82,19 @@ $(document).ready(function(event){\n
 					$resourceName = $resourceInfo->getResourceName();
 					$fileName = basename($resourceInfo->getResourceFilename());	
 					print "$(\"#".basename($fileName, ".php")."\").load(\"$url"."resources/getHTML.php?pmid=\"+query+\"&resource=$resource&script=$fileName\", CitedIn.afterResourceLoad);\n;";
+					$urlimage = "http://chart.apis.google.com/chart?cht=p&chs=512x214$range&chtt=Citation+distribution&chd=t:".trim(implode(",", $datapoints))."&chl=".implode("|",$datanames);
+					
+					print "$(\"$.numberInSources\").each( function(){
+						total +=parseInt($(this).text());
+					})";
+					print "$(\"#aggregatedResults\").empty();$(\"#aggregatedResults\").append(total)\")";
 			}
 	print "	}
 	}			
 	);
 });\n
 </script>\n";
+    print "<div id=\"aggregatedResults\"></div>\n";
 	print "<div id=\"pubmedresultaten\"></div>\n";
 	print "<DIV id=\"pubmedDetails\">\n</DIV>\n";
 	print "<div id=\"resultaten\">\n";
