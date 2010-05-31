@@ -60,11 +60,12 @@ print "<script type=\"text/javascript\">\n
 	$(document).ajaxStop($.unblockUI);
 $(document).ready(function(event){\n
 		$(\"#queryForm\").submit(function(event){\n
-        var total =0;
+
         if (event.preventDefault) { event.preventDefault(); } else { event.returnValue = false; }	
                 $(\"#startexplain\").empty();	
 		var query = $(\"input#pmidQuery\").val().replace(/\s/g, \"+\");\n
         var queryoption = $(\"select#queryoptions\").val();\n
+     
   		var patt1=new RegExp(\"^[0-9]+$\");
  		if (!(patt1.test(query)))\n 
 			{\n
@@ -75,6 +76,7 @@ $(document).ready(function(event){\n
 			}\n
 		if (patt1.test(query))\n
 			{
+				var total = 0;
 				$(\"#pubmedresultaten\").empty();
 				$(\"#pubmedDetails\").load(\"resources/getPubmed.php?pmid=\"+query);\n";
 				foreach ($citedin_resources as $resource){
