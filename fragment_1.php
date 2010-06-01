@@ -62,7 +62,7 @@ print "<script type=\"text/javascript\">\n
 		var total = 0;
 		$(\"numberCited\").each(function(){
 	           total +=parseInt($(this).text());
-	});\n";
+	});\n
 		$(\".aggregatedResults\").empty();
 		
 	  $(\".aggregatedResults\").append(total);
