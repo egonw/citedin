@@ -58,6 +58,15 @@ print "<div id=\"startexplain\"><p>
         Citedin.org is still under major development. This might cause unexpected behaviour. Comments are welcome and can be send to andra.waagmeester at bigcat.unimaas.nl</div>";
 print "<script type=\"text/javascript\">\n
 	$(document).ajaxStop($.unblockUI);
+	   $(document).ajaxSuccess(function() {
+		var total = 0;
+		$(\"numberCited\").each(function(){
+	           total +=parseInt($(this).text());
+	});\n";
+		$(\".aggregatedResults\").empty();
+		
+	  $(\".aggregatedResults\").append(total);
+	});\n
 $(document).ready(function(event){\n
 		$(\"#queryForm\").submit(function(event){\n
 
@@ -75,7 +84,6 @@ $(document).ready(function(event){\n
 			}\n
 		if (patt1.test(query))\n
 			{
-			    var total = 0;\n	
 				$(\"#pubmedresultaten\").empty();
 				$(\"#pubmedDetails\").load(\"resources/getPubmed.php?pmid=\"+query);\n";
 				foreach ($citedin_resources as $resource){
@@ -85,19 +93,21 @@ $(document).ready(function(event){\n
 					print "$(\"#".basename($fileName, ".php")."\").load(\"$url"."resources/getHTML.php?pmid=\"+query+\"&resource=$resource&script=$fileName\", CitedIn.afterResourceLoad);\n";
 
 					
-					print "total = 0;\n
+					/*print "total = 0;\n
 					       $(\"citedinUniprot\").each(function(){
 					           total +=parseInt($(this).text());
 					});\n";
 					
-					print "$(\"#aggregatedResults\").empty();\n$(\"#aggregatedResults\").append(total);\n";
+					print "$(\"#aggregatedResults\").empty();\n$(\"#aggregatedResults\").append(total);\n"; */
 			}
 	print "	}
 	}			
 	);
 });\n
 </script>\n";
-    print "<div id=\"aggregatedResults\"></div>\n";
+
+    print "<div class=\"aggregatedResults\">0</div>\n";
+
 	print "<div id=\"pubmedresultaten\"></div>\n";
 	print "<DIV id=\"pubmedDetails\">\n</DIV>\n";
 	print "<div id=\"resultaten\">\n";
