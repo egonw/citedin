@@ -75,7 +75,7 @@ $(document).ready(function(event){\n
 			}\n
 		if (patt1.test(query))\n
 			{
-				
+			    var total = 0;\n	
 				$(\"#pubmedresultaten\").empty();
 				$(\"#pubmedDetails\").load(\"resources/getPubmed.php?pmid=\"+query);\n";
 				foreach ($citedin_resources as $resource){
@@ -85,8 +85,9 @@ $(document).ready(function(event){\n
 					print "$(\"#".basename($fileName, ".php")."\").load(\"$url"."resources/getHTML.php?pmid=\"+query+\"&resource=$resource&script=$fileName\", CitedIn.afterResourceLoad);\n";
 
 					
-					print "var total = 0;\n$(\"citedinUniprot\").each(function(){
-					   total +=parseInt($(this).text());
+					print "total = 0;\n
+					       $(\"citedinUniprot\").each(function(){
+					           total +=parseInt($(this).text());
 					});\n";
 					
 					print "$(\"#aggregatedResults\").empty();\n$(\"#aggregatedResults\").append(total);\n";
