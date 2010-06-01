@@ -31,6 +31,25 @@ if (isset($_GET["pmid"])){
 						$('#ajaxBusy').show(); 
 					}).ajaxStop(function(){ 
 						$('#ajaxBusy').hide();
+						var total=0;
+						var noResources = 0;
+						var datapoints = new Array();
+						var datanames = new Array();
+						var max = 0;
+						var range = \"\";
+						$(\".numberCited\").each(function(){
+					        total +=parseInt($(this).text());
+					    	if (parseInt($(this).text()) > max) max = parseInt($(this).text());
+					        noResources++;
+					        datapoints.push($(this).text());
+					   		datanames.push(escape($(this).siblings(\"#sourceName\").text()+\"(\"+$(this).text()+\")\"));
+						});\n
+						$(\".aggregatedResults\").empty();
+						$(\".aggregatedResults\").append(\"OPD-index: \"+total);
+						$(\".aggregatedResults\").append(\"<br>Resources citing: \"+noResources);
+						if (max >100) range = \"&chds=0,max\";
+						urlimage = \"http://chart.apis.google.com/chart?cht=p&chs=512x214\"+range+\"&chtt=Citation+distribution&chd=t:\"+datapoints.join(\",\")+\"&chl=\"+datanames.join(\"|\");
+						$(\".aggregatedResults\").append(\"<br><img src=\"+urlimage+\">\");
 					});
 						
 					var pmid = $(\"input#pmid\").val();\n"; 
@@ -47,10 +66,10 @@ if (isset($_GET["pmid"])){
 
 print "Through this website you can track various resources citing a PubMed Identifier. To find a pubmed identifier use this search form.<br>
 <P style=\"TEXT-ALIGN: right\"><SPAN style=\"FONT-SIZE: x-small\">Examples: Pubmed query: (e.g. 
-	<a style=\"cursor:pointer;text-decoration: underline;\" onclick=\"document.getElementById('pmidQuery').value='Waagmeester';document.getElementById('queryoptions').value='Pubmed Query';\">Waagmeester</a>, 
+	<a style=\"cursor:pointer;text-decoration: underline;\" onclick=\"document.getElementById('pmidQuery').value='Waagmeester';\">Waagmeester</a>, 
 	<a style=\"cursor:pointer;text-decoration: underline;\" onclick=\"document.getElementById('pmidQuery').value='Kelder';\">Kelder</a>, <a style=\"cursor:pointer;text-decoration: underline;\" onclick=\"document.getElementById('pmidQuery').value='Evelo';\">Evelo</a>, or <a style=\"cursor:pointer;text-decoration: underline;\" onclick=\"document.getElementById('pmidQuery').value='WikiPathways';\">WikiPathways</a>) or <br>
 	Pubmed identifier: (<a style=\"cursor:pointer;text-decoration: underline;\" onclick=\"document.getElementById('pmidQuery').value='15489334';\">15489334</a>, <a style=\"cursor:pointer;text-decoration: underline;\" onclick=\"document.getElementById('pmidQuery').value='18651794';\">18651794</a>)</SPAN></P>
-	<center><img src = \"http://chart.apis.google.com/chart?cht=qr&chs=250x100&chl=http://www.citedin.org\"><br><table><tr><td>
+	<center><table><tr><td>
 	<form id=\"queryForm\"><input name=\"pmidQuery\" id=\"pmidQuery\" type=\"text\" size=\"75\"/></td></tr>
 	<tr><td align = \"center\"><button type=\"submit\" id=\"citedinQuery\">Cited In...</button></form></td></tr></table></center>";
 print "<div id=\"startexplain\"><p>
@@ -92,14 +111,7 @@ $(document).ready(function(event){\n
 					$fileName = basename($resourceInfo->getResourceFilename());	
 					print "$(\"#".basename($fileName, ".php")."\").load(\"$url"."resources/getHTML.php?pmid=\"+query+\"&resource=$resource&script=$fileName\", CitedIn.afterResourceLoad);\n";
 
-					
-					/*print "total = 0;\n
-					       $(\"citedinUniprot\").each(function(){
-					           total +=parseInt($(this).text());
-					});\n";
-					
-					print "$(\"#aggregatedResults\").empty();\n$(\"#aggregatedResults\").append(total);\n"; */
-			}
+				}
 	print "	}
 	}			
 	);
