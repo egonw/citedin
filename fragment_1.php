@@ -79,14 +79,13 @@ $(document).ready(function(event){\n
 				$(\"#pubmedresultaten\").empty();
 				$(\"#pubmedDetails\").load(\"resources/getPubmed.php?pmid=\"+query);\n";
 				foreach ($citedin_resources as $resource){
-					var total = 0;
 					$resourceInfo = ResourceRegistry::get($resource);
 					$resourceName = $resourceInfo->getResourceName();
 					$fileName = basename($resourceInfo->getResourceFilename());	
 					print "$(\"#".basename($fileName, ".php")."\").load(\"$url"."resources/getHTML.php?pmid=\"+query+\"&resource=$resource&script=$fileName\", CitedIn.afterResourceLoad);\n";
 
 					
-					print "$(\"citedinUniprot\").each(function(){
+					print "var total = 0;\n$(\"citedinUniprot\").each(function(){
 					   total +=parseInt($(this).text());
 					});\n";
 					
