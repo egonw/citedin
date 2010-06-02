@@ -118,7 +118,7 @@ $(document).ready(function(event){\n
 });\n
 </script>\n";
 
-    print "<div class=\"aggregatedResults\">0</div>\n";
+    print "<div class=\"aggregatedResults\"></div>\n";
 
 	print "<div id=\"pubmedresultaten\"></div>\n";
 	print "<DIV id=\"pubmedDetails\">\n</DIV>\n";
