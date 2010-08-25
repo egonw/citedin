@@ -1,3 +1,8 @@
+p { font-family: Arial, Courier, 'Franklin Gothic Book', sans-serif }
+
+h2,h3 {font-family: Tahoma, Geneva, sans-serif;
+	font-variant: small-caps}
+
 .contentf {
 	background: #ddd;
 }

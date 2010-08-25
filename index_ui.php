@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+	<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
     <head>
         <title>
@@ -55,8 +55,10 @@
                 <li>
                     <a href="#fragment-4"><span>Webservice</span></a>
                 </li>
+				<li>
+					<a href="#fragment-5"><span>Resources using citedin</span></a>
                 <li>
-                    <a href="#fragment-5"><span>About citedin</span></a>
+                    <a href="#fragment-6"><span>About citedin</span></a>
                 </li>
             </ul>
             <div id="fragment-1">
@@ -79,7 +81,10 @@
             <div id="fragment-4">
                 <?php include("api_citedin.html"); ?>
             </div>
-            <div id="fragment-5">
+				<div id="fragment-5">
+	                <?php include("citedinUsers.php"); ?>
+	            </div>
+            <div id="fragment-6">
                 <?php include("about_citedin.html"); ?>
             </div>
 

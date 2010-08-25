@@ -16,7 +16,7 @@ class BredeWikiResource implements Resource {
 		$contents = file_get_contents("http://neuro.imm.dtu.dk/w/api.php?format=json&action=query&list=search&srwhat=text&srsearch=$pmid");
               $json = json_decode($contents, true);	
 			
-			$data->setCiteCount(count($json->query->search));
+			$data->setCiteCount(count($json["query"]["search"]));
 			$data->setDetailsLink("http://neuro.imm.dtu.dk/wiki/Special:Search?search=$pmid");
 
 		return $data;

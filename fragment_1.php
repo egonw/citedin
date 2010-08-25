@@ -1,5 +1,7 @@
 <?php
-print "Citedin finds where you are cited! Some of your papers may have been mentioned where you didn't expect that to happen: in blogs, databases, Wikipedia. Citedin finds them all.";
+print "<p>Citedin finds where you are cited! Some of your papers may have been mentioned where you didn't expect that to happen: in blogs, databases, Wikipedia. Citedin finds them all.";
+
+
 require_once("resources/ResourceRegistry.php");
 set_time_limit(0);
 ResourceRegistry::init();
@@ -83,8 +85,9 @@ print "<script type=\"text/javascript\">\n
 	           total +=parseInt($(this).text());
 	});\n
 		$(\".aggregatedResults\").empty();
-		
-	  $(\".aggregatedResults\").append(total);
+	  if (total > 0){
+		$(\".aggregatedResults\").append(total);
+	  }
 	});\n
 $(document).ready(function(event){\n
 		$(\"#queryForm\").submit(function(event){\n
