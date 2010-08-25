@@ -10,7 +10,7 @@ class ResourceFormatter {
 			$numberClass = "numberCited";
 		}
 		
-		$filename = $data->getResourceFilename();
+		
 		$name = $data->getResourceName();
 		if($data->getInfoLink()) {
 			$name = "<a href=\"".$data->getInfoLink()."\">$name</a>";
@@ -31,7 +31,7 @@ class ResourceFormatter {
 		
 		$html = <<<HTML
 	<div id="row">
-		$filename
+
 		<div id="sourceName">$name</div>
 		$content
 	</div>
