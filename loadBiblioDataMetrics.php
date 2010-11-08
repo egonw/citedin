@@ -24,7 +24,7 @@ if ($notInCache){
 	print "The requested InCiI score is not in our cache, which means that it either not yet calculated, or the last calculation is out-of-date. The requested score is now being calculated in a federated search procedure, which means that each resource is checked for the latest version. This could lead to long respons times, we are working on an optimization to increase response times.";
 foreach ($pmids as $pmid){
 	$mysqldate = date ("Y-m-d");
-	$sqlUpdate = "INSERT INTO InCiIUpdate (pmid, UpdateDate) VALUES ($pmid, $mysqldate);"
+	$sqlUpdate = "INSERT INTO InCiIUpdate (pmid, UpdateDate) VALUES ($pmid, $mysqldate);";
 	mysql_query($sqlUpdate);
 	}	
 	
