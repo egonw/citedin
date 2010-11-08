@@ -21,10 +21,14 @@ foreach ($pmids as $pmid){
 }
 
 if ($notInCache){
-	print "The requested InCiI score is not in our cache, which means that it either not yet calculated, or the last calculation is out-of-date. The requested score is now being calculated in a federated search procedure, which means that each resource is checked for the latest version. This could lead to long respons times, we are working on an optimization to increase response times.";
+	print "The requested InCiI score is not in our cache, which means that it either not yet calculated, or the last calculation is out-of-date. You can initiate a InCiI score calculation by completing the following form. Calculating a InCiI-score requires a federated search procedure. Different online resource are consulted. To prevent overloading these resource, we actively dose the requests. If you like to calculate the InCiI-score, you can initiate a calculation by filling the following form. An email will be sent, once the InCiI score is updated. <hr>
+	<FORM action = \"UpdateIncii.php\" method =\"post\">
+	<input name=\"Email\" id=\"Email\" type=\"text\" size=\"75\"/>
+	<input type=\"submit\"></form>";
 foreach ($pmids as $pmid){
 	$sqlUpdate = "INSERT INTO InCiIUpdate (pmid, UpdateDate) VALUES ($pmid, CURDATE());";
 	mysql_query($sqlUpdate);
+	
 	}	
 	
 }
