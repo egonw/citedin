@@ -24,7 +24,7 @@ if ($notInCache){
 	print "The requested InCiI score is not in our cache, which means that it either not yet calculated, or the last calculation is out-of-date. You can initiate a InCiI score calculation by completing the following form. Calculating a InCiI-score requires a federated search procedure. Different online resource are consulted. To prevent overloading these resource, we actively dose the requests. If you like to calculate the InCiI-score, you can initiate a calculation by filling the following form. An email will be sent, once the InCiI score is updated. <hr>
 	<FORM action = \"UpdateIncii.php\" method =\"post\">
 	<input name=\"Email\" id=\"Email\" type=\"text\" size=\"75\"/>
-	<input type=\"hidden\" values=\"".$_GET["pmids"]."\">
+	<input name=\"pmids\" type=\"hidden\" values=\"".$_GET["pmids"]."\">
 	<input type=\"submit\"></form>";
 	
 	
