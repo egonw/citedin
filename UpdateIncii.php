@@ -21,11 +21,11 @@ foreach ($pmids as $pmid){
     foreach ($citedin_resources as $resource){
 		$resourceInfo = ResourceRegistry::get($resource);
 		$resourceName = $resourceInfo->getResourceName();
-		print $resourceName."<BR>";
+		print $resource."<BR>";
 		$resourceData = $resourceInfo->getData($pmid);
 		$resourceCount = $resourceData->getCiteCount();
 		if ($resourceCount > 0) {
-		$sqlResource = "INSERT INTO InCiIResources (IUId, Resource, freq) VALUES ($lastUpdateId, \"$resourceName\", \"$resourceCount\");";
+		$sqlResource = "INSERT INTO InCiIResources (IUId, Resource, freq) VALUES ($lastUpdateId, \"$resource\", \"$resourceCount\");";
 		print $sqlResource;
 		$result = mysql_query($sqlResource);
 		if (!$result) {
