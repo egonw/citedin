@@ -1,10 +1,11 @@
 
 <?
+setcookie("pmids",$_POST["pmids"]);
 include 'resources/connectdb.inc';
 
 
 $pmids = explode(",", $_POST["pmids"]);
-setcookie("pmids",$_POST["pmids"]);
+
 print "Your requested InCiI-scoure is currently being calculated. It will appear once it is calculated. The result can also be sent to you: 
 <FORM action = \"RequestMail.php\" method =\"post\">
 <input name=\"pmids\" type=\"hidden\" value=\"".$_POST["pmids"]."\">
