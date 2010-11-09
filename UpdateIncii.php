@@ -25,7 +25,7 @@ if (is_resource($process)) {
     // 1 => readable handle connected to child stdout
     // Any error output will be appended to /tmp/error-output.txt
 
-    fwrite($pipes[0], "RunInCiIUpdate.php?pmids=".$_POST["pmids"]);
+    fwrite($pipes[0], "RunInCiIUpdate.php");
     fclose($pipes[0]);
 
     echo stream_get_contents($pipes[1]);

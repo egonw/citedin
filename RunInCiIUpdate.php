@@ -5,7 +5,7 @@ require_once("resources/ResourceRegistry.php");
 set_time_limit(0);
 ResourceRegistry::init();
 $citedin_resources = ResourceRegistry::listResources();
-$pmids = explode(",", $_GET["pmids"]);
+$pmids = explode(",", $_ENV["pmids"]);
 
 foreach ($pmids as $pmid){
 	$sqlUpdate = "INSERT INTO InCiIUpdate (pmid, UpdateDate) VALUES ($pmid, CURDATE());";
