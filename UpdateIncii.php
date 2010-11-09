@@ -8,7 +8,7 @@ print "Your requested InCiI-scoure is currently being calculated. It will appear
 <FORM action = \"RequestMail.php\" method =\"post\">
 <input name=\"pmids\" type=\"hidden\" value=\"".$_POST["pmids"]."\">
 <input name=\"Email\" id=\"Email\" type=\"text\" size=\"75\"/><input type=\"submit\"></form><hr>";
-setcookie("pmids", $_POST["pmids"]);
+
 $descriptorspec = array(
    0 => array("pipe", "r"),  // stdin is a pipe that the child will read from
    1 => array("pipe", "w"),  // stdout is a pipe that the child will write to
