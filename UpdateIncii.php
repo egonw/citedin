@@ -1,6 +1,5 @@
 
 <?
-setcookie("pmids",$_POST["pmids"]);
 include 'resources/connectdb.inc';
 
 
@@ -11,7 +10,7 @@ print "Your requested InCiI-scoure is currently being calculated. It will appear
 <input name=\"pmids\" type=\"hidden\" value=\"".$_POST["pmids"]."\">
 <input name=\"Email\" id=\"Email\" type=\"text\" size=\"75\"/><input type=\"submit\"></form><hr>";
 
-exec("/usr/bin/php RunInCiIUpdate.php >/dev/null &");
+exec("/usr/bin/php RunInCiIUpdate.php ".$_POST["pmids"]." >/dev/null &");
 
 
 ?>
