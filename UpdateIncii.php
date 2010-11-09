@@ -19,8 +19,6 @@ $cwd = '/tmp';
 $env = array('pmids' => $_POST["pmids"]);
 $process = proc_open('php', $descriptorspec, $pipes, $cwd, $env);
 
-$procId = proc_open("php RunInCiIUpdate.php?pmids=".$_POST["pmids"],);
-
 if (is_resource($process)) {
     // $pipes now looks like this:
     // 0 => writeable handle connected to child stdin
