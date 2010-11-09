@@ -33,9 +33,9 @@ if (is_resource($process)) {
 
     // It is important that you close any pipes before calling
     // proc_close in order to avoid a deadlock
-    $return_value = proc_close($process);
+   // $return_value = proc_close($process);
 
-    echo "command returned $return_value\n";
+    //echo "command returned $return_value\n";
 }
 
 
