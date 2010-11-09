@@ -23,7 +23,7 @@ foreach ($pmids as $pmid){
 		$resourceName = $resourceInfo->getResourceName();
 		$resourceData = $resourceInfo->getData($pmid);
 		$resourceCount = $resourceData->getCiteCount();
-		$sqlResource = "INSERT INTO InCiIResource (IUId, Resource, freq) VALUES ($lastUpdateId, $resourceName, $resourceCount);";
+		$sqlResource = "INSERT INTO InCiIResource (IUId, Resource, freq) VALUES ($lastUpdateId, \"$resourceName\", $resourceCount);";
 		print $sqlResource;
 		mysql_query($sqlResource);
 	}
