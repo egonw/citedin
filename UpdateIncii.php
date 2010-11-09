@@ -28,6 +28,7 @@ foreach ($pmids as $pmid){
 		$result = mysql_query($sqlResource);
 		if (!$result) {
 		    die('Invalid query: ' . mysql_error());
+		}
 	}
 }
 ?>
