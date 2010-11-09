@@ -5,7 +5,7 @@ require_once("resources/ResourceRegistry.php");
 set_time_limit(0);
 ResourceRegistry::init();
 $citedin_resources = ResourceRegistry::listResources();
-$pmids = explode(",", $_COOKIE["pmids"]);
+$pmids = explode(",", $argv[1]);
 print $_COOKIE["pmids"];
 //$pmids = array("1234567", "7654321");
 foreach ($pmids as $pmid){
