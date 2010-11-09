@@ -23,12 +23,14 @@ foreach ($pmids as $pmid){
 		$resourceName = $resourceInfo->getResourceName();
 		$resourceData = $resourceInfo->getData($pmid);
 		$resourceCount = $resourceData->getCiteCount();
+		if ($resourceCount > 0) {
 		$sqlResource = "INSERT INTO InCiIResources (IUId, Resource, freq) VALUES ($lastUpdateId, \"$resourceName\", \"$resourceCount\");";
 		print $sqlResource;
 		$result = mysql_query($sqlResource);
 		if (!$result) {
 		    die('Invalid query: ' . mysql_error());
 		}
+	}
 	}
 }
 ?>
