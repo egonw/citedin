@@ -13,6 +13,7 @@ foreach ($pmids as $pmid){
 	$lastUpdateId = mysql_insert_id();
     foreach ($citedin_resources as $resource){
 		$resourceInfo = ResourceRegistry::get($resource);
+		print $resource;
 		$resourceName = $resourceInfo->getResourceName();
 		$resourceData = $resourceInfo->getData($pmid);
 		$resourceCount = $resourceData->getCiteCount();
