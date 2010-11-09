@@ -21,6 +21,7 @@ foreach ($pmids as $pmid){
     foreach ($citedin_resources as $resource){
 		$resourceInfo = ResourceRegistry::get($resource);
 		$resourceName = $resourceInfo->getResourceName();
+		print $resourceName."<BR>";
 		$resourceData = $resourceInfo->getData($pmid);
 		$resourceCount = $resourceData->getCiteCount();
 		if ($resourceCount > 0) {
