@@ -36,6 +36,7 @@ else {
 	$result = mysql_query($sqlProfile);
 	$profile = array();
 	while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+	    if (!(in_array($profile[$resource]))) $profile[$resource] = 0; 
 	    $profile[$resource] += $row["Resource"];
 	    $InCiIScore += $row["freq"];
 	      
