@@ -17,15 +17,16 @@ print $sql;
 $result = mysql_query($sql);
 $incache = mysql_num_rows($result);
 $notincache =  count($pmids) - $incache;
-$url = "http://chart.apis.google.com/chart?cht=p3&chs=250x100&chd=t:$incache,$notincache&chl=Cache|Not+in+cache";
-print $url;
-print "<IMG SRC=\"$url\">";
-if (mysql_num_rows($result)== 0){
-	   $notInCache = TRUE;
+
+if ($incache > $notincache){
+	   $notallInCache = TRUE;
     }
 
 
-if ($notInCache){
+if ($notallInCache){
+	$url = "http://chart.apis.google.com/chart?cht=p3&chs=320x100&chd=t:$incache,$notincache&chl=Cache|Not+in+cache";
+	print $url;
+	print "<IMG SRC=\"$url\">";
 	print "The requested InCiI score is not in our cache, which means that it either not yet calculated, or the last calculation is out-of-date. You can initiate a InCiI score calculation by completing the following form. Calculating a InCiI-score requires a federated search procedure. Different online resource are consulted. To prevent overloading these resource, we actively dose the requests. If you like to calculate the InCiI-score, you can initiate a calculation by filling the following form. An email will be sent, once the InCiI score is updated. <hr>
 	<FORM action = \"UpdateIncii.php\" method =\"post\">
 	<input name=\"pmids\" type=\"hidden\" value=\"".$_GET["pmids"]."\">
