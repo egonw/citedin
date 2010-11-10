@@ -31,7 +31,7 @@ if ($notInCache){
 	<FORM action = \"UpdateIncii.php\" method =\"post\">
 	<input name=\"pmids\" type=\"hidden\" value=\"".$_GET["pmids"]."\">
 	<input type=\"submit\" value=\"Start InCiI-score calculation\"></form>";
-	
+}	
 	
 		
 ?>
