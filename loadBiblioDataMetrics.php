@@ -12,7 +12,7 @@ The Internet Citation Index or InCiI is a vector containing the number of resour
 <?php
 include 'resources/connectdb.inc';
 $pmids = explode(",", $_GET["pmids"]);
-$result = mysql_query("SELECT * from InCiIUpdate where pmid IN (".$_GET["pmids"].");";
+$result = mysql_query("SELECT * from InCiIUpdate where pmid IN (".$_GET["pmids"].");");
 $incache = mysql_num_rows($result);
 $notincache =  count($pmids) - $incache;
 
