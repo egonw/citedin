@@ -43,8 +43,10 @@ else {
 	}
 }	
 print "InCiI Score: $InCiIScore <br>";
-print_r($profile);
-print_r($row);
+$keys=
+
+	$url = "http://chart.apis.google.com/chart?cht=p3&cht=Progress:+Pmids+in+cache&chs=320x100&chd=t:".implode(",",array_keys($profile))."&chl=".implode("|", array_values($profile));
+	print "<IMG SRC=\"$url\">";
 	
 		
 ?>
