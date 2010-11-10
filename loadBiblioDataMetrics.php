@@ -15,11 +15,7 @@ $pmids = explode(",", $_GET["pmids"]);
 $result = mysql_query("SELECT * from InCiIUpdate where pmid IN (".$_GET["pmids"].");");
 $incache = mysql_num_rows($result);
 $notincache =  count($pmids) - $incache;
-$url = "http://chart.apis.google.com/chart?
-  cht=p3&
-  chs=250x100&
-  chd=t:$incache,$notincache&
-  chl=Cache|Not+in+cache";
+$url = "http://chart.apis.google.com/chart?cht=p3&chs=250x100&chd=t:$incache,$notincache&chl=Cache|Not+in+cache";
 print $url;
 print "<IMG SRC=\"$url\">";
 if (mysql_num_rows($result)== 0){
