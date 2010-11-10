@@ -33,6 +33,6 @@ if ($notInCache){
 	<input type=\"submit\" value=\"Start InCiI-score calculation\"></form>";
 	
 	
-}		
+		
 ?>
 	
