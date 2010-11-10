@@ -45,9 +45,9 @@ else {
 print "InCiI Score: $InCiIScore <br>";
 
 
-	$url = "http://chart.apis.google.com/chart?cht=p3&chl=InCiI+Profile&chs=320x100&chd=t:".implode(",",array_values($profile))."&chl=".implode("|", array_keys($profile));
+	$url = "http://chart.apis.google.com/chart?cht=p3&chtt=InCiI+Profile&chs=320x100&chd=t:".implode(",",array_values($profile))."&chl=".implode("|", array_keys($profile));
 	print "<IMG SRC=\"$url\">";
-	print $url;
+
 	
 		
 ?>
