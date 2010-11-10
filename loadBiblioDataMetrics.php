@@ -44,6 +44,7 @@ else {
 }	
 print "InCiI Score: $InCiIScore <br>";
 print_r($profile);
+print_r($row);
 	
 		
 ?>
