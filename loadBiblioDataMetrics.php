@@ -34,10 +34,15 @@ if ($notallInCache){
 else {
 	$sqlProfile = "SELECT r.Resource, r.freq from InCiIUpdate u, InCiIResources r where u.PMID IN (".$_GET["pmids"].") AND u.IUId=r.IUId;";
 	$result = mysql_query($sqlProfile);
+	$profile = array();
 	while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
-	    var_dump($row);  
+	    $profile[$resource] += $row["Resource"];
+	    $InCiIScore += $row["freq"];
+	      
 	}
 }	
+print "InCiI Score: $InCiIScore <br>";
+print_r($profile);
 	
 		
 ?>
