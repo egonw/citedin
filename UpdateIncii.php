@@ -13,7 +13,7 @@ print "Your requested InCiI-scoure is currently being calculated. It will appear
 exec("/usr/bin/php RunInCiIUpdate.php ".$_POST["pmids"]." >/dev/null &");
 $incache = $_POST["incache"];
 $notincache = $_POST["notincache"];
-$url = "http://chart.apis.google.com/chart?cht=p3&chs=320x100&chd=t:$incache,$notincache&chl=Cache|Not+in+cache";
+$url = "http://chart.apis.google.com/chart?cht=p3&cht=Progress:+Pmids+in+cache&chs=320x100&chd=t:$incache,$notincache&chl=Cache|Not+in+cache";
 print "<IMG SRC=\"$url\">";
 
 
