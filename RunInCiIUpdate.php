@@ -2,6 +2,7 @@
 include 'resources/connectdb.inc';
 
 require_once("resources/ResourceRegistry.php");
+require 'tweet.php';
 
 set_time_limit(0);
 ResourceRegistry::init();
