@@ -43,7 +43,7 @@ foreach ($pmids as $pmid){
 
 
 
-$tweet = "@andrawaag Your query: $bitlyUrl resulted in a InCiI-score of $InCiIScore on $resourceCount resources");
+$tweet = "@andrawaag Your query: $bitlyUrl resulted in a InCiI-score of $InCiIScore on $resourceCount resources";
 $retarr = post_tweet(OAUTH_CONSUMER_KEY, OAUTH_CONSUMER_SECRET,
                            $tweet, $access_token, $access_token_secret,
                            true, true);
