@@ -2,7 +2,7 @@
 include 'resources/connectdb.inc';
 
 require_once("resources/ResourceRegistry.php");
-require_once 'twitter.php';
+require 'tweet.php';
 set_time_limit(0);
 ResourceRegistry::init();
 $citedin_resources = ResourceRegistry::listResources();
@@ -41,11 +41,9 @@ foreach ($pmids as $pmid){
 	}
 	$resourceCount = count(array_keys($profile));
 
-// create instance
-$twitter = new Twitter('i9WkSKOMVy7FFOk8bzDeg', 'rAwHZT3Puv6xnVEl5htwffZVjQJYQPe22J2sRbxYI');
 
-$twitter->setOAuthToken('213980886-1JKSG2ifR7LMmX6xG03jnqMUFFtKCxciVY7q7sRk');
-$twitter->setOAuthTokenSecret('PI6DC9qly4WQ2Oii5CWiYJL7n0LpRD6HfbZ4FDEH0I');
 
-$twitter->statusesUpdate("@andrawaag Your query: $bitlyUrl resulted in a InCiI-score of $InCiIScore on $resourceCount resources");
-
+$tweet = "@andrawaag Your query: $bitlyUrl resulted in a InCiI-score of $InCiIScore on $resourceCount resources");
+$retarr = post_tweet(OAUTH_CONSUMER_KEY, OAUTH_CONSUMER_SECRET,
+                           $tweet, $access_token, $access_token_secret,
+                           true, true);
