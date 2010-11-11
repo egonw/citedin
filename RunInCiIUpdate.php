@@ -2,7 +2,7 @@
 include 'resources/connectdb.inc';
 
 require_once("resources/ResourceRegistry.php");
-require 'tweet.php';
+
 set_time_limit(0);
 ResourceRegistry::init();
 $citedin_resources = ResourceRegistry::listResources();
@@ -41,9 +41,6 @@ foreach ($pmids as $pmid){
 	}
 	$resourceCount = count(array_keys($profile));
 
+$tweet = urlencode("@andrawaag Your query: $bitlyUrl resulted in a InCiI-score of $InCiIScore on $resourceCount resources");
 
-
-$tweet = "@andrawaag Your query: $bitlyUrl resulted in a InCiI-score of $InCiIScore on $resourceCount resources";
-$retarr = post_tweet(OAUTH_CONSUMER_KEY, OAUTH_CONSUMER_SECRET,
-                           $tweet, $access_token, $access_token_secret,
-                           true, true);
+$return = file_get_contents("http://www.waagmeester.net/citedin/SubmitTwitter.php?tweet=$tweet");
