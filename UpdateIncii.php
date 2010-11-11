@@ -10,7 +10,7 @@ print "Your requested InCiI-scoure is currently being calculated. It will appear
 <input name=\"pmids\" type=\"hidden\" value=\"".$_POST["pmids"]."\">
 <input name=\"Email\" id=\"Email\" type=\"text\" size=\"75\"/><input type=\"submit\"></form><hr>";
 
-exec("/usr/bin/php RunInCiIUpdate.php ".$_POST["pmids"]." >/dev/null &");
+exec("/usr/bin/php RunInCiIUpdate.php ".$_POST["pmids"]." ".$_POST["bitlyUrl"]." >/dev/null &");
 $incache = $_POST["incache"];
 $notincache = $_POST["notincache"];
 $url = "http://chart.apis.google.com/chart?cht=p3&cht=Progress:+Pmids+in+cache&chs=320x100&chd=t:$incache,$notincache&chl=Cache|Not+in+cache";

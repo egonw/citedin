@@ -12,6 +12,8 @@ The Internet Citation Index or InCiI is a vector containing the number of resour
 <?php
 include 'resources/connectdb.inc';
 $pmids = explode(",", $_GET["pmids"]);
+$queryUrl = "http://www.citedin.org/loadBiblioDataMetrics.php?pmids=".$_GET["pmids"];
+$bitlyUrl = "http://api.bit.ly/v3/shorten?login=citedin&apiKey=R_f5897d878d1f52b72a57bdd3e380c4a2&longUrl=$queryUrl&format=txt";
 $sql = "SELECT * from InCiIUpdate where pmid IN (".$_GET["pmids"].")";
 $result = mysql_query($sql);
 $incache = mysql_num_rows($result);
@@ -28,6 +30,7 @@ if ($notallInCache){
 	<FORM action = \"UpdateIncii.php\" method =\"post\">
 	<input name=\"pmids\" type=\"hidden\" value=\"".$_GET["pmids"]."\">
 	<input name=\"incache\" type=\"hidden\" value=\"$incache\">
+	<input name=\"bitlyUrl\" type=\"hidden\" value=\"$bitlyUrl\">
 	<input name=\"notincache\" type=\"hidden\" value=\"$notincache\">
 	<input type=\"submit\" value=\"Start InCiI-score calculation\"></form>";
 }
@@ -44,7 +47,7 @@ else {
 	
 print "InCiI Score: $InCiIScore <br>";
 
-
+    
 	$url = "http://chart.apis.google.com/chart?cht=p3&chtt=InCiI+Profile&chs=320x100&chd=t:".implode(",",array_values($profile))."&chl=".implode("|", array_keys($profile));
 	print "<IMG SRC=\"$url\">";
 }
