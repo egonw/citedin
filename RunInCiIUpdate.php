@@ -43,4 +43,4 @@ foreach ($pmids as $pmid){
 
 $tweet = urlencode("@andrawaag Your query: $bitlyUrl resulted in a InCiI-score of $InCiIScore on $resourceCount resources");
 
-$return = file_get_contents("http://www.waagmeester.net/citedin/SubmitTwitter.php?tweet=$tweet");
+print file_get_contents("http://www.waagmeester.net/citedin/SubmitTwitter.php?tweet=$tweet");
