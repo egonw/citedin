@@ -13,7 +13,7 @@ The Internet Citation Index or InCiI is a vector containing the number of resour
 include 'resources/connectdb.inc';
 $pmids = explode(",", $_GET["pmids"]);
 $queryUrl = "http://www.citedin.org/loadBiblioDataMetrics.php?pmids=".$_GET["pmids"];
-$bitlyUrl = "http://api.bit.ly/v3/shorten?login=citedin&apiKey=R_f5897d878d1f52b72a57bdd3e380c4a2&longUrl=$queryUrl&format=txt";
+$bitlyUrl = file_get_contents( "http://api.bit.ly/v3/shorten?login=citedin&apiKey=R_f5897d878d1f52b72a57bdd3e380c4a2&longUrl=$queryUrl&format=txt");
 $sql = "SELECT * from InCiIUpdate where pmid IN (".$_GET["pmids"].")";
 $result = mysql_query($sql);
 $incache = mysql_num_rows($result);
