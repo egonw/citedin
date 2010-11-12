@@ -12,6 +12,7 @@
 	$pmids = array();
 	foreach ($queryResults->IdList->Id as $id) array_push($pmids, $id);
 	print "<hr>";
+	print $_SERVER["SCRIPT_NAME"];
     if ($_SERVER["SCRIPT_NAME"]=="/fragment_1.php")	print "<a href=\"loadBiblioDataMetrics.php?pmids=".implode(",", $pmids)."\" target=\"_blank\">calculate CitedIn Internet Citation Score</a><hr>";
 	
 	$pubmed_xml= new DOMDocument;
