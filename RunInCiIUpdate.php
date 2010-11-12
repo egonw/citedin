@@ -34,6 +34,7 @@ foreach ($pmids as $pmid){
 	$sqlProfile = "SELECT r.Resource, r.freq from InCiIUpdate u, InCiIResources r where u.PMID IN (".$argv[1].") AND u.IUId=r.IUId;";
 	$result = mysql_query($sqlProfile);
 	$profile = array();
+	$InCiIScore = 0;
 	while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 	    if (!(array_key_exists($row["Resource"], $profile))) $profile[$row["Resource"]]  = 0; 
 	    $profile[$row["Resource"]] += $row["freq"];

@@ -1,9 +1,32 @@
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
-<head>
+    <head>
+        <title>
+			Citedin: Internet Citation Index (InCiI)
+        </title>
+
         <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
-		</head>
+        <link type="text/css" href="development-bundle/themes/custom-theme/ui.all.css" rel="stylesheet">
+        <script type="text/javascript" src="highslide/highslide-with-html.js"></script>
+        <link rel="stylesheet" type="text/css" href="highslide/highslide.css" />
+        <script type="text/javascript" src="development-bundle/ui/ui.core.js"></script>
+        <script type="text/javascript" src="development-bundle/ui/ui.tabs.js"></script>
+        <script type="text/javascript" src="js/jquery.tinysort.min.js"></script>
+        <script type="text/javascript" src="js/jquery.corner.js"></script>
+
+
+</head>
 		<body>
+		<div id="tabs">
+            <ul>
+                <li>
+                    <a href="#fragment-1"><span>CitedIn Internet Citation Index (CInCi)</span></a>
+                </li>
+			</ul>
+		</div>
+		<div id="fragment-1">
+           
+				
 <h2>Internet Citation Index (InCiI)</h2>
 The Internet Citation Index or InCiI is a vector containing the number of resources citing a publication and for a each resource the number of times one or a set of publications is cited in the specific resource. 
 <p>
@@ -54,4 +77,6 @@ print "InCiI Score: $InCiIScore <br>";
 	
 		
 ?>
-	
+</div>
+</body>
+</html>	
