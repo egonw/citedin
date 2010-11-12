@@ -38,7 +38,6 @@
 		<div id="fragment-1">
            
 				
-<h2>Internet Citation Index (InCiI)</h2>
 The Internet Citation Index or InCiI is a vector containing the number of resources citing a publication and for a each resource the number of times one or a set of publications is cited in the specific resource. 
 <p>
   
