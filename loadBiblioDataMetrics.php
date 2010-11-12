@@ -29,7 +29,6 @@
                     <a href="#fragment-1"><span>CitedIn Internet Citation Index (CInCi)</span></a>
                 </li>
 			</ul>
-		</div>
 		<div id="fragment-1">
            
 				
@@ -83,6 +82,7 @@ print "InCiI Score: $InCiIScore <br>";
 	
 		
 ?>
+</div>
 </div>
 </body>
 </html>	
