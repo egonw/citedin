@@ -84,7 +84,7 @@ print "InCiI Score: $InCiIScore <br>";
 	$url = "http://chart.apis.google.com/chart?cht=p3&chtt=InCiI+Profile&chs=320x100&chd=t:".implode(",",array_values($profile))."&chl=".implode("|", array_keys($profile));
 	print "<IMG SRC=\"$url\">";
 	
-	print "<h3>Collection</h3>This score is calculated for the following collection of citations."
+	print "<h3>Collection</h3>This score is calculated for the following collection of citations.";
 	print file_get_contents("indexsearch.php?pubmed_query=".$_GET["pmids"]);
 }
 	
