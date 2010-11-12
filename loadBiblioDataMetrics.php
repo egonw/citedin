@@ -14,6 +14,12 @@
         <script type="text/javascript" src="js/jquery.tinysort.min.js"></script>
         <script type="text/javascript" src="js/jquery.corner.js"></script>
 
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("#tabs").tabs();
+            });
+        </script>
+
 
 </head>
 		<body>
