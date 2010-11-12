@@ -45,6 +45,9 @@
                 <li>
                     <a href="#fragment-1"><span>Citedin</span></a>
                 </li>
+	                <li>
+	                    <a href="#Cinci"><span>CitedIn Internet Citation Index (CInCi)</span></a>
+	                </li>
                 <li>
                     <a href="#fragment-2"><span>Resources</span></a>
                 </li>
@@ -65,6 +68,10 @@
                 <?php include("fragment_1.php"); ?>
 
             </div>
+	        <div id="Cinci">
+	                <?php include("loadBiblioDataMetrics.php"); ?>
+
+	        </div>
             <div id="fragment-2">
                 <?php 	include("included_resources.php"); ?>
             </div>
