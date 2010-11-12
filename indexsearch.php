@@ -12,7 +12,7 @@
 	$pmids = array();
 	foreach ($queryResults->IdList->Id as $id) array_push($pmids, $id);
 	print "<hr>";
-	print "<a href=\"loadBiblioDataMetrics.php?pmids=".implode(",", $pmids)."\" target=\"_blank\">calculate CitedIn Internet Citation Score</a><hr>";
+    if ($_SERVER["SCRIPT_FILENAME"]=="fragment_1.php")	print "<a href=\"loadBiblioDataMetrics.php?pmids=".implode(",", $pmids)."\" target=\"_blank\">calculate CitedIn Internet Citation Score</a><hr>";
 	
 	$pubmed_xml= new DOMDocument;
  $pubmed_xml->loadXML(file_get_contents("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&WebEnv=$webenv&mode=xml&query_key=$querykey&tool=citedin&email=andra.waagmeester@bigcat.unimaas.nl"));
