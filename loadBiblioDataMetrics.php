@@ -65,7 +65,7 @@ if ($notallInCache){
 	<input name=\"incache\" type=\"hidden\" value=\"$incache\">
 	<input name=\"bitlyUrl\" type=\"hidden\" value=\"$bitlyUrl\">
 	<input name=\"notincache\" type=\"hidden\" value=\"$notincache\">
-	<input type=\"submit\" value=\"Start InCiI-score calculation\"></form>";
+	<input type=\"submit\" value=\"Start CInCi-score calculation\"></form>";
 }
 else {
 	$sqlProfile = "SELECT r.Resource, r.freq from InCiIUpdate u, InCiIResources r where u.PMID IN (".$_GET["pmids"].") AND u.IUId=r.IUId;";
