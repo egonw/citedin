@@ -59,12 +59,14 @@ if ($notincache > 0){
 
 if ($notallInCache){
 
-	print "The requested InCiI score is not in our cache, which means that it either not yet calculated, or the last calculation is out-of-date. You can initiate a InCiI score calculation by completing the following form. Calculating a InCiI-score requires a federated search procedure. Different online resource are consulted. To prevent overloading these resource, we actively dose the requests. If you like to calculate the InCiI-score, you can initiate a calculation by filling the following form. An email will be sent, once the InCiI score is updated. <hr>
+	print "The requested InCiI score is not in our cache, which means that it either not yet calculated, or the last calculation is out-of-date. You can initiate a InCiI score calculation by completing the following form. Calculating a InCiI-score requires a federated search procedure. Different online resource are consulted. To prevent overloading these resource, we actively dose the requests. If you like to calculate the InCiI-score, you can initiate a calculation by filling the following form. An email or Twitter message will be sent, once the score is updated. <hr>
 	<FORM action = \"UpdateIncii.php\" method =\"post\">
 	<input name=\"pmids\" type=\"hidden\" value=\"".$_GET["pmids"]."\">
 	<input name=\"incache\" type=\"hidden\" value=\"$incache\">
 	<input name=\"bitlyUrl\" type=\"hidden\" value=\"$bitlyUrl\">
 	<input name=\"notincache\" type=\"hidden\" value=\"$notincache\">
+	Email: <input name=\"Email\" id=\"Email\" type=\"text\" size=\"75\"/><br>
+	Twitter: <input name=\"Twitter\" id=\"Twitter\" type=\"text\" size=\"75\"/><br>
 	<input type=\"submit\" value=\"Start CInCi-score calculation\"></form>";
 }
 else {
