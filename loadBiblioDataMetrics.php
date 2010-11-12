@@ -19,7 +19,13 @@
                 $("#tabs").tabs();
             });
         </script>
+			 <link type="text/css" href="citedin.css" rel="stylesheet" />
 
+		        <script type="text/javascript">
+		            hs.graphicsDir = 'highslide/graphics/';
+		            hs.outlineType = 'rounded-white';
+		            hs.wrapperClassName = 'draggable-header';
+		        </script>
 
 </head>
 		<body>
