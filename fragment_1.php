@@ -102,7 +102,7 @@ $(document).ready(function(event){\n
 				$.blockUI({ message: '<h1><img src=\"pix/wait.gif\" /> Loading data ...</h1>' });
 				$(\"#pubmedDetails\").empty();
 				$(\".contentf\").empty();
- 				$(\"#pubmedresultaten\").load(\"indexsearch.php?pubmed_query=\"+query);\n;
+ 				$(\"#pubmedresultaten\").load(\"indexsearch.php?callscript=citedin&pubmed_query=\"+query);\n;
 			}\n
 		if (patt1.test(query))\n
 			{
