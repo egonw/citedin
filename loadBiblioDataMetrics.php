@@ -85,7 +85,7 @@ print "InCiI Score: $InCiIScore <br>";
 	print "<IMG SRC=\"$url\">";
 	
 	print "<h3>Collection</h3>This score is calculated for the following collection of citations.";
-	print file_get_contents("indexsearch.php?pubmed_query=".$_GET["pmids"]);
+	print file_get_contents("http://www.citedin.org/indexsearch.php?pubmed_query=".$_GET["pmids"]);
 }
 	
 		
