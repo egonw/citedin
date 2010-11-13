@@ -15,7 +15,7 @@ foreach ($pmids as $pmid){
 	$sqlUpdate = "INSERT INTO InCiIUpdate (pmid, UpdateDate) VALUES ($pmid, CURDATE());";
 	mysql_query($sqlUpdate);
 	echo mysql_errno($link) . ": " . mysql_error($link) . "\n";
-	
+	if (mysql_error($link)=="") {
 	$lastUpdateId = mysql_insert_id();
 	
     foreach ($citedin_resources as $resource){
@@ -32,7 +32,7 @@ foreach ($pmids as $pmid){
 		    die('Invalid query: ' . mysql_error());
 		}
 	}
-	}
+	}}
 }
 
 	$sqlProfile = "SELECT r.Resource, r.freq from InCiIUpdate u, InCiIResources r where u.PMID IN (".$argv[1].") AND u.IUId=r.IUId;";
