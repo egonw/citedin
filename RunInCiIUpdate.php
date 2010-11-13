@@ -8,12 +8,16 @@ set_time_limit(0);
 ResourceRegistry::init();
 $citedin_resources = ResourceRegistry::listResources();
 $pmids = explode(",", $argv[1]);
+$publications = count($pmids);
 $bitlyUrl = $argv[2];
 //$pmids = array("1234567", "7654321");
 foreach ($pmids as $pmid){
 	$sqlUpdate = "INSERT INTO InCiIUpdate (pmid, UpdateDate) VALUES ($pmid, CURDATE());";
 	mysql_query($sqlUpdate);
+	echo mysql_errno($link) . ": " . mysql_error($link) . "\n";
+	
 	$lastUpdateId = mysql_insert_id();
+	
     foreach ($citedin_resources as $resource){
 		$resourceInfo = ResourceRegistry::get($resource);
 		print $resource;
@@ -42,10 +46,10 @@ foreach ($pmids as $pmid){
 	      
 	}
 	$resourceCount = count(array_keys($profile));
+    $averageCited = $InCiIScore/$resourceCount;
 
 
-
-$tweet = "@andrawaag Your query: $bitlyUrl resulted in a InCiI-score of $InCiIScore on $resourceCount resources";
+$tweet = "@andrawaag Your collection $bitlyUrl contained $publications publications present in Pubmed that were on average cited $averageCited times online.";
 $retarr = post_tweet(OAUTH_CONSUMER_KEY, OAUTH_CONSUMER_SECRET,
                            $tweet, $access_token, $access_token_secret,
                            true, true);
