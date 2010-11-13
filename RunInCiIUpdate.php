@@ -49,7 +49,7 @@ foreach ($pmids as $pmid){
     $averageCited = $InCiIScore/$resourceCount;
 
 
-$tweet = "@andrawaag Your collection $bitlyUrl contained $publications publications present in Pubmed that were on average cited $averageCited in $resourceCount resources.";
+$tweet = "@andrawaag Collection:$bitlyUrl contained $publications pubmed citation that were on average cited $averageCited in $resourceCount resources.";
 $retarr = post_tweet(OAUTH_CONSUMER_KEY, OAUTH_CONSUMER_SECRET,
                            $tweet, $access_token, $access_token_secret,
                            true, true);
