@@ -46,7 +46,7 @@ foreach ($pmids as $pmid){
 	      
 	}
 	$resourceCount = count(array_keys($profile));
-    $averageCited = $InCiIScore/$resourceCount;
+    $averageCited = round($InCiIScore/$resourceCount,2);
 
 
 $tweet = "@andrawaag Collection:$bitlyUrl contained $publications pubmed citation that were on average cited $averageCited in $resourceCount resources.";
