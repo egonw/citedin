@@ -17,8 +17,9 @@ $email = $_POST["email"];
 $twitter = $_POST["twitter"];
 if ($email == "") $email = "na";
 if ($twitter == "") $twitter = "na";
-exec("/usr/bin/php RunInCiIUpdate.php $commandpmids $bitlyUrl $email $twitter >/dev/null &");
-print "/usr/bin/php RunInCiIUpdate.php ".$_POST["pmids"]." ".$_POST["bitlyUrl"];
+$command = "/usr/bin/php RunInCiIUpdate.php $commandpmids $bitlyUrl $email $twitter >/dev/null &";
+exec($command);
+print $command;
 
 
 ?>
