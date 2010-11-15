@@ -150,3 +150,7 @@ border: 2px outset #d7b9c9
 	border: solid gray 1px;
 }
 }
+
+.button {
+    border: 1px solid #006;
+}
