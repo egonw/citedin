@@ -18,7 +18,7 @@
 if ($_GET["callscript"]=="citedin") print "<form action=\"loadBiblioDataMetrics.php\" method=\"get\" accept-charset=\"utf-8\">
 	<input type=\"hidden\" name=\"pmids\" value=\"".implode(",", $pmids)."\" id=\"pmids\">
 
-	<p><button type=\"submit\" value=\"calculate CitedIn Internet Citation Score\"></p>
+	<p><input type=\"submit\" value=\"calculate CitedIn Internet Citation Score\"></p>
 </form>";
 	
 	$pubmed_xml= new DOMDocument;
