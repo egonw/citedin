@@ -19,7 +19,7 @@ if ($_GET["callscript"]=="citedin") print "<form action=\"loadBiblioDataMetrics.
 	<input type=\"hidden\" name=\"pmids\" value=\"".implode(",", $pmids)."\" id=\"pmids\">
 
 	<p><input type=\"submit\" value=\"calculate CitedIn Internet Citation Score\"></p>
-</form>";
+</form><hr>";
 	
 	$pubmed_xml= new DOMDocument;
  $pubmed_xml->loadXML(file_get_contents("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&WebEnv=$webenv&mode=xml&query_key=$querykey&tool=citedin&email=andra.waagmeester@bigcat.unimaas.nl"));
