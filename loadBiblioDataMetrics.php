@@ -70,12 +70,12 @@ if ($notallInCache){
 	<input type=\"submit\" value=\"Start CInCi-score calculation\"></form>";
 }
 else {
-	$sqlProfile = "SELECT r.Resource, r.freq from InCiIUpdate u, InCiIResources r where u.PMID IN (".$_GET["pmids"].") AND u.IUId=r.IUId;";
+	$sqlProfile = "SELECT u.updateDate, r.Resource, r.freq from InCiIUpdate u, InCiIResources r where u.PMID IN (".$_GET["pmids"].") AND u.IUId=r.IUId;";
 	$result = mysql_query($sqlProfile);
 	$profile = array();
 	while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 	    if (!(array_key_exists($row["Resource"], $profile))) $profile[$row["Resource"]]  = 0; 
-	    $profile[$row["Resource"]] += $row["freq"];
+	    $profile[$row["Resource"]["updateDate"]] += $row["freq"];
 	    $InCiIScore += $row["freq"];
 	      
 	}
@@ -85,6 +85,8 @@ print "InCiI Score: $InCiIScore <br>";
     
 	$url = "http://chart.apis.google.com/chart?cht=p3&chtt=InCiI+Profile&chs=320x100&chd=t:".implode(",",array_values($profile))."&chl=".implode("|", array_keys($profile));
 	print "<IMG SRC=\"$url\">";
+	
+	$timeUrl = "http://chart.apis.google.com/chart?chs=440x220&cht=lxy&chco=3072F3,FF0000&chd=t:10,20,40,80,90,95,99|20,30,40,50,60,70,80|-1|5,10,22,35,85&chdl=Ponies|Unicorns&chdlp=b&chls=2,4,1|1&chma=5,5,5,25";
 	
 	print "<h3>Collection</h3>This score is calculated for the following collection of citations.";
 	print file_get_contents("http://www.citedin.org/indexsearch.php?pubmed_query=".$_GET["pmids"]);
