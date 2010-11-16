@@ -61,7 +61,7 @@ $retarr = post_tweet(OAUTH_CONSUMER_KEY, OAUTH_CONSUMER_SECRET,
 					 
 }
 if ($email !=""){
-					 $from = "CitedIn <donotreply@citedin.org>";
+					 $from = "CitedIn <andra.waagmeester@bigcat.unimaas.nl>";
 					 $to = $email;
 					 $subject = "Your CitedIn Internet Citation Score";
 					 $body = "Collection:$bitlyUrl contained $publications pubmed citation that were on average cited $averageCited in $resourceCount resources.";
