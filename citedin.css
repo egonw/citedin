@@ -142,7 +142,7 @@ border: 1px solid #781351
 {
 color: #000;
 background: #ffa20f;
-border: 2px outset #d7b9c9
+border: 2px solid #d7b9c9
 }
 
 #aggregatedResults
@@ -151,6 +151,3 @@ border: 2px outset #d7b9c9
 }
 }
 
-.button {
-    border: 1px solid #006;
-}
