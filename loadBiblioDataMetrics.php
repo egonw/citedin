@@ -65,8 +65,8 @@ if ($notallInCache){
 	<input name=\"incache\" type=\"hidden\" value=\"$incache\">
 	<input name=\"bitlyUrl\" type=\"hidden\" value=\"$bitlyUrl\">
 	<input name=\"notincache\" type=\"hidden\" value=\"$notincache\">
-	Email: <input name=\"Email\" id=\"Email\" type=\"text\" size=\"75\"/><br>
-	Twitter: <input name=\"Twitter\" id=\"Twitter\" type=\"text\" size=\"75\"/><br>
+	Email: <input name=\"email\" id=\"Email\" type=\"text\" size=\"75\"/><br>
+	Twitter: <input name=\"twitter\" id=\"Twitter\" type=\"text\" size=\"75\"/><br>
 	<input type=\"submit\" value=\"Start CInCi-score calculation\"></form>";
 }
 else {
