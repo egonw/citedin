@@ -75,8 +75,9 @@ else {
 	$profile = array();
 	while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 	    if (!(array_key_exists($row["Resource"], $profile))) $profile[$row["Resource"]]  = 0; 
-	    $profile[$row["Resource"]] += $row["freq"];
+	    $profile[$row["Resource"][$row["updateDate"]]] += $row["freq"];
 	    $InCiIScore += $row["freq"];
+	    var_dump($profile);
 	      
 	}
 	
