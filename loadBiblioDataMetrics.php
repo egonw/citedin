@@ -68,7 +68,7 @@ if ($notallInCache){
 	<input name=\"notincache\" type=\"hidden\" value=\"$notincache\">
 	<tr><td>Email:</td><td><input name=\"email\" id=\"Email\" type=\"text\" size=\"75\"/></td></tr>
 	<tr><td>Twitter:</td><td><input name=\"twitter\" id=\"Twitter\" type=\"text\" size=\"75\"/></td></tr>
-	<tr><td><input type=\"submit\" value=\"Start CInCi-score calculation\"></td></tr></form></table>";
+	<tr><td></td><td><input type=\"submit\" value=\"Start CInCi-score calculation\"></td></tr></form></table>";
 }
 else {
 	$sqlProfile = "SELECT r.Resource, r.freq, u.updateDate from InCiIResources r, (select PMID, max(UpdateDate) as updateDate, IUId FROM InCiIUpdate GROUP BY PMID) u WHERE u.PMID IN (".$_GET["pmids"].") AND u.IUId=r.IUId;";
