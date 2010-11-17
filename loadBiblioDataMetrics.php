@@ -89,7 +89,7 @@ print "InCiI Score: $InCiIScore <br>";
 	    array_push($resultArrays, $keys[$i]."+(".$values[$i].")");
     }
  
-    var_dump($values);
+    var_dump($resultArrays);
   
     
 	$url = "http://chart.apis.google.com/chart?cht=p3&chtt=InCiI+Profile&chs=512x214&chd=t:".implode(",",$resultArrays)."&chl=".implode("|", array_keys($profile));
