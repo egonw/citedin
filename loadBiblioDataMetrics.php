@@ -92,7 +92,7 @@ print "InCiI Score: $InCiIScore <br>";
     var_dump($resultArrays);
   
     
-	$url = "http://chart.apis.google.com/chart?cht=p3&chtt=InCiI+Profile&chs=512x214&chd=t:".implode(",",$resultArrays)."&chl=".implode("|", array_keys($profile));
+	$url = "http://chart.apis.google.com/chart?cht=p3&chtt=InCiI+Profile&chs=512x214&chd=t:".implode(",",$values)."&chl=".implode("|", implode(",",$resultArrays));
 	print "<IMG SRC=\"$url\">";
 	
 	$timeUrl = "http://chart.apis.google.com/chart?chs=440x220&cht=lxy&chco=3072F3,FF0000&chd=t:10,20,40,80,90,95,99|20,30,40,50,60,70,80|-1|5,10,22,35,85&chdl=Ponies|Unicorns&chdlp=b&chls=2,4,1|1&chma=5,5,5,25";
