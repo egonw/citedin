@@ -82,7 +82,7 @@ else {
 	
 print "InCiI Score: $InCiIScore <br>";
 
-    $resultArray = array();
+    $resultArrays = array();
     $values = array_values($profile);
     $keys =  array_keys($profile);
     for ($i=0; $i<count($values);$i++){
