@@ -14,7 +14,6 @@ if ($email == "") $email = "na";
 if ($twitter == "") $twitter = "na";
 $command = "/usr/bin/php RunInCiIUpdate.php \"$commandpmids\" \"$bitlyUrl\" \"$email\" \"$twitter\" >/dev/null &";
 exec($command);
-print $command;
 
 
 ?>
