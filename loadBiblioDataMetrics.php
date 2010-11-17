@@ -60,14 +60,15 @@ if ($notincache > 0){
 if ($notallInCache){
 
 	print "The requested InCiI score is not in our cache, which means that it either not yet calculated, or the last calculation is out-of-date. You can initiate a InCiI score calculation by completing the following form. Calculating a InCiI-score requires a federated search procedure. Different online resource are consulted. To prevent overloading these resource, we actively dose the requests. If you like to calculate the InCiI-score, you can initiate a calculation by filling the following form. An email or Twitter message will be sent, once the score is updated. <hr>
+	<table>
 	<FORM action = \"UpdateIncii.php\" method =\"post\">
 	<input name=\"pmids\" type=\"hidden\" value=\"".$_GET["pmids"]."\">
 	<input name=\"incache\" type=\"hidden\" value=\"$incache\">
 	<input name=\"bitlyUrl\" type=\"hidden\" value=\"$bitlyUrl\">
 	<input name=\"notincache\" type=\"hidden\" value=\"$notincache\">
-	Email: <input name=\"email\" id=\"Email\" type=\"text\" size=\"75\"/><br>
-	Twitter: <input name=\"twitter\" id=\"Twitter\" type=\"text\" size=\"75\"/><br>
-	<input type=\"submit\" value=\"Start CInCi-score calculation\"></form>";
+	<tr><td>Email:</td><td><input name=\"email\" id=\"Email\" type=\"text\" size=\"75\"/></td></tr>
+	<tr><td>Twitter:</td><td><input name=\"twitter\" id=\"Twitter\" type=\"text\" size=\"75\"/></td></tr>
+	<tr><td><input type=\"submit\" value=\"Start CInCi-score calculation\"></td></tr></form></table>";
 }
 else {
 	$sqlProfile = "SELECT r.Resource, r.freq, u.updateDate from InCiIResources r, (select PMID, max(UpdateDate) as updateDate, IUId FROM InCiIUpdate GROUP BY PMID) u WHERE u.PMID IN (".$_GET["pmids"].") AND u.IUId=r.IUId;";
