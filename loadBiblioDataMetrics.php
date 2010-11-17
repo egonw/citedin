@@ -86,7 +86,7 @@ print "InCiI Score: $InCiIScore <br>";
     $values = array_values($profile);
     $keys =  array_keys($profile);
     for ($i=0; $i<count($values);$i++){
-	    $resultArrays[$i] = $keys[$i]." (".$values[$i].")";
+	    array_push($resultArrays, $keys[$i]." (".$values[$i].")");
     }
 
     
