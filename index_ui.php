@@ -36,8 +36,6 @@
             hs.outlineType = 'rounded-white';
             hs.wrapperClassName = 'draggable-header';
         </script>
-
-        	
     </head>
     <body>
 

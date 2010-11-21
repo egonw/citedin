@@ -11,9 +11,9 @@ class ResourceFormatter {
 		}
 		
 		
-		$rawname = $data->getResourceName();
+		$name = $data->getResourceName();
 		if($data->getInfoLink()) {
-			$name = "<a href=\"".$data->getInfoLink()."\">$rawname</a>";
+			$name = "<a href=\"".$data->getInfoLink()."\">$name</a>";
 		}
 		
 		$content = '';
@@ -25,18 +25,12 @@ class ResourceFormatter {
 			$content = "
 		<div class=\"numberInSources $numberClass\">".$data->getCiteCount()."</div>";
 		if ($data->getCiteCount()>0){
-		      $content .= "<div class=\"details\" id=\"details\"><a href=".$data->getDetailsLink()." rel=\"#overlay\"><button type=\"button\">Details</a></button><button class=\"button$rawname\" id=\"button$rawname\">x</button>
-		<script>
-			    $(\"button$rawname\").click(function () {
-			      $(\"row$rawname\").remove();
-			    });
-
-			</script></div>";
+		      $content .= "<div class=\"details\" id=\"details\"><a href=".$data->getDetailsLink()." rel=\"#overlay\"><button type=\"button\">Details</a></button></div>";
 		}
 	}
 		
 		$html = <<<HTML
-	<div id="row$rawname">
+	<div id="row">
 
 		<div id="sourceName">$name</div>
 		$content
