@@ -21,7 +21,7 @@
 </xsl:template>
 <xsl:template name="t1">
   <xsl:for-each select="//MedlineCitation">
-    <xsl:element name="div">
+    <xsl:element name="span">
       <xsl:attribute name="id">
         <xsl:value-of select="'pmidResult'"/>
       </xsl:attribute>
@@ -29,7 +29,7 @@
       <xsl:value-of select="PMID"/>
       <xsl:value-of select="'&#10;'"/>
     </xsl:element>
-    <xsl:element name="div">
+    <xsl:element name="span">
       <xsl:attribute name="id">
         <xsl:value-of select="'pubmedTitle'"/>
       </xsl:attribute>
@@ -37,7 +37,7 @@
       <xsl:value-of select="Article/ArticleTitle"/>
       <xsl:value-of select="'&#10;'"/>
     </xsl:element>
-    <xsl:element name="div">
+    <xsl:element name="span">
       <xsl:attribute name="id">
         <xsl:value-of select="'pubmedAuthors'"/>
       </xsl:attribute>
@@ -48,7 +48,7 @@
       <xsl:value-of select="' et al.'"/>
       <xsl:value-of select="'&#10;'"/>
     </xsl:element>
-    <xsl:element name="div">
+    <xsl:element name="span">
       <xsl:attribute name="id">
         <xsl:value-of select="'pubmedJournal'"/>
       </xsl:attribute>
@@ -56,7 +56,7 @@
       <xsl:value-of select="Article/Journal/Title"/>
       <xsl:value-of select="'&#10;'"/>
     </xsl:element>
-    <xsl:element name="div">
+    <xsl:element name="span">
       <xsl:attribute name="id">
         <xsl:value-of select="'pubmedYear'"/>
       </xsl:attribute>
