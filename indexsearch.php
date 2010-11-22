@@ -39,7 +39,14 @@ if ($_GET["callscript"]=="citedin") print "<form action=\"loadBiblioDataMetrics.
 	}
 	print "<span class='pubmedAuthors' id='pubmedAuthors'>".implode(",", $authorArray)."</span><br />";
 	print "<span class='pubmedJournal' id='pubmedJournal'>".$PubmedArticle->MedlineCitation->Article->Journal->Title."</span><br />";
-	print "<span class='pmidResult' id='pmidResult'>PMID:".$PubmedArticle->MedlineCitation->PMID."</span>";
+	print "<span class='pmidResult' id='pmidResult'>PMID:".$PubmedArticle->MedlineCitation->PMID."</span><br />";
+	print "<button>Remove from selection</button>
+	<script>
+	    $(\"button\").click(function () {
+	      $(this).parent().remove();
+	    });
+
+	</script>";
 	print "</div>";
 } 	   
 /*	  $pubmed_xsl = new DOMDocument;
