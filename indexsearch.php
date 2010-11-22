@@ -24,8 +24,12 @@ if ($_GET["callscript"]=="citedin") print "<form action=\"loadBiblioDataMetrics.
 	$pubmed_xml= new DOMDocument;
  $pubmed_xml->loadXML(file_get_contents("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&WebEnv=$webenv&mode=xml&query_key=$querykey&tool=citedin&email=andra.waagmeester@bigcat.unimaas.nl"));
 	  
-	   
-	  $pubmed_xsl = new DOMDocument;
+  $PubmedArticles = $pubmed_xml->getElementsByTagName('PubmedArticle');
+  foreach ($PubmedArticles as $PubmedArticle){
+	print "<span class='pmidResult' id='pmidResult'".$PubmedArticle->MedlineCitation->PMID->nodeValue."</span>";
+	print "<span class='pubmedTitle' id='pubmedTitle'".$PubmedArticle->MedlineCitation->Article->ArticleTitle->nodeValue."</span>";
+} 	   
+/*	  $pubmed_xsl = new DOMDocument;
 	  $pubmed_xsl->load('resources/pubmedSubmit.xsl');
 
 	// Configure the transformer
@@ -36,6 +40,7 @@ if ($_GET["callscript"]=="citedin") print "<form action=\"loadBiblioDataMetrics.
 
 	   echo $proc->transformToXML($pubmed_xml);
 	print "</div>";
+	*/
 }
 
 ?>
