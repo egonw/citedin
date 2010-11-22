@@ -32,7 +32,7 @@ if ($_GET["callscript"]=="citedin") print "<form action=\"loadBiblioDataMetrics.
 	$proc = new XSLTProcessor;
 	$proc->importStyleSheet($pubmed_xsl); // attach the xsl rules
 
-	print "<div id=\"row\"><button type=\"button\">x</button>";
+	print "<div id=\"row\"><button type=\"button\">Remove from set</button>";
 
 	   echo $proc->transformToXML($pubmed_xml);
 	print "</div>";
