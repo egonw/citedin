@@ -26,6 +26,7 @@ if ($_GET["callscript"]=="citedin") print "<form action=\"loadBiblioDataMetrics.
 	  
   $PubmedArticles = $pubmed_xml->getElementsByTagName('PubmedArticle');
   foreach ($PubmedArticles as $PubmedArticle){
+	print_r($PubmedArticle);
 	print "<div id=\"row\">";
 	print "<div class='pmidResult' id='pmidResult'>Hallo".$PubmedArticle->MedlineCitation->PMID->nodeValue."</div>";
 	print "<div class='pubmedTitle' id='pubmedTitle'>".$PubmedArticle->MedlineCitation->Article->ArticleTitle->nodeValue."</div></div>";
