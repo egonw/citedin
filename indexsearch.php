@@ -1,5 +1,4 @@
-<link type="text/css" href="citedin.css" rel="stylesheet">
-
+<link rel="stylesheet" type="text/css" href="citedin.css">
 <?php
 
    if (isset($_GET["pubmed_query"])){
@@ -21,15 +20,27 @@ if ($_GET["callscript"]=="citedin") print "<form action=\"loadBiblioDataMetrics.
 	<p><input type=\"submit\" class=\"button\" value=\"calculate CitedIn Internet Citation Score\"></p>
 </form><hr>";
 	
-	$pubmed_xml= new DOMDocument;
- $pubmed_xml->loadXML(file_get_contents("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&WebEnv=$webenv&mode=xml&query_key=$querykey&tool=citedin&email=andra.waagmeester@bigcat.unimaas.nl"));
-	  
-  $PubmedArticles = $pubmed_xml->getElementsByTagName('MedlineCitation');
-  foreach ($PubmedArticles as $PubmedArticle){
-	print_r($PubmedArticle);
+	$pubmedXml= new DOMDocument;
+    
+ $pubmedXml->load("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&WebEnv=$webenv&mode=xml&query_key=$querykey&tool=citedin&email=andra.waagmeester@bigcat.unimaas.nl");
+  //echo $pubmedXml->saveXML();
+  $simplePubmedXml = simplexml_import_dom($pubmedXml);
+  // var_dump($simplePubmedXml);
+  
+  foreach ($simplePubmedXml->PubmedArticle as $PubmedArticle){
+	
 	print "<div id=\"row\">";
-	print "<div class='pmidResult' id='pmidResult'>Hallo".$PubmedArticle->MedlineCitation->PMID->nodeValue."</div>";
-	print "<div class='pubmedTitle' id='pubmedTitle'>".$PubmedArticle->MedlineCitation->Article->ArticleTitle->nodeValue."</div></div>";
+	print "<span class='pubmedTitle' id='pubmedTitle'>".$PubmedArticle->MedlineCitation->Article->ArticleTitle."</span><br />";
+
+	
+	$authorArray=array();
+	foreach($PubmedArticle->MedlineCitation->Article->AuthorList->Author as $author){
+		array_push($authorArray, (string) $author->LastName." ".(string )$author->Initials);
+	}
+	print "<span class='pubmedAuthors' id='pubmedAuthors'>".implode(",", $authorArray)."</span><br />";
+	print "<span class='pubmedJournal' id='pubmedJournal'>".$PubmedArticle->MedlineCitation->Article->Journal->Title."</span><br />";
+	print "<span class='pmidResult' id='pmidResult'>PMID:".$PubmedArticle->MedlineCitation->PMID."</span>";
+	print "</div>";
 } 	   
 /*	  $pubmed_xsl = new DOMDocument;
 	  $pubmed_xsl->load('resources/pubmedSubmit.xsl');
