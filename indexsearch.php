@@ -24,7 +24,7 @@ if ($_GET["callscript"]=="citedin") print "<form action=\"loadBiblioDataMetrics.
 	$pubmed_xml= new DOMDocument;
  $pubmed_xml->loadXML(file_get_contents("http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&WebEnv=$webenv&mode=xml&query_key=$querykey&tool=citedin&email=andra.waagmeester@bigcat.unimaas.nl"));
 	  
-  $PubmedArticles = $pubmed_xml->getElementsByTagName('PubmedArticle');
+  $PubmedArticles = $pubmed_xml->getElementsByTagName('MedlineCitation');
   foreach ($PubmedArticles as $PubmedArticle){
 	print_r($PubmedArticle);
 	print "<div id=\"row\">";
