@@ -70,7 +70,7 @@
       <xsl:value-of select="')'"/>
       <xsl:value-of select="'&#10;'"/>
     </xsl:element>
-    <xsl:element name="span">
+    <xsl:element name="div">
       <xsl:attribute name="id">
         <xsl:value-of select="'citedinSubmitPubmedForm'"/>
       </xsl:attribute>
