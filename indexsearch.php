@@ -10,15 +10,30 @@
 	//
 	$pmids = array();
 	foreach ($queryResults->IdList->Id as $id) array_push($pmids, $id);
-	print "<hr>";
+	print "<hr>\n";
 	
   //  if ($_GET["callscript"]=="citedin")	print "<a href=\"loadBiblioDataMetrics.php?pmids=".implode(",", $pmids)."\" target=\"_blank\">calculate CitedIn Internet Citation Score</a><hr>";
 
-if ($_GET["callscript"]=="citedin") print "<form action=\"loadBiblioDataMetrics.php\" method=\"get\" accept-charset=\"utf-8\">
+/*if ($_GET["callscript"]=="citedin") print "<form action=\"loadBiblioDataMetrics.php\" method=\"get\" accept-charset=\"utf-8\">
 	<input type=\"hidden\" name=\"pmids\" value=\"".implode(",", $pmids)."\" id=\"pmids\">
 
 	<p><input type=\"submit\" class=\"button\" value=\"calculate CitedIn Internet Citation Score\"></p>
-</form><hr>";
+</form><hr>";*/
+
+if ($_GET["callscript"]=="citedin") {
+	print "<button class=\"calculate\">CitedIn Internet Citation Score</button>
+	<script>
+	    $(\"button.calculate\").click(function () {
+		    var pmids = [];
+		    alert($(\"#resultSet > #row > #pmidResult > #pmidResultValue\").size());
+		    $(\"#resultSet > #row > #pmidResult > #pmidResultValue\").each(function() {pmids.push($(this).text())});
+	      	window.open('http://www.citedin.org/loadBiblioDataMetrics.php?pmids='+pmids.join(','));
+			return false;
+	    });
+
+	</script>\n";
+}
+
 	
 	$pubmedXml= new DOMDocument;
     
@@ -26,7 +41,7 @@ if ($_GET["callscript"]=="citedin") print "<form action=\"loadBiblioDataMetrics.
   //echo $pubmedXml->saveXML();
   $simplePubmedXml = simplexml_import_dom($pubmedXml);
   // var_dump($simplePubmedXml);
-  
+  print "<div id=\"resultSet\">";
   foreach ($simplePubmedXml->PubmedArticle as $PubmedArticle){
 	
 	print "<div id=\"row\">";
@@ -39,7 +54,7 @@ if ($_GET["callscript"]=="citedin") print "<form action=\"loadBiblioDataMetrics.
 	}
 	print "<span class='pubmedAuthors' id='pubmedAuthors'>".implode(",", $authorArray)."</span><br />";
 	print "<span class='pubmedJournal' id='pubmedJournal'>".$PubmedArticle->MedlineCitation->Article->Journal->Title."</span><br />";
-	print "<span class='pmidResult' id='pmidResult'>PMID:".$PubmedArticle->MedlineCitation->PMID."</span><br />";
+	print "<span class='pmidResult' id='pmidResult'>PMID:<span class='pmidResultValue' id='pmidResultValue'>".$PubmedArticle->MedlineCitation->PMID."</span></span><br />";
 	print "<button>Remove from selection</button>
 	<script>
 	    $(\"button\").click(function () {
@@ -48,7 +63,8 @@ if ($_GET["callscript"]=="citedin") print "<form action=\"loadBiblioDataMetrics.
 
 	</script>";
 	print "</div>";
-} 	   
+} 
+print "</div>";	   
 /*	  $pubmed_xsl = new DOMDocument;
 	  $pubmed_xsl->load('resources/pubmedSubmit.xsl');
 

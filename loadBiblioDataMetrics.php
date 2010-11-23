@@ -56,6 +56,13 @@ if ($notincache > 0){
 	   $notallInCache = TRUE;
     }
 
+$maxCount =array();
+$maxSql = "select c.ResourceShort, f.MaxNumCitations from CitedInResources c, InCiIStatistics f WHERE c.ResourceId = f.ResourceId;";
+$maxResult = mysql_query($maxSql);
+while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+	$maxCount[$row["ResourceShort"]] = $row["MaxNumCitations"];
+}
+
 
 if ($notallInCache){
 
@@ -78,7 +85,7 @@ else {
 	while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 	    if (!(array_key_exists($row["Resource"], $profile))) $profile[$row["Resource"]]  = 0; 
 	    $profile[$row["Resource"]] += $row["freq"];
-	    $InCiIScore += $row["freq"];
+	    $InCiIScore += $row["freq"]/($maxCount["Resource"]+1);
 
 	}
 	
