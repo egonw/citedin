@@ -25,7 +25,6 @@ if ($_GET["callscript"]=="citedin") {
 	<script>
 	    $(\"button.calculate\").click(function () {
 		    var pmids = [];
-		    alert($(\"#resultSet > #row > #pmidResult > #pmidResultValue\").size());
 		    $(\"#resultSet > #row > #pmidResult > #pmidResultValue\").each(function() {pmids.push($(this).text())});
 	      	window.open('http://www.citedin.org/loadBiblioDataMetrics.php?pmids='+pmids.join(','));
 			return false;
