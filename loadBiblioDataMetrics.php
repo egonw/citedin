@@ -59,7 +59,7 @@ if ($notincache > 0){
 $maxCount =array();
 $maxSql = "select c.ResourceShort, f.MaxNumCitations from CitedInResources c, InCiIStatistics f WHERE c.ResourceID = f.ResourceID;";
 $maxResult = mysql_query($maxSql);
-while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+while ($row = mysql_fetch_array($maxResult, MYSQL_ASSOC)) {
 	$maxCount[$row["ResourceShort"]] = $row["MaxNumCitations"];
 }
 var_dump($maxCount);
