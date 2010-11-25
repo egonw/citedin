@@ -80,7 +80,7 @@ if ($notallInCache){
 }
 else {
 	$sqlProfile = "SELECT r.Resource, r.freq, u.updateDate from InCiIResources r, (select PMID, max(UpdateDate) as updateDate, IUId FROM InCiIUpdate GROUP BY PMID) u WHERE u.PMID IN (".$_GET["pmids"].") AND u.IUId=r.IUId;";
-
+    print $sqlProfile;
 	$result = mysql_query($sqlProfile);
 	$profile = array();
 	while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
