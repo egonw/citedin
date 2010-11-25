@@ -98,7 +98,6 @@ print "InCiI Score: $InCiIScore <button class=\"scorehelp\">?</button><br>
 	    $(\"button.scorehelp\").click(function () {
 			        $.blockUI({ message: $('#formulahelp'), css: { width: '275px' } });  
 
-			        setTimeout($.unblockUI, 2000); 
 			    });
 		$('#no').click(function() { 
 				            $.unblockUI(); 
