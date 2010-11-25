@@ -94,11 +94,13 @@ else {
 	
 print "InCiI Score: $InCiIScore <button class=\"scorehelp\">?</button><br>
 	<script>
+	  $(document).ready(function() { 
 	    $(\"button.scorehelp\").click(function () {
 			        $.blockUI({ message:  }); 
 
 			        setTimeout($.unblockUI, 2000); 
 			    });
+			});
 	</script>\n";
 
     $resultArrays = array();
