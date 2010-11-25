@@ -13,6 +13,7 @@
         <script type="text/javascript" src="development-bundle/ui/ui.tabs.js"></script>
         <script type="text/javascript" src="js/jquery.tinysort.min.js"></script>
         <script type="text/javascript" src="js/jquery.corner.js"></script>
+        <script type="text/javascript" src="js/jquery.blockUI.js"></script>
 
         <script type="text/javascript">
             $(document).ready(function(){
@@ -91,7 +92,7 @@ else {
 
 	}
 	
-print "InCiI Score: $InCiIScore <button class=\"scorehelp\">?</button><span id=\"scorehelp\">?</span><br>
+print "InCiI Score: $InCiIScore <button class=\"scorehelp\">?</button><br>
 	<script>
 	    $(\"button.scorehelp\").click(function () {
 			        $.blockUI({ message:  }); 
