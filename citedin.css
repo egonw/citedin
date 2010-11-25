@@ -152,3 +152,19 @@ border: 2px solid #d7b9c9
 }
 }
 
+#resultSet{
+width: 800px;
+margin-left: auto;
+margin-right: auto;
+}
+#col1{
+float: left;
+width: 180px;
+padding: 10px;
+background: #eee;
+}
+#col2{
+float: left;
+width: 775px;
+padding: 10px;
+}

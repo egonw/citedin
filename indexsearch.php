@@ -25,7 +25,7 @@ if ($_GET["callscript"]=="citedin") {
 	<script>
 	    $(\"button.calculate\").click(function () {
 		    var pmids = [];
-		    $(\"#resultSet > #row > #pmidResult > #pmidResultValue\").each(function() {pmids.push($(this).text())});
+		    $(\"#resultSet > #row > #col1 > input:checked\").each(function() {pmids.push($(this).val())});
 	      	window.open('http://www.citedin.org/loadBiblioDataMetrics.php?pmids='+pmids.join(','));
 			return false;
 	    });
@@ -40,10 +40,22 @@ if ($_GET["callscript"]=="citedin") {
   //echo $pubmedXml->saveXML();
   $simplePubmedXml = simplexml_import_dom($pubmedXml);
   // var_dump($simplePubmedXml);
-  print "<div id=\"resultSet\">";
+  print "<div id=\"resultSet\"><div id=\"selectalldiv\">";
+  print "<input type=\"checkbox\" id=\"selectall\"/ checked>deselect/select all</div>";
   foreach ($simplePubmedXml->PubmedArticle as $PubmedArticle){
 	
-	print "<div id=\"row\">";
+	print "<div id=\"row\"><div id=\"col1\"><input type=\"checkbox\" class=\"case\" name=\"case\" value=\"".$PubmedArticle->MedlineCitation->PMID."\"/ checked>";
+	if ($_GET["callscript"]=="citedin") {
+		print "<button class=\"remove\">Remove</button>
+	<script>
+	    $(\"button.remove\").click(function () {
+	      $(this).parent().parent().remove();
+	    });
+
+	</script>";}
+	print "</div><div id=\"col2\">";
+
+	
 	print "<span class='pubmedTitle' id='pubmedTitle'>".$PubmedArticle->MedlineCitation->Article->ArticleTitle."</span><br />";
 
 	
@@ -53,15 +65,9 @@ if ($_GET["callscript"]=="citedin") {
 	}
 	print "<span class='pubmedAuthors' id='pubmedAuthors'>".implode(",", $authorArray)."</span><br />";
 	print "<span class='pubmedJournal' id='pubmedJournal'>".$PubmedArticle->MedlineCitation->Article->Journal->Title."</span><br />";
-	print "<span class='pmidResult' id='pmidResult'>PMID:<span class='pmidResultValue' id='pmidResultValue'>".$PubmedArticle->MedlineCitation->PMID."</span></span><br />";
-	print "<button>Remove from selection</button>
-	<script>
-	    $(\"button\").click(function () {
-	      $(this).parent().remove();
-	    });
-
-	</script>";
-	print "</div>";
+	print "<span class='pmidResult' id='pmidResult'>PMID: <span class='pmidResultValue' id='pmidResultValue'>".$PubmedArticle->MedlineCitation->PMID."</span></span><br />";
+	
+	print "</div></div>";
 } 
 print "</div>";	   
 /*	  $pubmed_xsl = new DOMDocument;
@@ -79,3 +85,24 @@ print "</div>";
 }
 
 ?>
+	<SCRIPT language="javascript">
+	$(function(){
+
+	    // add multiple select / deselect functionality
+	    $("#selectall").click(function () {
+	          $('.case').attr('checked', this.checked);
+	    });
+
+	    // if all checkbox are selected, check the selectall checkbox
+	    // and viceversa
+	    $(".case").click(function(){
+
+	        if($(".case").length == $(".case:checked").length) {
+	            $("#selectall").attr("checked", "checked");
+	        } else {
+	            $("#selectall").removeAttr("checked");
+	        }
+
+	    });
+	});
+	</SCRIPT>
