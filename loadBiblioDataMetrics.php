@@ -96,7 +96,7 @@ print "InCiI Score: $InCiIScore <button class=\"scorehelp\">?</button><br>
 	<script>
 	  $(document).ready(function() { 
 	    $(\"button.scorehelp\").click(function () {
-			        $.blockUI({ message:  }); 
+			        $.blockUI(); 
 
 			        setTimeout($.unblockUI, 2000); 
 			    });
