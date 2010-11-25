@@ -86,8 +86,7 @@ else {
 	while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 	    if (!(array_key_exists($row["Resource"], $profile))) $profile[$row["Resource"]]  = 0; 
 	    $profile[$row["Resource"]] += $row["freq"];
-	    $InCiIScore += $row["freq"]/($maxCount["Resource"]+1); 
-	    print $row["freq"]."/".($maxCount["Resource"]+1)."<BR />";
+	    $InCiIScore += $row["freq"]/($maxCount[$row["Resource"]]+1);
 
 	}
 	
