@@ -96,10 +96,13 @@ print "InCiI Score: $InCiIScore <button class=\"scorehelp\">?</button><br>
 	<script>
 	  $(document).ready(function() { 
 	    $(\"button.scorehelp\").click(function () {
-			        $.blockUI(); 
+			        $.blockUI({ message: $('#formulahelp'), css: { width: '275px' } });  
 
 			        setTimeout($.unblockUI, 2000); 
 			    });
+		$('#no').click(function() { 
+				            $.unblockUI(); 
+				  });
 			});
 	</script>\n";
 
@@ -123,6 +126,12 @@ print "InCiI Score: $InCiIScore <button class=\"scorehelp\">?</button><br>
 		
 ?>
 </div>
+</div>
+
+<div id="formulahelp" style="display:none; cursor: default"> 
+        <h1>InCiI score</h1> 
+        <img src="http://chart.apis.google.com/chart?cht=tx&chl=\iota\nu\gamma\iota=\sum_{r=1}^n%20w_r\cdot(\sum_{p=1}^m{\frac{c_r(p)}{tp_r%2B1})"><br>
+        <input type="button" id="no" value="Exit" /> 
 </div>
 </body>
 </html>	
