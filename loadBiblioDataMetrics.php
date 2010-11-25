@@ -94,7 +94,7 @@ else {
 print "InCiI Score: $InCiIScore <span id=\"scorehelp\">?</span><br>
 	<script>
 	    $(\"#scorehelp\").click(function () {
-			click(function() { 
+			$('#scorehelp').click(function() { 
 			        $.blockUI({ message:  }); 
 
 			        setTimeout($.unblockUI, 2000); 
