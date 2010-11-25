@@ -91,7 +91,17 @@ else {
 
 	}
 	
-print "InCiI Score: $InCiIScore <br>";
+print "InCiI Score: $InCiIScore <span id=\"scorehelp\">?</span><br>
+	<script>
+	    $(\"#scorehelp\").click(function () {
+			click(function() { 
+			        $.blockUI({ message:  }); 
+
+			        setTimeout($.unblockUI, 2000); 
+			    });
+	    });
+
+	</script>\n";
 
     $resultArrays = array();
     $values = array_values($profile);
