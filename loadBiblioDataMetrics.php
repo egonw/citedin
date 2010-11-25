@@ -91,16 +91,13 @@ else {
 
 	}
 	
-print "InCiI Score: $InCiIScore <span id=\"scorehelp\">?</span><br>
+print "InCiI Score: $InCiIScore <button class=\"scorehelp\">?</button><span id=\"scorehelp\">?</span><br>
 	<script>
-	    $(\"#scorehelp\").click(function () {
-			$('#scorehelp').click(function() { 
+	    $(\"button.scorehelp\").click(function () {
 			        $.blockUI({ message:  }); 
 
 			        setTimeout($.unblockUI, 2000); 
 			    });
-	    });
-
 	</script>\n";
 
     $resultArrays = array();
