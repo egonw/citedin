@@ -62,6 +62,7 @@ $maxResult = mysql_query($maxSql);
 while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 	$maxCount[$row["ResourceShort"]] = $row["MaxNumCitations"];
 }
+var_dump($maxCount);
 
 
 if ($notallInCache){
