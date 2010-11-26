@@ -75,9 +75,8 @@ print "Through this website you can track various resources citing a PubMed Iden
 	<form id=\"queryForm\"><input name=\"pmidQuery\" id=\"pmidQuery\" type=\"text\" size=\"75\"/></td></tr>
 	<tr><td align = \"center\"><button type=\"submit\" id=\"citedinQuery\">Cited In...</button></form></td></tr></table></center>";
 print "<div id=\"startexplain\"><p>
-
-        Citedin.org is still under major development. This might cause unexpected behaviour. Comments are welcome and can be send to andra.waagmeester at bigcat.unimaas.nl</div>
-<div id=\"mainLogo\"><img src=\"citedinLogo.png\"></div>";
+</div>
+<div id=\"mainLogo\"><img src=\"citedinLogo.png\" width=\"350\"></div>";
 
 print "<script type=\"text/javascript\">\n
 	$(document).ajaxStop($.unblockUI);
