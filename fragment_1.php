@@ -77,7 +77,7 @@ print "Through this website you can track various resources citing a PubMed Iden
 print "<div id=\"startexplain\"><p>
 
         Citedin.org is still under major development. This might cause unexpected behaviour. Comments are welcome and can be send to andra.waagmeester at bigcat.unimaas.nl</div>
-<div id=\"mainLogo\"><img src=\"citedinLogo.png\"></div>;
+<div id=\"mainLogo\"><img src=\"citedinLogo.png\"></div>";
 
 print "<script type=\"text/javascript\">\n
 	$(document).ajaxStop($.unblockUI);
