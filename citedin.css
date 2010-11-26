@@ -168,3 +168,10 @@ float: left;
 width: 775px;
 padding: 10px;
 }
+
+#mainLogo
+{
+height:100px;
+width:100px;
+text-align: center ;
+}
