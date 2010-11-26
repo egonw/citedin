@@ -76,7 +76,7 @@ print "Through this website you can track various resources citing a PubMed Iden
 	<tr><td align = \"center\"><button type=\"submit\" id=\"citedinQuery\">Cited In...</button></form></td></tr></table></center>";
 print "<div id=\"startexplain\"><p>
 </div>
-<div id=\"mainLogo\"><img src=\"citedinLogo.png\" width=\"350\"></div>";
+";
 
 print "<script type=\"text/javascript\">\n
 	$(document).ajaxStop($.unblockUI);
