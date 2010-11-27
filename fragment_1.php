@@ -73,7 +73,18 @@ print "Through this website you can track various resources citing a PubMed Iden
 	Pubmed identifier: (<a style=\"cursor:pointer;text-decoration: underline;\" onclick=\"document.getElementById('pmidQuery').value='15489334';\">15489334</a>, <a style=\"cursor:pointer;text-decoration: underline;\" onclick=\"document.getElementById('pmidQuery').value='18651794';\">18651794</a>)</SPAN></P>
 	<center><table><tr><td>
 	<form id=\"queryForm\"><input name=\"pmidQuery\" id=\"pmidQuery\" type=\"text\" size=\"75\"/></td></tr>
-	<tr><td align = \"center\"><button type=\"submit\" id=\"citedinQuery\">Cited In...</button></form></td></tr></table></center>";
+	<tr><td align = \"center\"><button type=\"submit\" id=\"citedinQuery\">Cited In...</button></form></td></tr></table></center><P CLASS=copyright>Citations search powered by Pubmed <button class=\"scorehelp\">?</button><br>
+		<script>
+		  $(document).ready(function() { 
+		    $(\"button.scorehelp\").click(function () {
+				        $.blockUI({  theme:     true, title: 'Citations search powered by Pubmed', message: $('#pubmedhelp'), css: { width: '275px' } });  
+
+				    });
+			$('#no').click(function() { 
+					            $.unblockUI(); 
+					  });
+				});
+		</script></P>";
 print "<div id=\"startexplain\"><p>
 </div>";
 
@@ -135,3 +146,11 @@ $(document).ready(function(event){\n
 	print "</div>";
 	
 	?>
+	
+		<div id="pubmedhelp" style="display:none; cursor: default"> 
+		        
+           This website uses the <a href = "http://eutils.ncbi.nlm.nih.gov" target = "_blank">E-utils</a>  of <a href ="http://www.pubmed.org" target = "_blank">Pubmed</a> to find relevant citations. The same syntaxis of queries as on Pubmed apply here. A good tutorial on searching pubmed can be found <a href ="http://www.ncbi.nlm.nih.gov/books/NBK3827/#pubmedhelp.PubMed_Quick_Start" target="_blank">here<a>(Tutorial are from pubmed and will appear on a new page. Close this page to return to this screen)<p />  
+
+Example: To find all publication of Smith J, type "Smith J[au]"<p /> 
+		        <input type="button" id="no" value="Exit" /> 
+		</div>

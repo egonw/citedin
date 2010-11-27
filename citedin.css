@@ -174,3 +174,8 @@ padding: 10px;
 
 text-align: center ;
 }
+
+.copyright {
+  font-size: smaller;
+  text-align: center
+}
