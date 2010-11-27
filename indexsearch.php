@@ -61,9 +61,17 @@ if ($_GET["callscript"]=="citedin") {
 	
 	$authorArray=array();
 	foreach($PubmedArticle->MedlineCitation->Article->AuthorList->Author as $author){
-		array_push($authorArray, (string) $author->LastName." ".(string )$author->Initials);
+		$authorSpan = (string) $author->LastName." ".(string) $author->Initials."<button class='".(string) $author->LastName.(string)$author->Initials."'>x</button>";
+		array_push($authorArray, $authorSpan);
+		print "<script>
+		    $(\"button.".(string) $author->LastName.(string)$author->Initials."\").click(function () {
+		      $(\".".(string) $author->LastName.(string)$author->Initials."\").parent().parent().parent().remove();
+		    });
+
+		</script>";
+		
 	}
-	print "<span class='pubmedAuthors' id='pubmedAuthors'>".implode(",", $authorArray)."</span><br />";
+	print "<span class='pubmedAuthors' id='pubmedAuthors'>".implode(" ", $authorArray)."</span><br />";
 	print "<span class='pubmedJournal' id='pubmedJournal'>".$PubmedArticle->MedlineCitation->Article->Journal->Title."</span><br />";
 	print "<span class='pmidResult' id='pmidResult'>PMID: <span class='pmidResultValue' id='pmidResultValue'>".$PubmedArticle->MedlineCitation->PMID."</span></span><br />";
 	
@@ -106,3 +114,4 @@ print "</div>";
 	    });
 	});
 	</SCRIPT>
+	
