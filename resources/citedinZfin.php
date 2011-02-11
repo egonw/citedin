@@ -18,6 +18,7 @@ class ZfinResource implements Resource {
 		$data = new ResourceData();
 		$data->setCiteCount($num_rows)
 		     ->setResourceName($this->getResourceName())
+ 		     ->setInfoLink($this->getInfoLink())
 		     ->setDetailsLink("details.php?db=zfinView&pmid=$pmid&fields=zfinId,url&idField=zfinId"); 
 	     
 		return $data;

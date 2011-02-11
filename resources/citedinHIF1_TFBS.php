@@ -2,7 +2,7 @@
 require_once("ResourceRegistry.php");
 
 class HIFTFBSResource implements Resource {
-	function getResourceName() { return "HIF TFBS: Compilation of binding sites for the HIF1 transcription factor complex composed of HIF1A and ARNT."; }
+	function getResourceName() { return "HIF TFBS transcription factor complex composed of HIF1A and ARNT."; }
 	function getInfoLink() { return "http://stke.sciencemag.org/cgi/content/abstract/sigtrans;2005/306/re12?view=abstract"; }
 	function getResourceType() { return "Published data"; }
 	function getResourceDescription() { return "The data was extracted from the following review:
@@ -24,6 +24,6 @@ class HIFTFBSResource implements Resource {
 	}
 }
 
-ResourceRegistry::register("HIF TFBS", new HIFTFBSResource());
+ResourceRegistry::register("HIFTFBS", new HIFTFBSResource());
 
 ?>

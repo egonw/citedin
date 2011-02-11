@@ -17,6 +17,7 @@ class CutResource implements Resource {
 		$data = new ResourceData();
 		$data->setCiteCount($num_rows)
 		     ->setResourceName($this->getResourceName())
+                     ->setInfoLink($this->getInfoLink())
 		     ->setDetailsLink('http://cutdb.burnham.org/literatures/list'); 
 	     
 		return $data;

@@ -17,6 +17,7 @@ class YtpdbResource implements Resource {
 		$data = new ResourceData();
 		$data->setCiteCount($num_rows)
 		     ->setResourceName($this->getResourceName())
+                     ->setInfoLink($this->getInfoLink())
 		     ->setDetailsLink('http://homes.esat.kuleuven.be/~sbrohee/ytpdb/index.php/Bibliography'); //TODO: details link
 	     
 		return $data;

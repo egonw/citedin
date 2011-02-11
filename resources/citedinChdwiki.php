@@ -17,6 +17,7 @@ class ChdwikiResource implements Resource {
 		$data = new ResourceData();
 		$data->setCiteCount($num_rows)
 		     ->setResourceName($this->getResourceName())
+ 		     ->setInfoLink($this->getInfoLink())	
 		     ->setDetailsLink('http://homes.esat.kuleuven.be/~bioiuser/chdwiki/index.php/CHD:Bibliography'); //TODO: details link
 	     
 		return $data;

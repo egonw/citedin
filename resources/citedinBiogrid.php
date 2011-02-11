@@ -17,6 +17,7 @@ class BiogridResource implements Resource {
 		$data = new ResourceData();
 		$data->setCiteCount($num_rows)
 		     ->setResourceName($this->getResourceName())
+  		     ->setInfoLink($this->getInfoLink())
 		     ->setDetailsLink(''); //TODO: details link
 	     
 		return $data;

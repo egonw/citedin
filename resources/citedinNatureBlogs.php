@@ -19,12 +19,14 @@ class NatureBlogsResource implements Resource {
 		$data = new ResourceData();
 		$data->setCiteCount($num_rows)
 		     ->setResourceName($this->getResourceName())
+		     ->setInfoLink($this->getInfoLink())
 		     ->setDetailsLink("http://blogs.nature.com/posts?doi=$doi"); 
      }
      else {
 	   	$data = new ResourceData();
 		$data->setCiteCount(0)
 		     ->setResourceName($this->getResourceName())
+		     ->setInfoLink($this->getInfoLink())
 		     ->setDetailsLink("");
     }
 		return $data;

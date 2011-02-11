@@ -17,6 +17,7 @@ class HmdbResource implements Resource {
 		$data = new ResourceData();
 		$data->setCiteCount($num_rows)
 		     ->setResourceName($this->getResourceName())
+ 	    	     ->setInfoLink($this->getInfoLink())
 		     ->setDetailsLink("details.php?db=hmdb&pmid=$pmid&fields=hmdbid,url&idField=hmdbid"); 
 	     
 		return $data;

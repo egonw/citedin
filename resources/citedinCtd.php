@@ -21,6 +21,7 @@ CTD includes manually curated data describing cross-species chemical–gene/prot
 		$data = new ResourceData();
 		$data->setCiteCount($num_rows)
 		     ->setResourceName($this->getResourceName())
+                     ->setInfoLink($this->getInfoLink())
 		     ->setDetailsLink("http://ctd.mdibl.org/detail.go?view=ixn&type=reference&acc=$pmid"); //TODO: details link
 	     
 		return $data;

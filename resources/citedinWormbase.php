@@ -17,6 +17,7 @@ class WormbaseResource implements Resource {
 		$data = new ResourceData();
 		$data->setCiteCount($num_rows)
 		     ->setResourceName($this->getResourceName())
+                     ->setInfoLink($this->getInfoLink())
 		     ->setDetailsLink("details.php?db=WormbaseView&pmid=$pmid&fields=WBPaperID,url&idField=WBPaperID"); 
 	     
 		return $data;

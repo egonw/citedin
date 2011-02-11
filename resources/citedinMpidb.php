@@ -17,6 +17,7 @@ class MpidbResource implements Resource {
 		$data = new ResourceData();
 		$data->setCiteCount($num_rows)
 		     ->setResourceName($this->getResourceName())
+                     ->setInfoLink($this->getInfoLink())
 		     ->setDetailsLink("resources/details_Mpidb.php?pmid=$pmid"); //TODO: details link
 	     
 		return $data;

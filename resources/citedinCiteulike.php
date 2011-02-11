@@ -19,6 +19,7 @@ class CiteULikeResource implements Resource {
 		$data = new ResourceData();
 		$data->setCiteCount($num_rows)
 		     ->setResourceName($this->getResourceName())
+		     ->setInfoLink($this->getInfoLink())
 		     ->setDetailsLink("http://www.citeulike.org/pmid/$pmid"); 
 	     
 		return $data;

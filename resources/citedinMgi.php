@@ -17,6 +17,7 @@ class MgiResource implements Resource {
 		$data = new ResourceData();
 		$data->setCiteCount($num_rows)
 		     ->setResourceName($this->getResourceName())
+		     ->setInfoLink($this->getInfoLink())
 		     ->setDetailsLink("details.php?db=mgidb&pmid=$pmid&fields=mgiid,url&idField=mgiid"); 
 	     
 		return $data;
