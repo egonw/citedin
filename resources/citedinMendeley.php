@@ -13,7 +13,7 @@ class MendeleyResource implements Resource {
                 include 'tokens.inc';
                 $mendeleyCounts = json_decode(file_get_contents("http://www.mendeley.com/oapi/documents/details/$pmid?type=pmid&consumer_key=$MendeleyConsumerKey"));
 		$data = new ResourceData();
-		$data->setCiteCount($mendeleyCounts->stats->readers);
+		$data->setCiteCount($mendeleyCounts->stats->readers)
 		     ->setResourceName($this->getResourceName())
 		     ->setDetailsLink("$mendeleyCounts->mendeley_url"); 
 	     
