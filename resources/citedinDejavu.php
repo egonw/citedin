@@ -17,7 +17,7 @@ class DejavuResource implements Resource {
 			$data->setResourceName($this->getResourceName())
 				->setCiteCount($num_rows)
 		      ->setInfoLink($this->getInfoLink())
-				->setDetailsLink(''); //TODO: details link
+				->setDetailsLink("http://dejavu.vbi.vt.edu/dejavu/duplicate/?q=$pmid"); //TODO: details link
 
 		return $data;
 	}

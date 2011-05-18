@@ -16,7 +16,7 @@ ksort($resourceMatrix);
 foreach (array_keys($resourceMatrix) as $resourceType){
 	print "<h2>".$resourceType."</h2>";
 	foreach ($resourceMatrix[$resourceType] as $resource){
-		print "<li>".$resource->getResourceName();
+		print "<li><a href = \"".$resource->getInfoLink()."\" target=\"_blank\">".$resource->getResourceName()."</a>";
 	}
 };
 ?>

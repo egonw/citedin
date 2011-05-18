@@ -47,7 +47,6 @@ if (isset($_GET["pmid"])){
 					   		datanames.push(escape($(this).siblings(\"#sourceName\").text()+\"(\"+$(this).text()+\")\"));
 						});\n
 						$(\".aggregatedResults\").empty();
-						$(\".aggregatedResults\").append(\"OPD-index: \"+total);
 						$(\".aggregatedResults\").append(\"<br>Resources citing: \"+noResources);
 						if (max >100) range = \"&chds=0,max\";
 						urlimage = \"http://chart.apis.google.com/chart?cht=p&chs=512x214\"+range+\"&chtt=Citation+distribution&chd=t:\"+datapoints.join(\",\")+\"&chl=\"+datanames.join(\"|\");

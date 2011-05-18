@@ -11,10 +11,11 @@ class MendeleyResource implements Resource {
 
 	public function getData($pmid) {
                 include 'tokens.inc';
-                $fileContents = file_get_contents("http://www.mendeley.com/oapi/documents/details/".trim($pmid)."?type=pmid&consumer_key=$MendeleyConsumerKey");
+                $fileContents = @file_get_contents("http://www.mendeley.com/oapi/documents/details/".trim($pmid)."?type=pmid&consumer_key=$MendeleyConsumerKey");
                 if (!($fileContents)) {
 			$data = new ResourceData();
                        $data->setCiteCount(0)
+			->setInfoLink($this->getInfoLink())
                      ->setResourceName($this->getResourceName());
 
                 return $data;

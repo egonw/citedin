@@ -37,7 +37,7 @@
             hs.wrapperClassName = 'draggable-header';
         </script>
 
-       <link rel="shortcut icon" type="image/png" href="favicon.ico">
+       <link rel="shortcut icon" type="image/png" href="favicon.png">
     </head>
     <body>
 

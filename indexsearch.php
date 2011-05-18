@@ -1,5 +1,9 @@
 <link rel="stylesheet" type="text/css" href="citedin.css">
+<script type="text/javascript" src="javascripts/jquery.tipsy.js"></script> 
+
 <?php
+       require_once("resources/ResourceRegistry.php");
+        require_once("resources/ResourceFormatter.php");
 
    if (isset($_GET["pubmed_query"])){
 	$query = preg_replace('/\s/', '+', $_GET["pubmed_query"]);
@@ -61,10 +65,10 @@ if ($_GET["callscript"]=="citedin") {
 	
 	$authorArray=array();
 	foreach($PubmedArticle->MedlineCitation->Article->AuthorList->Author as $author){
-		$authorSpan = (string) $author->LastName." ".(string) $author->Initials."<button class='".(string) $author->LastName.(string)$author->Initials."'>x</button>";
+		$authorSpan = (string) $author->LastName." ".(string) $author->Initials."<img src = \"action_stop.gif\" class='".(string) $author->LastName.(string)$author->Initials."'>";
 		array_push($authorArray, $authorSpan);
 		print "<script>
-		    $(\"button.".(string) $author->LastName.(string)$author->Initials."\").click(function () {
+		    $(\".".(string) $author->LastName.(string)$author->Initials."\").click(function () {
 		      $(\".".(string) $author->LastName.(string)$author->Initials."\").parent().parent().parent().remove();
 		    });
 
@@ -73,8 +77,18 @@ if ($_GET["callscript"]=="citedin") {
 	}
 	print "<span class='pubmedAuthors' id='pubmedAuthors'>".implode(" ", $authorArray)."</span><br />";
 	print "<span class='pubmedJournal' id='pubmedJournal'>".$PubmedArticle->MedlineCitation->Article->Journal->Title."</span><br />";
-	print "<span class='pmidResult' id='pmidResult'>PMID: <span class='pmidResultValue' id='pmidResultValue'>".$PubmedArticle->MedlineCitation->PMID."</span></span><br />";
-	
+	print "<span class='pmidResult' id='pmidResult'>PMID: <span class='pmidResultValue' id='pmidResultValue'>".$PubmedArticle->MedlineCitation->PMID."</span></span><br /><br />";
+     
+
+        include 'resources/connectdb.inc';
+        $pmid = $PubmedArticle->MedlineCitation->PMID;
+        $sql = "select DISTINCT r.Resource from InCiIUpdate u, InCiIResources r where r.IUId = u.IUId and u.PMID = ".$PubmedArticle->MedlineCitation->PMID.";";
+        $result = mysql_query($sql);
+        ResourceRegistry::init(); 
+        while ($row = mysql_fetch_row($result)){
+             print "<span class='resource'>$row[0] </span>";
+        };
+        print "<a href = \"index_ui.php?pmid=$pmid\"><button>Details</button></a>"; 
 	print "</div></div>";
 } 
 print "</div>";	   
